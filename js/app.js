@@ -1,1 +1,1 @@
-var app = angular.module('templateApp', ['ngRoute']);
+var app = angular.module('fiveWeightAdmin', ['ngRoute']);
