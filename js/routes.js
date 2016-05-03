@@ -1,8 +1,8 @@
 app.config(function($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: '../views/main.html',
+    templateUrl: '../views/signup.html',
     controller: 'mainController as mc',
-    css: 'css/loginPage.css'
+    css: 'css/homePage.css'
   });
 });
