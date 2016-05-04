@@ -1,6 +1,6 @@
-app.controller('loginController', ['$scope', '$http', 'server', loginController]);
+app.controller('loginController', ['$scope', '$http', 'server', 'localStorageService', loginController]);
 
-function loginController($scope, $http, server){
+function loginController($scope, $http, server, localStorageService){
   var vm = this;
 
   vm.user = {};
