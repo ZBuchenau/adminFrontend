@@ -15,33 +15,33 @@
     <!-- SIGNUP FORM -->
     <!-- *************************************************************************** -->
 
-    <form class="signupForm" ng-submit>
+    <form class="signupForm" ng-submit="sc.submit()">
 
         <h3>Register as an Admin</h3>
 
         <div class="form-group">
             <label for="emailInput">Email address</label>
-            <input type="email" class="form-control" id="emailInput" placeholder="Email">
+            <input type="email" class="form-control" id="emailInput" ng-model="sc.user.email" placeholder="Email">
         </div>
 
         <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            <input type="text" class="form-control" id="firstName" ng-model="sc.user.firstName" placeholder="First Name">
         </div>
 
         <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            <input type="text" class="form-control" id="lastName" ng-model="sc.user.lastName" placeholder="Last Name">
         </div>
 
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
+            <input type="text" class="form-control" id="username" ng-model="sc.user.userName" placeholder="Username">
         </div>
 
         <div class="form-group">
             <label for="passwordInput">Password</label>
-            <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+            <input type="password" class="form-control" id="passwordInput" ng-model="sc.user.password" placeholder="Password">
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>
