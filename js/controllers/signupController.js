@@ -1,6 +1,6 @@
-app.controller('signupController', ['$scope', '$http', 'server', signupController]);
+app.controller('signupController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', signupController]);
 
-function signupController($scope, $http, server) {
+function signupController($scope, $http, server, localStorageService, $q, $location) {
   var vm = this;
 
   vm.user = {};
@@ -11,7 +11,30 @@ function signupController($scope, $http, server) {
   vm.user.email = 'ZBuchenau@yahoo.com';
 
   vm.submit = function(){
-    $http.post(server + '/users/signup', vm.user);
+
+    $http.post(server + '/users/signup', vm.user)
+      .then(onSuccess, onFailure)
+      .then(function(response){
+        $location.path('/admin');
+      })
+      .catch(function(err){
+        console.log(err);
+      });
+
+      function onSuccess(response){
+
+        var token = response.data;
+
+        localStorageService.set('fiveWeightAdmin', token);
+
+      }
+
+
+      function onFailure(response){
+
+        console.log('POST REQUEST FAILED');
+
+      }
   };
 
 
