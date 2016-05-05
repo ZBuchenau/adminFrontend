@@ -1,6 +1,7 @@
 app.controller('signupController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', signupController]);
 
 function signupController($scope, $http, server, localStorageService, $q, $location) {
+
   var vm = this;
 
   vm.user = {};
@@ -23,7 +24,6 @@ function signupController($scope, $http, server, localStorageService, $q, $locat
         if(response.data.token){
 
           var token = response.data.token;
-
           localStorageService.set('fiveWeightAdmin', token);
 
           $location.path('/admin');
