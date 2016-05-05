@@ -1,3 +1,4 @@
+
 app.factory('authInterceptor', function ($rootScope, $q, $window, localStorageService) {
   return {
     request: function (config) {
