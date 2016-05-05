@@ -13,6 +13,7 @@ function authService($q, $timeout, $http, localStorageService, server) {
         signup: signup
     });
 
+
     // ============================================================================
     // ============================================================================
     function isLoggedIn() {
@@ -21,47 +22,31 @@ function authService($q, $timeout, $http, localStorageService, server) {
         var tokenToVerify = localStorageService.get('fiveWeightAdmin');
 
         if (tokenToVerify) {
-          
-          user = false;
 
-          $http.post(server + '/users', {token: tokenToVerify})
-              .success(function(response) {
-                  console.log(response);
-                  if (response === true) {
-                      user = true;
-                      return true;
-                  } else {
-                      return false;
-                  }
-              })
-              .error(function(response) {
-                  console.log(response);
-              });
+            user = false;
+
+            $http.post(server + '/users', {
+                    token: tokenToVerify
+                })
+                .success(function(response) {
+                    console.log(response);
+                    if (response === true) {
+                        user = true;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                })
+                .error(function(response) {
+                    console.log(response);
+                });
 
         } else {
 
-          return false;
+            return false;
 
         }
-
-
-        //     .success(function(response) {
-        //         console.log(response);
-        //         if (response === true) {
-        //             user = true;
-        //         } else {
-        //             return false;
-        //         }
-        //     });
-        // return true;
-
     }
-
-
-
-
-
-
 
 
     // ============================================================================
@@ -123,7 +108,7 @@ function authService($q, $timeout, $http, localStorageService, server) {
             })
             .error(function(response) {
                 user = false;
-                deferred.feject();
+                deferred.reject();
             });
 
         return deferred.promise;

@@ -6,12 +6,13 @@ app.factory('authInterceptor', function ($rootScope, $q, $window, localStorageSe
       if (localStorageService.get('FiveWeightAnalytics')) {
         config.headers.Authorization = 'Bearer ' + localStorageService.get('fiveWeightAdmin');
       }
-      // console.log(config.headers.Authorization + "Hey I'm here!!!!!!!!!");
+
       return config;
     },
     responseError: function (rejection) {
       if (rejection.status === 401) {
         // handle the case where the user is not authenticated
+        console.log('User is not authenticated');
       }
       return $q.reject(rejection);
     }
