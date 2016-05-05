@@ -14,18 +14,25 @@ function signupController($scope, $http, server, localStorageService, $q, $locat
 
     $http.post(server + '/users/signup', vm.user)
       .then(onSuccess, onFailure)
-      .then(function(response){
-        $location.path('/admin');
-      })
       .catch(function(err){
         console.log(err);
       });
 
       function onSuccess(response){
 
-        var token = response.data;
+        if(response.data.token){
 
-        localStorageService.set('fiveWeightAdmin', token);
+          var token = response.data.token;
+
+          localStorageService.set('fiveWeightAdmin', token);
+
+          $location.path('/admin');
+
+        } else {
+
+          console.log('User already exists in the database');
+
+        }
 
       }
 
