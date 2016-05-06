@@ -18,7 +18,6 @@ function authService($q, $timeout, $http, localStorageService, server) {
     // ============================================================================
     function isLoggedIn() {
 
-        var deferred = $q.defer();
         var tokenToVerify = localStorageService.get('fiveWeightAdmin');
 
         if (tokenToVerify) {
@@ -29,13 +28,9 @@ function authService($q, $timeout, $http, localStorageService, server) {
                     token: tokenToVerify
                 })
                 .success(function(response) {
-                    console.log(response);
-                    if (response === true) {
-                        user = true;
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    // console.log(response);
+                    user = response;
+                    return response;
                 })
                 .error(function(response) {
                     console.log(response);
@@ -43,16 +38,31 @@ function authService($q, $timeout, $http, localStorageService, server) {
 
         } else {
 
+            user = false;
             return false;
 
         }
     }
 
 
+
     // ============================================================================
     // ============================================================================
     function getUserStatus() {
-        return user;
+        return $http.get(server + '/users/auth')
+            // handle success
+            .success(function(data) {
+              console.log(data);
+                // if (data.status) {
+                //     user = true;
+                // } else {
+                //     user = false;
+                // }
+            })
+            // handle error
+            .error(function(data) {
+                user = false;
+            });
     }
 
 
