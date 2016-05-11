@@ -6,8 +6,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.logout = function(){
     authService.logout()
       .then(function(response){
-        console.log(response);
         $location.path('/login');
+        console.log('User is now logged out!');
       });
   };
 }

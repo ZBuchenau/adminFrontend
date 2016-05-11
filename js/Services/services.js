@@ -6,45 +6,12 @@ function authService($q, $timeout, $http, localStorageService, server) {
   var user = null;
 
   return ({
-    // isLoggedIn: isLoggedIn,
     checkToken: checkToken,
     getUserStatus: getUserStatus,
     login: login,
     logout: logout,
     signup: signup
   });
-
-
-  // ============================================================================
-  // ============================================================================
-  // function isLoggedIn() {
-  //
-  //   var tokenToVerify = localStorageService.get('fiveWeightAdmin');
-  //
-  //   if (tokenToVerify) {
-  //
-  //     $http.post(server + '/users', {
-  //         token: tokenToVerify
-  //       })
-  //       .success(function(response) {
-  //         // console.log(response);
-  //         user = response;
-  //         //console.log(user);
-  //         return user;
-  //       })
-  //       .error(function(response) {
-  //         console.log(response);
-  //       });
-  //
-  //   } else {
-  //
-  //     user = false;
-  //     //console.log(user);
-  //     return false;
-  //
-  //   }
-  // }
-
 
 
   // ============================================================================
@@ -57,9 +24,7 @@ function authService($q, $timeout, $http, localStorageService, server) {
           token: theToken
         })
         .success(function(response) {
-          console.log('THIS IS THE RESPONSE', response);
           var user = response;
-          console.log(user);
           return user;
         })
         .error(function(data) {
@@ -95,11 +60,6 @@ function authService($q, $timeout, $http, localStorageService, server) {
   }
 
 
-  // ============================================================================
-  // ============================================================================
-  // function authToken(tok) {
-  //   $http.post(server + '/')
-  // }
   // ============================================================================
   // ============================================================================
   function login(userEmail, userPassword) {
@@ -160,7 +120,6 @@ function authService($q, $timeout, $http, localStorageService, server) {
         email: email
       })
       .success(function(response) {
-        console.log(response);
         if (response.token) {
 
           var token = response.token;
