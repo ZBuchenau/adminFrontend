@@ -19,7 +19,7 @@ app.config(function($routeProvider) {
   .when('/admin', {
     templateUrl: '../views/admin.html',
     controller: 'adminController as ac',
-    css: 'css/homePage.css',
+    css: 'css/admin.css',
     access: {restricted: true}
   });
 });
