@@ -25,13 +25,12 @@ function authService($q, $timeout, $http, localStorageService, server) {
         })
         .success(function(response) {
           var user = response;
-          return user;
+          deferred.resolve(user);
         })
         .error(function(data) {
           console.log(data);
         });
 
-      deferred.resolve(user);
 
     } else {
       user = false;

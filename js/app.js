@@ -7,18 +7,20 @@ app.run(function($rootScope, $location, $route, authService, localStorageService
     function(event, next, current) {
       authService.checkToken()
         .then(function(response) {
+          console.log(response);
           if (response === true && next.access.restricted) {
             authService.getUserStatus(localStorageService.get('fiveWeightAdmin'))
-              .then(function(res) {
-                if (res === true) {
+              .then(function(response) {
+                console.log(response);
+                if (response) {
                   console.log('You have been granted access!');
                   $location.path(next.originalPath);
-                } else if (res === false) {
+                } else if (response) {
                   console.log('RESTRICTED... LOG BACK IN!');
                   event.preventDefault();
                 } else {
-                  console.log(false);
-                  $location.path('/login');
+                  console.log('app.js: line 20');
+                  $location.path(next.originalPath);
                 }
               });
           } else if (!response && next.access.restricted) {
