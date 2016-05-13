@@ -1,5 +1,8 @@
-app.directive('jmPokemon', [function(){
+app.directive('ppcTactic', [function(){
   //in html, refer to this directive as jm-Pokemon
-  console.log('instantiated');
+  return {
+    restrict: 'E',
+    template: ''
+  };
 
 }]);

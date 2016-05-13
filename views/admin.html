@@ -1,5 +1,48 @@
-<nav class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 navbar navbar-default navbar-fixed-top navbar-right">
+<div class="header">
+    <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
+</div>
 
-      <input type="button" class="logout" name="name" value="logout" ng-click="ac.logout()">
+<div class="adminBody">
 
-</nav>
+    <div class="sideBar">
+
+    </div>
+
+    <div class="visuals">
+      <div class="addTactics">
+        <div class="buttonsBox">
+          <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">Add PPC Tactic</button>
+          <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">Add PPC Tactic</button>
+          <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">Add PPC Tactic</button>
+          <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">Add PPC Tactic</button>
+          <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">Add PPC Tactic</button>
+          <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">Add PPC Tactic</button>
+        </div>
+
+      </div>
+
+      <form class="ppcTactic" ng-submit="ac.tacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
+          <h2>PPC Tactic</h2>
+          <div class="form-group">
+              <label for="providerName">Provider Name</label>
+              <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName">
+          </div>
+          <div class="form-group">
+              <label for="tactic">Tactic Name</label>
+              <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.ppcTactic.tacticName">
+          </div>
+          <div class="form-group">
+              <label for="contractedClicks">Contracted Clicks (Monthly)</label>
+              <input type="number" class="form-control" id="contractedClicks" placeholder="Contracted Clicks (Monthly)" ng-model="ac.ppcTactic.contractedClicks">
+          </div>
+          <div class="form-group">
+              <label for="tacticSpend">Tactic Spend (Monthly)</label>
+              <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.ppcTactic.tacticSpend">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+
+</div>
+
+<!-- {{ac.ppcTactic}}
