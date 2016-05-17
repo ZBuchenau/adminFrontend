@@ -31,6 +31,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     tacticSpend: '',
   };
 
+  vm.emailTactic = {
+    type: 'email',
+    providerName: '',
+    tacticName: '',
+    tacticSpend: '',
+  };
+
   vm.flatFeeTactic = {
     type: 'flatFee',
     providerName: '',
@@ -38,8 +45,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     tacticSpend: '',
   };
 
-  vm.emailTactic = {
-    type: 'email',
+  vm.listingTactic = {
+    type: 'listing',
     providerName: '',
     tacticName: '',
     tacticSpend: '',
@@ -70,6 +77,39 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       type: 'cpm',
       contractedImpressions: '',
       contractedSpend: '',
+    };
+  };
+
+  vm.emailTacticSubmit = function(){
+    vm.mediaPlan.push(vm.emailTactic);
+    console.log(vm.mediaPlan);
+    vm.emailTactic = {
+      type: 'email',
+      providerName: '',
+      tacticName: '',
+      tacticSpend: '',
+    };
+  };
+
+  vm.flatFeeTacticSubmit = function(){
+    vm.mediaPlan.push(vm.flatFeeTactic);
+    console.log(vm.mediaPlan);
+    vm.flatFeeTactic = {
+      type: 'flatFee',
+      providerName: '',
+      tacticName: '',
+      tacticSpend: '',
+    };
+  };
+
+  vm.listingTacticSubmit = function(){
+    vm.mediaPlan.push(vm.listingTactic);
+    console.log(vm.mediaPlan);
+    vm.listingTactic = {
+      type: 'listing',
+      providerName: '',
+      tacticName: '',
+      tacticSpend: '',
     };
   };
 

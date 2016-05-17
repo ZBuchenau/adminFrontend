@@ -18,8 +18,8 @@
                 <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="clientInfoOpen = !clientInfoOpen">Client Info</button>
                 <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="ppcTacticOpen = !ppcTacticOpen">PPC Tactic</button>
                 <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="cpmTacticOpen = !cpmTacticOpen">CPM Tactic</button>
-                <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="eblastTacticOpen = !eblastTacticOpen">Email Tactic</button>
-                <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="flatTacticOpen = !flatTacticOpen">Flat Fee Tactic</button>
+                <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="emailTacticOpen = !emailTacticOpen">Email Tactic</button>
+                <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="flatFeeTacticOpen = !flatFeeTacticOpen">Flat Fee Tactic</button>
                 <button type="button" name="button" class="btn btn-default" id="addButton" ng-click="listingTacticOpen = !listingTacticOpen">Listing Tactic</button>
             </div>
         </div>
@@ -93,6 +93,69 @@
                 <div class="form-group">
                     <label for="tacticSpend">Tactic Spend (Monthly)</label>
                     <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.cpmTactic.tacticSpend" required>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+            <!-- *************************************************************************** -->
+            <!-- LISTING TACTIC FORM -->
+            <!-- *************************************************************************** -->
+            <form class="tactic listingTactic" ng-submit="ac.listingTacticSubmit()" ng-init="listingTacticOpen = false" ng-show="listingTacticOpen" method="post">
+                <h3>Listing Tactic</h3>
+                <div class="form-group">
+                    <label for="providerName">Provider Name</label>
+                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.listingTactic.providerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="tactic">Tactic Name</label>
+                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.listingTactic.tacticName" required>
+                </div>
+                <div class="form-group">
+                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
+                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.listingTactic.tacticSpend" required>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+
+
+            <!-- *************************************************************************** -->
+            <!-- EMAIL TACTIC FORM -->
+            <!-- *************************************************************************** -->
+            <form class="tactic emailTactic" ng-submit="ac.emailTacticSubmit()" ng-init="emailTacticOpen = false" ng-show="emailTacticOpen" method="post">
+                <h3>Email Tactic</h3>
+                <div class="form-group">
+                    <label for="providerName">Provider Name</label>
+                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.emailTactic.providerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="tactic">Tactic Name</label>
+                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.emailTactic.tacticName" required>
+                </div>
+                <div class="form-group">
+                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
+                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.emailTactic.tacticSpend" required>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+
+            <!-- *************************************************************************** -->
+            <!-- FLAT-FEE TACTIC FORM -->
+            <!-- *************************************************************************** -->
+            <form class="tactic flatFeeTactic" ng-submit="ac.flatFeeTacticSubmit()" ng-init="flatFeeTacticOpen = false" ng-show="flatFeeTacticOpen" method="post">
+                <h3>Flat-Fee Tactic</h3>
+                <div class="form-group">
+                    <label for="providerName">Provider Name</label>
+                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="tactic">Tactic Name</label>
+                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.flatFeeTactic.tacticName" required>
+                </div>
+                <div class="form-group">
+                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
+                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.flatFeeTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
