@@ -24,17 +24,23 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   vm.cpmTactic = {
     type: 'cpm',
+    providerName: '',
+    tacticName: '',
     contractedImpressions: '',
     tacticSpend: '',
   };
 
   vm.flatFeeTactic = {
     type: 'flatFee',
+    providerName: '',
+    tacticName: '',
     tacticSpend: '',
   };
 
   vm.emailTactic = {
     type: 'email',
+    providerName: '',
+    tacticName: '',
     tacticSpend: '',
   };
 
