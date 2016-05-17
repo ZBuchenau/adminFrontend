@@ -25,11 +25,32 @@
         </div>
 
         <div class="tacticFormsBox">
-          <h3>Create Media Tactics Here: </h3>
+          <h3>Create Media Plan Here: </h3>
+
+          <!-- *************************************************************************** -->
+          <!-- CLIENT INFO FORM -->
+          <!-- *************************************************************************** -->
+          <form class="tactic clientInfo" ng-submit="ac.clientSubmit()" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
+              <h3>Client Info</h3>
+              <div class="form-group">
+                  <label for="clientName">Client Name</label>
+                  <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan[0].clientName" required>
+              </div>
+              <div class="form-group">
+                  <label for="monthlyBudget">Monthly Budget</label>
+                  <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan[0].clientMonthlyBudget" required>
+              </div>
+              <div class="form-group">
+                  <label for="year">Media Plan Year</label>
+                  <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan[0].year" required>
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+
             <!-- *************************************************************************** -->
             <!-- PPC TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic ppcTactic" ng-submit="ac.tacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
+            <form class="tactic ppcTactic" ng-submit="ac.ppcTacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
                 <h3>PPC Tactic</h3>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
@@ -55,23 +76,23 @@
             <!-- *************************************************************************** -->
             <!-- CPM TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic cpmTactic" ng-submit="ac.tacticSubmit()" ng-init="cpmTacticOpen = false" ng-show="cpmTacticOpen" method="post">
+            <form class="tactic cpmTactic" ng-submit="ac.cpmTacticSubmit()" ng-init="cpmTacticOpen = false" ng-show="cpmTacticOpen" method="post">
                 <h3>CPM Tactic (Display)</h3>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
-                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName" required>
+                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.cpmTactic.providerName" required>
                 </div>
                 <div class="form-group">
                     <label for="tactic">Tactic Name</label>
-                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.ppcTactic.tacticName" required>
+                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.cpmTactic.tacticName" required>
                 </div>
                 <div class="form-group">
                     <label for="contractedClicks">Contracted Impressions (Monthly)</label>
-                    <input type="number" class="form-control" id="contractedClicks" placeholder="Contracted Impressions (Monthly)" ng-model="ac.ppcTactic.contractedClicks" required>
+                    <input type="number" class="form-control" id="contractedClicks" placeholder="Contracted Impressions (Monthly)" ng-model="ac.cpmTactic.contractedClicks" required>
                 </div>
                 <div class="form-group">
                     <label for="tacticSpend">Tactic Spend (Monthly)</label>
-                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.ppcTactic.tacticSpend" required>
+                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.cpmTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -98,8 +119,10 @@
 
             <tbody>
               <tr ng-repeat="item in ac.mediaPlan">
-                <td>{{item.providerName}}</td>
-                <td>${{item.tacticSpend}}</td>
+                <!-- <td>{{item.providerName}}</td>
+                <td>{{item.tacticSpend}}</td>
+                <td>{{item.tacticSpend}}</td>
+                <td>{{item.tacticSpend*12}}</td> -->
               </tr>
 
             </tbody>

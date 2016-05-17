@@ -73,7 +73,7 @@
 #addButton:hover {
   color: #FFFEF9;
   border: 1px outset rgba(30, 33, 35, .95);
-  background-color: rgba(30, 33, 35, .95);
+  background-color: rgba(30, 33, 35, .8);
   box-shadow: 1px 1px 6px 1px rgba(30, 33, 35, .95);
 }
 
@@ -81,7 +81,7 @@
   position: relative;
   height: 60vh;
   width: 45%;
-  margin-top: 6%;
+  margin-top: 8%;
   margin-bottom: 1%;
   padding: 1rem;
   z-index: -10;
