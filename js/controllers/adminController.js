@@ -3,17 +3,18 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 function adminController($scope, $http, server, localStorageService, $q, $location, authService){
   var vm = this;
 
+//==============================================================================
+// DATA TO BE USED IN PIE GRAPH
+//==============================================================================
   vm.mediaPlan = [{
     clientName: '',
     clientMonthlyBudget: 0,
     year: '',
   }];
-  vm.ppcTacticShow = false;
 
-  vm.showHidePPC = function(){
-    vm.ppcTacticShow = !vm.ppcTacticShow;
-  };
-
+  //==============================================================================
+  // NG-MODELS TO BE PUSHED TO mediaPlan ARRAY
+  //==============================================================================
   vm.ppcTactic = {
     type: 'ppc',
     providerName : '',
@@ -44,6 +45,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     tacticSpend: '',
   };
 
+  //==============================================================================
+  // TACTIC SUBMIT FUNCTIONS
+  //==============================================================================
   vm.clientSubmit = function(){
     console.log(vm.mediaPlan);
   };
@@ -69,6 +73,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     };
   };
 
+  //==============================================================================
+  // LOGOUT FUNCTION
+  //==============================================================================
   vm.logout = function(){
     authService.logout()
       .then(function(response){
