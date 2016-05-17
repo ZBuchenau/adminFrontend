@@ -1,4 +1,4 @@
-var app = angular.module('fiveWeightAdmin', ['ngRoute', 'LocalStorageModule']);
+var app = angular.module('fiveWeightAdmin', ['ngRoute', 'LocalStorageModule', 'd3']);
 
 app.constant('server', 'http://localhost:3000');
 

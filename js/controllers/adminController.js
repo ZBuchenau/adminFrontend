@@ -13,7 +13,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   }];
 
   //==============================================================================
-  // NG-MODELS TO BE PUSHED TO mediaPlan ARRAY
+  // NG-MODEL OBJECTS TO BE PUSHED TO mediaPlan ARRAY
   //==============================================================================
   vm.ppcTactic = {
     type: 'ppc',
