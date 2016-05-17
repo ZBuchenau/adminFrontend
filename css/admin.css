@@ -1,3 +1,4 @@
+
 .header {
   background-color: rgba(30, 33, 35, 1);
   box-shadow: 6px 1px 6px .5px rgba(30, 33, 35, .95);
@@ -42,41 +43,100 @@
 .visuals {
   position: relative;
   top: 8%;
-  left: 25%;
+  left: 22%;
   width: 70%;
-  margin-left: 1rem;
+  /*max-height: 60vh;*/
+  margin-left: 0;
   z-index: -15;
-  pading: auto;
+  pading-left: 0;
 }
 
-.addTactics button{
+.addTactics {
+  position: fixed;
+  top: 8%;
+  left: 22%;
+  width: 70%;
+  padding: 0;
+}
+
+#addButton{
+  position: relative;
   border-top: 0;
   border-radius: 0 0 5px 5px;
+  width: auto;
+  height: 5%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
 }
 
-/*#addButton {
+#addButton:hover {
+  color: #FFFEF9;
+  border: 1px outset rgba(30, 33, 35, .95);
+  background-color: rgba(30, 33, 35, .95);
+  box-shadow: 1px 1px 6px 1px rgba(30, 33, 35, .95);
+}
 
-}*/
-
-/*.addTactics {
-  border: .1rem solid orange;
-  width: 75%;
-  display: inline;
+.tacticFormsBox {
+  position: relative;
+  height: 60vh;
+  width: 45%;
+  margin-top: 6%;
+  margin-bottom: 1%;
   padding: 1rem;
-  margin-left: 20%;
-}*/
+  z-index: -10;
+  border-radius: 5px;
+  border: .2rem solid;
+  overflow-y: auto;
+}
 
-.ppcTactic {
-  width: 30%;
+.tactic {
+  width: 80%;
   max-width: 250px;
+  min-width: 180px;
   float: left;
   margin: 2rem;
-}
-
-form {
   background-color: #ADC589;
   padding: 2rem;
   padding-top: 0;
-  border-radius: 3rem;
+  border-radius: 1rem;
   box-shadow: 1px 1px .5px 1px grey;
+}
+
+
+.mediaPlanTable {
+  position: relative;
+  border-radius:  5px;
+  left: 22%;
+  bottom: 50%;
+  border: .2rem solid;
+  height: auto;
+  width: 50%;
+  padding-bottom: 2rem;
+  z-index: -10;
+}
+
+table *{
+  padding: 1rem;
+  border-spacing: 1rem;
+  border-collapse: collapse;
+  border: .1rem solid rgba(30, 33, 35, .95);
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+th {
+  background-color: #ADC589;
+}
+
+tbody tr:nth-child(even){
+  background: rgba(30, 33, 35, .2);
+}
+
+
+
+td,
+th {
+  height: 1rem;
+  width: auto;
 }

@@ -413,12 +413,12 @@ optgroup {
  * Remove most spacing between table cells.
  */
 
-table {
+/*table {
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing: 1rem;
 }
 
 td,
 th {
-  padding: 0;
-}
+  padding: 1rem;
+}*/
