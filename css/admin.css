@@ -83,15 +83,23 @@
   width: 30%;
   margin-top: 8%;
   margin-bottom: 1%;
-  padding: 1rem;
+  padding-top: 0;
   z-index: -10;
   border-radius: 5px;
-  border: .2rem solid;
+  border: .2rem solid rgba(30, 33, 35, .9);
+  box-shadow: .2px .2px 3px .2px;
   overflow-y: auto;
 }
 .tacticFormsBox h3 {
+  color: #FFFEF9;
+  font-weight: 200;
+  letter-spacing: 1.8px;
   width: 100%;
+  margin-top: 0;
+  background-color: rgba(30, 33, 35, .9);
   text-align: center;
+  padding: 10px;
+  box-shadow
 }
 
 .tactic {
@@ -104,17 +112,20 @@
   padding: 2rem;
   padding-top: 0;
   border-radius: 1rem;
-  box-shadow: 1px 1px .5px 1px grey;
+  border: .2rem outset;
+  box-shadow: .5px .5px 3px .5px grey;
 }
 
 .pieGraph {
-  height: 50vh;
-  width: 40%;
+  min-height: 50vh;
+  min-width: 60%;
+  max-height: 50vh;
+  max-width: 60%;
   margin: 0;
   position: absolute;
   top: 0%;
-  right: 15%;
-  border: .1rem solid;
+  left: 35%;
+  /*border: .1rem solid;*/
 }
 
 
@@ -123,7 +134,7 @@
   border-radius:  5px;
   left: 22%;
   bottom: 50%;
-  border: .2rem solid;
+  /*border: .2rem solid;*/
   height: auto;
   width: 50%;
   padding-bottom: 2rem;
@@ -156,16 +167,3 @@ th {
   height: 1rem;
   width: auto;
 }
-
-
-/*pie-chart {
-  height: auto;
-  width: auto;
-  border: .1rem solid;
-}
-
-svg{
-  padding: 0;
-  height: auto;
-  width: auto;
-}*/

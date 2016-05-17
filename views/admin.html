@@ -31,7 +31,7 @@
           <!-- CLIENT INFO FORM -->
           <!-- *************************************************************************** -->
           <form class="tactic clientInfo" ng-submit="ac.clientSubmit()" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
-              <h3>Client Info</h3>
+              <h4>Client Info</h4>
               <div class="form-group">
                   <label for="clientName">Client Name</label>
                   <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan[0].clientName" required>
@@ -51,7 +51,7 @@
             <!-- PPC TACTIC FORM -->
             <!-- *************************************************************************** -->
             <form class="tactic ppcTactic" ng-submit="ac.ppcTacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
-                <h3>PPC Tactic</h3>
+                <h4>PPC Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
                     <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName" required>
@@ -77,7 +77,7 @@
             <!-- CPM TACTIC FORM -->
             <!-- *************************************************************************** -->
             <form class="tactic cpmTactic" ng-submit="ac.cpmTacticSubmit()" ng-init="cpmTacticOpen = false" ng-show="cpmTacticOpen" method="post">
-                <h3>CPM Tactic (Display)</h3>
+                <h4>CPM Tactic (Display)</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
                     <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.cpmTactic.providerName" required>
@@ -101,7 +101,7 @@
             <!-- LISTING TACTIC FORM -->
             <!-- *************************************************************************** -->
             <form class="tactic listingTactic" ng-submit="ac.listingTacticSubmit()" ng-init="listingTacticOpen = false" ng-show="listingTacticOpen" method="post">
-                <h3>Listing Tactic</h3>
+                <h4>Listing Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
                     <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.listingTactic.providerName" required>
@@ -123,7 +123,7 @@
             <!-- EMAIL TACTIC FORM -->
             <!-- *************************************************************************** -->
             <form class="tactic emailTactic" ng-submit="ac.emailTacticSubmit()" ng-init="emailTacticOpen = false" ng-show="emailTacticOpen" method="post">
-                <h3>Email Tactic</h3>
+                <h4>Email Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
                     <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.emailTactic.providerName" required>
@@ -144,7 +144,7 @@
             <!-- FLAT-FEE TACTIC FORM -->
             <!-- *************************************************************************** -->
             <form class="tactic flatFeeTactic" ng-submit="ac.flatFeeTacticSubmit()" ng-init="flatFeeTacticOpen = false" ng-show="flatFeeTacticOpen" method="post">
-                <h3>Flat-Fee Tactic</h3>
+                <h4>Flat-Fee Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
                     <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
@@ -162,6 +162,7 @@
 
 
         </div>
+
 
         <div class="pieGraph" pie-chart>
         </div>
