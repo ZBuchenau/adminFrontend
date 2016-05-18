@@ -10,7 +10,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     clientName: '',
     clientMonthlyBudget: 0,
     year: '',
-  }];
+  },[]];
 
   //==============================================================================
   // NG-MODEL OBJECTS TO BE PUSHED TO mediaPlan ARRAY
@@ -60,7 +60,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.ppcTacticSubmit = function(){
-    vm.mediaPlan.push(vm.ppcTactic);
+    vm.mediaPlan[1].push(vm.ppcTactic);
     console.log(vm.mediaPlan);
     vm.ppcTactic = {
       providerName : '',
@@ -71,7 +71,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.cpmTacticSubmit = function(){
-    vm.mediaPlan.push(vm.cpmTactic);
+    vm.mediaPlan[1].push(vm.cpmTactic);
     console.log(vm.mediaPlan);
     vm.cpmTactic = {
       type: 'cpm',
@@ -81,7 +81,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.emailTacticSubmit = function(){
-    vm.mediaPlan.push(vm.emailTactic);
+    vm.mediaPlan[1].push(vm.emailTactic);
     console.log(vm.mediaPlan);
     vm.emailTactic = {
       type: 'email',
@@ -92,7 +92,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.flatFeeTacticSubmit = function(){
-    vm.mediaPlan.push(vm.flatFeeTactic);
+    vm.mediaPlan[1].push(vm.flatFeeTactic);
     console.log(vm.mediaPlan);
     vm.flatFeeTactic = {
       type: 'flatFee',
@@ -103,7 +103,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.listingTacticSubmit = function(){
-    vm.mediaPlan.push(vm.listingTactic);
+    vm.mediaPlan[1].push(vm.listingTactic);
     console.log(vm.mediaPlan);
     vm.listingTactic = {
       type: 'listing',

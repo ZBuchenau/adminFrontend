@@ -2,7 +2,7 @@ app.directive('pieChart', ['d3Service', function(d3Service){
 //in html, refer to this directive as <pie-chart></pie-chart>
 
   function link(scope, el, attrs){
-    var data = [82,32,63,42,54,27,38,12,4,16,22,37];
+    var pieData = [82,32,63,42,54,27,38,12,4,16,22,37];
     var color = d3.scale.category20();
     var elem = el[0];
     var width = elem.clientWidth;
@@ -19,7 +19,7 @@ app.directive('pieChart', ['d3Service', function(d3Service){
       .append('g')
         .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
-    svg.selectAll('path').data(pie(data))
+    svg.selectAll('path').data(pie(pieData))
       .enter().append('path')
       .style('stroke', 'white')
       .attr('d', arc)
@@ -28,7 +28,6 @@ app.directive('pieChart', ['d3Service', function(d3Service){
       });
 
       console.log(elem.clientWidth, "client width");
-      console.log(attrs);
   }
 
 
