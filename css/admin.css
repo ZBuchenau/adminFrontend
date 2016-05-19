@@ -139,6 +139,10 @@ div{
   left: 35%;
 }
 
+.pieWrapper {
+  text-align: center;
+}
+
 .pieGraph {
   background-color: grey;
   height: auto;
