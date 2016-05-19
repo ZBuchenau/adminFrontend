@@ -29,7 +29,7 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
       var pieData = pie(dataset);
 
       var arc = d3.svg.arc()
-        .innerRadius(radius - 100)
+        .innerRadius(radius/radius)
         .outerRadius(radius - 50);
 
       var svg = d3.select("pie-chart").append("svg")

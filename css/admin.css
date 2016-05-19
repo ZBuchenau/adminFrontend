@@ -136,11 +136,12 @@ div{
   z-index: -10;
   position: absolute;
   top: 0;
-  left: 35%;
+  left: 40%;
+  text-align: center;
 }
 
-.pieWrapper {
-  text-align: center;
+.pieWrapper h2{
+  margin: 0;
 }
 
 .pieGraph {
@@ -158,6 +159,7 @@ div{
   padding: 2rem;
   padding-left: 0;
   width: 100%;
+  margin-top: 2rem;
 }
 
 table *{
