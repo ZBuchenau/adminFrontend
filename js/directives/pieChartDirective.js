@@ -4,7 +4,7 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
   return {
     restrict: "E",
     // template: "<svg width='500' height='500'></svg>",
-    replace: false,
+    // replace: true,
     scope: {
       pieData: "="
     },

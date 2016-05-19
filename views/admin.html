@@ -25,27 +25,27 @@
         </div>
 
         <div class="tacticFormsBox">
-          <h3>Create Plan: </h3>
+            <h3>Create Plan: </h3>
 
-          <!-- *************************************************************************** -->
-          <!-- CLIENT INFO FORM -->
-          <!-- *************************************************************************** -->
-          <form class="tactic clientInfo" ng-submit="ac.clientSubmit()" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
-              <h4>Client Info</h4>
-              <div class="form-group">
-                  <label for="clientName">Client Name</label>
-                  <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan[0].clientName" required>
-              </div>
-              <div class="form-group">
-                  <label for="monthlyBudget">Monthly Budget</label>
-                  <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan[0].clientMonthlyBudget" required>
-              </div>
-              <div class="form-group">
-                  <label for="year">Media Plan Year</label>
-                  <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan[0].year" required>
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+            <!-- *************************************************************************** -->
+            <!-- CLIENT INFO FORM -->
+            <!-- *************************************************************************** -->
+            <form class="tactic clientInfo" ng-submit="ac.clientSubmit()" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
+                <h4>Client Info</h4>
+                <div class="form-group">
+                    <label for="clientName">Client Name</label>
+                    <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan[0].clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="monthlyBudget">Monthly Budget</label>
+                    <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan[0].clientMonthlyBudget" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Media Plan Year</label>
+                    <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan[0].year" required>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
 
             <!-- *************************************************************************** -->
             <!-- PPC TACTIC FORM -->
@@ -161,42 +161,49 @@
             </form>
         </div>
 
+
+        <!-- *************************************************************************** -->
+        <!-- PIE CHART -->
+        <!-- *************************************************************************** -->
         <div class="pieWrapper">
-          <pie-chart class="pieGraph" pie-data=ac.data></pie-chart>
+            <pie-chart pie-data=ac.data></pie-chart>
         </div>
 
-        <div class="mediaPlanTable">
-                <h3 class="tableTitle">Total Monthly Budget by Vendor</h3>
-                <table id="mediaPlan">
-                        <thead>
-                          <th>Vendor</th>
-                          <th>Spend</th>
-                          <th>% of Total</th>
-                          <th>Annual Total</th>
-                        </thead>
 
-                    <tbody>
-                      <tr ng-repeat="item in ac.mediaPlan">
+        <!-- *************************************************************************** -->
+        <!-- MEDIA PLAN TABLE -->
+        <!-- *************************************************************************** -->
+        <div class="mediaPlanTable">
+            <h3 class="tableTitle">Total Monthly Budget by Vendor</h3>
+            <table id="mediaPlan">
+                <thead>
+                    <th>Vendor</th>
+                    <th>Spend</th>
+                    <th>% of Total</th>
+                    <th>Annual Total</th>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="item in ac.mediaPlan">
                         <!-- <td>{{item.providerName}}</td>
                         <td>{{item.tacticSpend}}</td>
                         <td>{{item.tacticSpend}}</td>
                         <td>{{item.tacticSpend*12}}</td> -->
-                      </tr>
+                    </tr>
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
+        </div>
         <!-- <div class="pieGraph" pie-chart>
         </div> -->
-    </div><!-- visuals div -->
+    </div>
+    <!-- visuals div -->
 
 
 
     <!-- <test-directive my-data="{{ac.data}}"></test-directive> -->
 
-    <!-- *************************************************************************** -->
-    <!-- MEDIA PLAN TABLE -->
-    <!-- *************************************************************************** -->
 
 
-</div><!-- adminBody div -->
+</div>
+<!-- adminBody div -->
