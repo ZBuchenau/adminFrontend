@@ -1,4 +1,6 @@
-
+div{
+  margin: 0;
+}
 .header {
   background-color: rgba(30, 33, 35, 1);
   box-shadow: 6px 1px 6px .5px rgba(30, 33, 35, .95);
@@ -45,6 +47,7 @@
   top: 8%;
   left: 22%;
   width: 80%;
+  height: auto;
   margin-left: 0;
   z-index: -15;
   pading-left: 0;
@@ -118,15 +121,21 @@
   box-shadow: .5px .5px 3px .5px grey;
 }
 
-.pieGraph {
-  min-height: 50vh;
+.pieWrapper {
+  width: 50%;
+  height: 50vh;
+  position: relative;
+}
+
+pie-chart {
+  /*min-height: 50vh;
   min-width: 50%;
   max-height: 50vh;
-  max-width: 60%;
-  margin: 0;
-  position: absolute;
+  max-width: 60%;*/
+  /*margin: 0;*/
+  /*position: absolute;
   top: 0%;
-  left: 40%;
+  left: 40%;*/
 }
 
 
@@ -135,12 +144,14 @@
   border-radius:  5px;
   left: 22%;
   bottom: 50%;
-  /*border: .2rem solid;*/
+  border: .2rem solid;
   height: auto;
   width: 50%;
   padding-bottom: 2rem;
   padding: 2rem;
   z-index: -10;
+  width: 100%;
+  float: left;
 }
 
 table *{

@@ -3,6 +3,8 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 function adminController($scope, $http, server, localStorageService, $q, $location, authService){
   var vm = this;
 
+  vm.data = [12,32,63,42,54,27,38,12,4,16,22,37];
+
 //==============================================================================
 // DATA TO BE USED IN PIE GRAPH
 //==============================================================================
