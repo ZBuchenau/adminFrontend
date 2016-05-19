@@ -9,7 +9,10 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
       pieData: "="
     },
     link: function(scope, el, attrs) {
-      var dataset = scope.pieData;
+
+      //TODO: Turn pieData into a function that loops through scope.pieData
+      //to pull items from the objects within that array.
+      var dataset = scope.pieData; //This will be the data retrieved from the controller.
       console.log(typeof(scope.pieData));
 
       var width = el[0].parentElement.clientWidth;
@@ -71,22 +74,22 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
           d.sy = d.oy = d.y + 5;
         });
 
-      svg.append("defs").append("marker")
-        .attr("id", "circ")
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
-        .attr("refX", 3)
-        .attr("refY", 3)
-        .append("circle")
-        .attr("cx", 3)
-        .attr("cy", 3)
-        .attr("r", 3);
+      // svg.append("defs").append("marker")
+      //   .attr("id", "circ")
+      //   .attr("markerWidth", 6)
+      //   .attr("markerHeight", 6)
+      //   .attr("refX", 3)
+      //   .attr("refY", 3)
+      //   .append("circle")
+      //   .attr("cx", 3)
+      //   .attr("cy", 3)
+      //   .attr("r", 3);
 
       svg.selectAll("path.pointer").data(pieData).enter()
         .append("path")
         .attr("class", "pointer")
         .style("fill", "none")
-        .style("stroke", "black")
+        .style("stroke", "rgba(30, 33, 35, .95)")
         .attr("marker-end", "url(#circ)")
         .attr("d", function(d) {
           if (d.cx > d.ox) {
