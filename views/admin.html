@@ -165,32 +165,32 @@
           <pie-chart class="pieGraph" pie-data=ac.data></pie-chart>
         </div>
 
+        <div class="mediaPlanTable">
+                <h3 class="tableTitle">Total Monthly Budget by Vendor</h3>
+                <table id="mediaPlan">
+                        <thead>
+                          <th>Vendor</th>
+                          <th>Spend</th>
+                          <th>% of Total</th>
+                          <th>Annual Total</th>
+                        </thead>
 
+                    <tbody>
+                      <tr ng-repeat="item in ac.mediaPlan">
+                        <!-- <td>{{item.providerName}}</td>
+                        <td>{{item.tacticSpend}}</td>
+                        <td>{{item.tacticSpend}}</td>
+                        <td>{{item.tacticSpend*12}}</td> -->
+                      </tr>
+
+                    </tbody>
+                </table>
+            </div>
         <!-- <div class="pieGraph" pie-chart>
         </div> -->
     </div><!-- visuals div -->
 
-    <div class="mediaPlanTable">
-        <h3 class="tableTitle">Total Monthly Budget by Vendor</h3>
-        <table id="mediaPlan">
-                <thead>
-                  <th>Vendor</th>
-                  <th>Spend</th>
-                  <th>% of Total</th>
-                  <th>Annual Total</th>
-                </thead>
 
-            <tbody>
-              <tr ng-repeat="item in ac.mediaPlan">
-                <!-- <td>{{item.providerName}}</td>
-                <td>{{item.tacticSpend}}</td>
-                <td>{{item.tacticSpend}}</td>
-                <td>{{item.tacticSpend*12}}</td> -->
-              </tr>
-
-            </tbody>
-        </table>
-    </div>
 
     <!-- <test-directive my-data="{{ac.data}}"></test-directive> -->
 

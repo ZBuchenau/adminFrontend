@@ -52,6 +52,7 @@ div{
   z-index: -15;
   pading-left: 0;
   padding: 0;
+  /*display: flex;*/
 }
 
 .addTactics {
@@ -97,21 +98,20 @@ div{
 }
 .tacticFormsBox h3 {
   color: #FFFEF9;
-  font-weight: 200;
+  font-weight: 300;
+  border-bottom: .1rem solid rgba(30, 33, 35, .9);
   letter-spacing: 1.8px;
   width: 100%;
   margin-top: 0;
   background-color: rgba(30, 33, 35, .9);
   text-align: center;
   padding: 10px;
-  box-shadow
 }
 
 .tactic {
   width: 80%;
   max-width: 250px;
   min-width: 180px;
-  float: left;
   margin: 2rem;
   background-color: #ADC589;
   padding: 2rem;
@@ -121,37 +121,43 @@ div{
   box-shadow: .5px .5px 3px .5px grey;
 }
 
+.tactic h4 {
+    font-weight: bolder;
+}
+
+.tactic label {
+  font-size: 95%;
+}
+
 .pieWrapper {
-  width: 50%;
+  width: 50vw;
   height: 50vh;
-  position: relative;
+  float: right;
+  z-index: -10;
 }
 
 pie-chart {
-  /*min-height: 50vh;
-  min-width: 50%;
-  max-height: 50vh;
-  max-width: 60%;*/
-  /*margin: 0;*/
-  /*position: absolute;
+  height: auto;
+  width: auto;
+  margin: 0;
+  position: absolute;
   top: 0%;
-  left: 40%;*/
+  left: 40%;
+  z-index: -10;
 }
 
 
 .mediaPlanTable {
   position: relative;
   border-radius:  5px;
-  left: 22%;
-  bottom: 50%;
-  border: .2rem solid;
-  height: auto;
-  width: 50%;
+  /*border: .2rem solid;*/
+  /*height: auto;*/
+  /*width: 50%;*/
   padding-bottom: 2rem;
   padding: 2rem;
-  z-index: -10;
   width: 100%;
   float: left;
+  margin-left: 0;
 }
 
 table *{
