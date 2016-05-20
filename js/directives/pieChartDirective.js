@@ -89,7 +89,7 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
         .append("path")
         .attr("class", "pointer")
         .style("fill", "none")
-        .style("stroke", "rgba(30, 33, 35, .95)")
+        .style("stroke", "black")
         .attr("marker-end", "url(#circ)")
         .attr("d", function(d) {
           if (d.cx > d.ox) {
