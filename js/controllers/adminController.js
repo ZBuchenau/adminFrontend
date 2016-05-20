@@ -4,8 +4,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   var vm = this;
 
   vm.toggle = false;
-  vm.data = [36, 12,32,63,42,54,27,38,12,4,16,22,37];
-  // vm.data = [16,22,37];
+  vm.data = [12,31,54,64,34,64,43,65];
 
 //==============================================================================
 // DATA TO BE USED IN PIE GRAPH
