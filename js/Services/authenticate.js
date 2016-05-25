@@ -3,7 +3,7 @@ app.factory('authInterceptor', function ($rootScope, $q, $window, localStorageSe
   return {
     request: function (config) {
       config.headers = config.headers || {};
-      if (localStorageService.get('FiveWeightAnalytics')) {
+      if (localStorageService.get('fiveWeightAdmin')) {
         config.headers.Authorization = 'Bearer ' + localStorageService.get('fiveWeightAdmin');
       }
 

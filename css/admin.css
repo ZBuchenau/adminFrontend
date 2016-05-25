@@ -75,7 +75,7 @@ div{
   position: relative;
   font-size: 95%;
   letter-spacing: 1px;
-  font-weight: 400;
+  font-weight: 500;
   background-color: white;
   border: .1rem solid black;
   border-top: 0;
@@ -185,6 +185,7 @@ div{
 
 .pieWrapper h2{
   margin: 0;
+  font-size: 130%;
 }
 
 .pieGraph {

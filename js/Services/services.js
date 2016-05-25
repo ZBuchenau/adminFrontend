@@ -1,7 +1,5 @@
 app.factory('authService', ['$q', '$timeout', '$http', 'localStorageService', 'server', authService]);
 
-
-
 function authService($q, $timeout, $http, localStorageService, server) {
   var user = null;
 

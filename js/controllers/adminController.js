@@ -1,32 +1,36 @@
-app.controller('adminController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', adminController]);
+app.controller('adminController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', 'mediaPlanService', adminController]);
 
-function adminController($scope, $http, server, localStorageService, $q, $location, authService){
+function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService){
   var vm = this;
+  console.log(server);
 
+  vm.access=true;
   vm.toggle = false;
-  vm.data = [12,31,54,64,34,64,43,65];
+  vm.data = [12,34,216,52,63,11,21,31,45,68,67];
+
 
 //==============================================================================
-// DATA TO BE USED IN PIE GRAPH
+// TITLE DATA TO BE PUSHED TO THE DATABASE AND USED IN TACTIC SUBMISSION
 //==============================================================================
-  vm.mediaPlan = [{
+  vm.mediaPlan = {
     clientName: '',
     clientMonthlyBudget: 0,
     year: '',
-  },[]];
+  };
 
   //==============================================================================
-  // NG-MODEL OBJECTS TO BE PUSHED TO mediaPlan ARRAY
+  // NG-MODEL OBJECTS TO BE PUSHED TO DATABASE
   //==============================================================================
   vm.ppcTactic = {
+    // mediaPlan: vm.mediaPlan.clientName,
     type: 'ppc',
     providerName : '',
     tacticName : '',
-    contractedClicks : 0,
     tacticSpend : 0,
   };
 
   vm.cpmTactic = {
+    // mediaPlan: vm.mediaPlan.clientName,
     type: 'cpm',
     providerName: '',
     tacticName: '',
@@ -35,6 +39,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.emailTactic = {
+    // mediaPlan: vm.mediaPlan.clientName,
     type: 'email',
     providerName: '',
     tacticName: '',
@@ -42,6 +47,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.flatFeeTactic = {
+    // mediaPlan: vm.mediaPlan.clientName,
     type: 'flatFee',
     providerName: '',
     tacticName: '',
@@ -49,6 +55,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.listingTactic = {
+    // mediaPlan: vm.mediaPlan.clientName,
     type: 'listing',
     providerName: '',
     tacticName: '',
@@ -59,62 +66,83 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   // TACTIC SUBMIT FUNCTIONS
   //==============================================================================
   vm.clientSubmit = function(){
-    console.log(vm.mediaPlan);
+    vm.access = false;
+
+    var client = vm.mediaPlan.clientName;
+    vm.listingTactic.mediaPlan = client;
+    vm.flatFeeTactic.mediaPlan = client;
+    vm.emailTactic.mediaPlan = client;
+    vm.cpmTactic.mediaPlan = client;
+    vm.ppcTactic.mediaPlan = client;
+
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', vm.mediaPlan)
+      .then(function(data){
+        console.log(data);
+      });
+
+      console.log(vm.listingTactic, vm.flatFeeTactic, vm.emailTactic, vm.cpmTactic, vm.ppcTactic);
   };
+
 
   vm.ppcTacticSubmit = function(){
-    vm.mediaPlan[1].push(vm.ppcTactic);
-    console.log(vm.mediaPlan);
-    vm.ppcTactic = {
-      providerName : '',
-      tacticName : '',
-      contractedClicks : 0,
-      tacticSpend : 0,
-    };
+    console.log(vm.ppcTactic);
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/ppcTactics', vm.ppcTactic)
+      .then(function(response){
+        vm.ppcTactic.providerName = '';
+        vm.ppcTactic.tacticName = '';
+        vm.ppcTactic.tacticSpend = '';
+      });
   };
+
 
   vm.cpmTacticSubmit = function(){
-    vm.mediaPlan[1].push(vm.cpmTactic);
-    console.log(vm.mediaPlan);
-    vm.cpmTactic = {
-      type: 'cpm',
-      contractedImpressions: '',
-      contractedSpend: '',
-    };
+    console.log(vm.cpmTactic);
+
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/cpmTactics', vm.cpmTactic)
+    .then(function(response){
+      vm.cpmTactic.providerName = '';
+      vm.cpmTactic.tacticName = '';
+      vm.cpmTactic.contractedImpressions = '';
+      vm.cpmTactic.tacticSpend = '';
+    });
   };
+
 
   vm.emailTacticSubmit = function(){
-    vm.mediaPlan[1].push(vm.emailTactic);
-    console.log(vm.mediaPlan);
-    vm.emailTactic = {
-      type: 'email',
-      providerName: '',
-      tacticName: '',
-      tacticSpend: '',
-    };
+    console.log(vm.emailTactic);
+
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/emailTactics', vm.emailTactic)
+    .then(function(response){
+      vm.emailTactic.providerName = '';
+      vm.emailTactic.tacticName = '';
+      vm.emailTactic.tacticSpend = '';
+    });
   };
+
 
   vm.flatFeeTacticSubmit = function(){
-    vm.mediaPlan[1].push(vm.flatFeeTactic);
-    console.log(vm.mediaPlan);
-    vm.flatFeeTactic = {
-      type: 'flatFee',
-      providerName: '',
-      tacticName: '',
-      tacticSpend: '',
-    };
+    console.log(vm.flatFeeTactic);
+
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/flatFeeTactics', vm.flatFeeTactic)
+    .then(function(response){
+      vm.flatFeeTactic.providerName = '';
+      vm.flatFeeTactic.tacticName = '';
+      vm.flatFeeTactic.tacticSpend = '';
+    });
   };
 
+
   vm.listingTacticSubmit = function(){
-    vm.mediaPlan[1].push(vm.listingTactic);
-    console.log(vm.mediaPlan);
-    vm.listingTactic = {
-      type: 'listing',
-      providerName: '',
-      tacticName: '',
-      tacticSpend: '',
-    };
+    console.log(vm.listingTactic);
+
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/listingTactics', vm.listingTactic)
+    .then(function(response){
+      vm.listingTactic.providerName = '';
+      vm.listingTactic.tacticName = '';
+      vm.listingTactic.tacticSpend = '';
+    });
   };
+
 
   //==============================================================================
   // LOGOUT FUNCTION

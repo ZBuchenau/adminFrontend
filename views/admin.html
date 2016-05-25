@@ -1,5 +1,10 @@
 <div class="header">
-    <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
+    <input type="button"
+    class="btn btn-default logout"
+    id="logout"
+    name="name"
+    value="logout"
+    ng-click="ac.logout()" >
 </div>
 
 <div class="adminBody">
@@ -29,7 +34,8 @@
                   name="button"
                   class="btn btn-default addButton"
                   toggle-class="active"
-                  ng-click="ppcTacticOpen = !ppcTacticOpen">
+                  ng-click="ppcTacticOpen = !ppcTacticOpen"
+                  ng-disabled="ac.access">
                   PPC Tactic
                 </button>
 
@@ -38,7 +44,8 @@
                   name="button"
                   class="btn btn-default addButton"
                   toggle-class="active"
-                  ng-click="cpmTacticOpen = !cpmTacticOpen">
+                  ng-click="cpmTacticOpen = !cpmTacticOpen"
+                  ng-disabled="ac.access">
                   CPM Tactic
                 </button>
 
@@ -47,7 +54,8 @@
                   name="button"
                   class="btn btn-default addButton"
                   toggle-class="active"
-                  ng-click="listingTacticOpen = !listingTacticOpen">
+                  ng-click="listingTacticOpen = !listingTacticOpen"
+                  ng-disabled="ac.access">
                   Listing Tactic
                 </button>
 
@@ -56,7 +64,8 @@
                   name="button"
                   class="btn btn-default addButton"
                   toggle-class="active"
-                  ng-click="emailTacticOpen = !emailTacticOpen">
+                  ng-click="emailTacticOpen = !emailTacticOpen"
+                  ng-disabled="ac.access">
                   Email Tactic
                 </button>
 
@@ -66,7 +75,8 @@
                   name="button"
                   class="btn btn-default addButton"
                   toggle-class="active"
-                  ng-click="flatFeeTacticOpen = !flatFeeTacticOpen">
+                  ng-click="flatFeeTacticOpen = !flatFeeTacticOpen"
+                  ng-disabled="ac.access">
                   Flat Fee Tactic
                 </button>
 
@@ -83,17 +93,17 @@
                 <h4>Client Info</h4>
                 <div class="form-group">
                     <label for="clientName">Client Name</label>
-                    <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan[0].clientName" required>
+                    <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan.clientName" required>
                 </div>
                 <div class="form-group">
                     <label for="monthlyBudget">Monthly Budget</label>
-                    <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan[0].clientMonthlyBudget" required>
+                    <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan.clientMonthlyBudget" required>
                 </div>
                 <div class="form-group">
                     <label for="year">Media Plan Year</label>
-                    <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan[0].year" required>
+                    <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default" >Submit</button>
             </form>
 
             <!-- *************************************************************************** -->
@@ -108,10 +118,6 @@
                 <div class="form-group">
                     <label for="tactic">Tactic Name</label>
                     <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.ppcTactic.tacticName" required>
-                </div>
-                <div class="form-group">
-                    <label for="contractedImpressions">Contracted Clicks (Monthly)</label>
-                    <input type="number" class="form-control" id="contractedClicks" placeholder="Contracted Clicks (Monthly)" ng-model="ac.ppcTactic.contractedClicks" required>
                 </div>
                 <div class="form-group">
                     <label for="tacticSpend">Tactic Spend (Monthly)</label>
@@ -224,7 +230,7 @@
         <!-- *************************************************************************** -->
         <!-- MEDIA PLAN TABLE -->
         <!-- *************************************************************************** -->
-        <div class="mediaPlanTable">
+        <!-- <div class="mediaPlanTable">
             <h3 class="tableTitle">Total Monthly Budget by Vendor</h3>
             <table id="mediaPlan">
                 <thead>
@@ -236,23 +242,17 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.mediaPlan">
-                        <!-- <td>{{item.providerName}}</td>
+                        <td>{{item.providerName}}</td>
                         <td>{{item.tacticSpend}}</td>
                         <td>{{item.tacticSpend}}</td>
-                        <td>{{item.tacticSpend*12}}</td> -->
+                        <td>{{item.tacticSpend*12}}</td>
                     </tr>
 
                 </tbody>
             </table>
-        </div>
-        <!-- <div class="pieGraph" pie-chart>
         </div> -->
 
-
-
-
     </div>
-    <!-- visuals div -->
 
 
     <!-- <test-directive my-data="{{ac.data}}"></test-directive> -->
