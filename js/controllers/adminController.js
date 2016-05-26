@@ -37,7 +37,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 //==============================================================================
   vm.mediaPlan = {
     clientName: '',
-    clientMonthlyBudget: 0,
+    clientMonthlyBudget: '',
     year: '',
   };
 
@@ -49,7 +49,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     type: 'ppc',
     providerName : '',
     tacticName : '',
-    tacticSpend : 0,
+    tacticSpend : '',
   };
 
   vm.cpmTactic = {

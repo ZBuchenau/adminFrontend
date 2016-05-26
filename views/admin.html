@@ -91,9 +91,9 @@
 
             <div class="mediaPlanDD">
               <form method="GET">
-                <select>
+                <select >
                   <option value="" disabled>Select Existing Plan:</option>
-                  <option ng-repeat="item in ac.accounts track by $index" value="item.id" onchange="">{{item.name}}</option>
+                  <option ng-repeat="item in ac.accounts track by $index" value="item.id">{{item.name}}</option>
                 </select>
               </form>
             </div>
