@@ -2,6 +2,7 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService){
   var vm = this;
+
   console.log(server);
 
   vm.access=true;
@@ -78,6 +79,10 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', vm.mediaPlan)
       .then(function(data){
         console.log(data);
+        mediaPlanService.pullMediaPlans(server + '/users/mediaPlans/plans')
+          .then(function(response){
+            console.log("Success!!!!!");
+          });
       });
 
       console.log(vm.listingTactic, vm.flatFeeTactic, vm.emailTactic, vm.cpmTactic, vm.ppcTactic);
