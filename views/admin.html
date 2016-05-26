@@ -83,8 +83,20 @@
             </div>
         </div>
 
+
+
+
         <div class="tacticFormsBox">
-            <h3>Create Plan: </h3>
+            <h3>Create/Edit Plans: </h3>
+
+            <div class="mediaPlanDD">
+              <form method="GET">
+                <select>
+                  <option value="" disabled>Select Existing Plan:</option>
+                  <option ng-repeat="item in ac.accounts track by $index" value="item.id" onchange="">{{item.name}}</option>
+                </select>
+              </form>
+            </div>
 
             <!-- *************************************************************************** -->
             <!-- CLIENT INFO FORM -->

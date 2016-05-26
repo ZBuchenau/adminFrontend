@@ -13,14 +13,14 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
           //TODO: Turn pieData into a function that loops through scope.pieData
           //to pull items from the objects within that array.
           var dataset = scope.pieData; //This will be the data retrieved from the controller.
-          console.log(typeof(scope.pieData));
+          // console.log(typeof(scope.pieData));
 
           var width = el[0].parentElement.clientWidth;
-          console.log(width);
+          // console.log(width);
           var height = el[0].parentElement.clientHeight;
-          console.log(height);
+          // console.log(height);
           var radius = Math.min(width, height) / 2;
-          console.log(radius);
+          // console.log(radius);
 
           var color = d3.scale.category20();
 
@@ -112,7 +112,7 @@ app.directive('testDirective', [function() {
     },
     link: function(scope, element, attrs) {
       var data = scope.myData;
-      console.log(data);
+      // console.log(data);
     }
   };
 }]);

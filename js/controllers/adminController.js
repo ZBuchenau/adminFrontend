@@ -3,7 +3,29 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService){
   var vm = this;
 
-  console.log(server);
+  vm.accounts = [];
+
+  vm.mediaPlanGetter = function(){
+    vm.accounts = [];
+    mediaPlanService.pullMediaPlans(server + '/users/mediaPlans/plans')
+      .then(function(response){
+
+        for(var i = 0; i < response.data.length; i++){
+          vm.accounts.push({
+            name: response.data[i].name,
+            id: response.data[i].media_plan_id
+          });
+        }
+
+        console.log(vm.accounts);
+        console.log("Success!!!!!");
+      });
+  };
+
+
+    vm.mediaPlanGetter();
+
+  // console.log(server);
 
   vm.access=true;
   vm.toggle = false;
@@ -64,7 +86,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   //==============================================================================
-  // TACTIC SUBMIT FUNCTIONS
+  // TACTIC / MEDIA-PLAN-INFO SUBMIT FUNCTIONS
   //==============================================================================
   vm.clientSubmit = function(){
     vm.access = false;
@@ -81,6 +103,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         console.log(data);
         mediaPlanService.pullMediaPlans(server + '/users/mediaPlans/plans')
           .then(function(response){
+            vm.mediaPlanGetter();
             console.log("Success!!!!!");
           });
       });

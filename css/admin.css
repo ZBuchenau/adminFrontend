@@ -150,17 +150,27 @@ div{
   padding: 10px;
 }
 
+.mediaPlanDD {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 1rem;
+}
+
 .tactic {
   width: 80%;
   max-width: 250px;
   min-width: 180px;
   margin: 2rem;
+  margin-left: 10%;
   background-color: #ADC589;
   padding: 2rem;
   padding-top: 0;
   border-radius: 1rem;
   border: .2rem outset;
   box-shadow: .5px .5px 3px .5px grey;
+  position: relative;
+  top: 8%;
 }
 
 .tactic h4 {

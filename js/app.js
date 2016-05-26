@@ -7,11 +7,11 @@ app.run(function($rootScope, $location, $route, authService, localStorageService
     function(event, next, current) {
       authService.checkToken()
         .then(function(response) {
-          console.log(response);
+          // console.log(response);
           if (response === true && next.access.restricted) {
             authService.getUserStatus(localStorageService.get('fiveWeightAdmin'))
               .then(function(response) {
-                console.log(response);
+                // console.log(response);
                 if (response) {
                   console.log('You have been granted access!');
                   $location.path(next.originalPath);
