@@ -1,16 +1,16 @@
 app.controller('adminController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', 'mediaPlanService', adminController]);
 
-function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService){
+function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
 
   vm.accounts = [];
 
-  vm.mediaPlanGetter = function(){
+  vm.mediaPlanGetter = function() {
     vm.accounts = [];
     mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
-      .then(function(response){
+      .then(function(response) {
 
-        for(var i = 0; i < response.data.length; i++){
+        for (var i = 0; i < response.data.length; i++) {
           vm.accounts.push({
             name: response.data[i].name,
             id: response.data[i].media_plan_id
@@ -22,24 +22,24 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       });
   };
 
-  vm.tacticGetter = function(){
+  vm.tacticGetter = function() {
     vm.plan = [];
 
   };
 
 
-    vm.mediaPlanGetter();
+  vm.mediaPlanGetter();
 
   // console.log(server);
 
-  vm.access=true;
+  vm.access = true;
   vm.toggle = false;
-  vm.data = [12,34,216,52,63,11,21,31,45,68,67];
+  vm.data = [12, 34, 216, 52, 63, 11, 21, 31, 45, 68, 67];
 
 
-//==============================================================================
-// TITLE DATA TO BE PUSHED TO THE DATABASE AND USED IN TACTIC SUBMISSION
-//==============================================================================
+  //==============================================================================
+  // TITLE DATA TO BE PUSHED TO THE DATABASE AND USED IN TACTIC SUBMISSION
+  //==============================================================================
   vm.mediaPlan = {
     clientName: '',
     clientMonthlyBudget: '',
@@ -52,9 +52,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.ppcTactic = {
     // mediaPlan: vm.mediaPlan.clientName,
     type: 'ppc',
-    providerName : '',
-    tacticName : '',
-    tacticSpend : '',
+    providerName: '',
+    tacticName: '',
+    tacticSpend: '',
   };
 
   vm.cpmTactic = {
@@ -93,30 +93,50 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   //==============================================================================
   // TACTIC / MEDIA-PLAN-INFO SELECT FUNCTIONS
   //==============================================================================
-  vm.clientSelect = function(){
-    vm.access = false;
+  vm.clientCreate = function() {
+    vm.access = true;
   };
 
-  vm.selectItemChanged = function(item){
+  vm.selectItemChanged = function(item) {
+
+    // console.log(item);
     console.log(vm.selectedItem);
-    vm.access = false;
-    var client = vm.selectedItem;
-    vm.mediaPlan.id = client;
-    vm.listingTactic.mediaPlan = client;
-    vm.flatFeeTactic.mediaPlan = client;
-    vm.emailTactic.mediaPlan = client;
-    vm.cpmTactic.mediaPlan = client;
-    vm.ppcTactic.mediaPlan = client;
+    if (!vm.selectedItem) {
+      vm.access = true;
+    } else {
+      vm.access = false;
+      var client = vm.selectedItem;
+      vm.mediaPlan.id = client;
+      vm.listingTactic.mediaPlan = client;
+      vm.flatFeeTactic.mediaPlan = client;
+      vm.emailTactic.mediaPlan = client;
+      vm.cpmTactic.mediaPlan = client;
+      vm.ppcTactic.mediaPlan = client;
 
-    console.log(vm.ppcTactic);
+      mediaPlanService.pullTactic(server + '/users/mediaPlans/allTactics', {
+          mediaPlanId: vm.selectedItem
+        })
+        .then(function(response) {
+          console.log("*************", response.config.data.mediaPlanId);
+          var id = response.config.data.mediaPlanId;
+          mediaPlanService.pullTactic(server + '/users/mediaPlans/titles', {
+              mediaPlanId: id
+            })
+            .then(function(response) {
+              console.log(response.data);
+              var data = response.data;
+              vm.mediaPlan = {
+                mediaPlanId: data.media_plan_id,
+                clientName: data.name,
+                clientMonthlyBudget: parseInt(data.monthly_budget, 10),
+                year: parseInt(data.year, 10)
+              };
+            });
+        }).catch(function(error) {
+          console.log(error);
+        });
+    }
 
-    mediaPlanService.pullTactic(server + '/users/mediaPlans/allTactics', {mediaPlanId: vm.selectedItem})
-      .then(function(response){
-        console.log("*************", response.data);
-      })
-      .catch(function(error){
-        console.log(error);
-      });
   };
 
 
@@ -124,11 +144,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   // TACTIC / MEDIA-PLAN-INFO SUBMIT FUNCTIONS
   //==============================================================================
 
-  vm.clientSubmit = function(){
+  vm.clientSubmit = function() {
     vm.access = false;
 
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', vm.mediaPlan)
-      .then(function(data){
+      .then(function(data) {
         console.log(data[0]);
         var client = data[0].media_plan_id;
         vm.listingTactic.mediaPlan = client;
@@ -138,7 +158,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.ppcTactic.mediaPlan = client;
 
         mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
-          .then(function(response){
+          .then(function(response) {
             // console.log(response);
             vm.mediaPlanGetter();
             console.log("Success!!!!!");
@@ -146,14 +166,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           });
       });
 
-      // console.log(vm.listingTactic, vm.flatFeeTactic, vm.emailTactic, vm.cpmTactic, vm.ppcTactic);
+    // console.log(vm.listingTactic, vm.flatFeeTactic, vm.emailTactic, vm.cpmTactic, vm.ppcTactic);
   };
 
 
-  vm.ppcTacticSubmit = function(){
+  vm.ppcTacticSubmit = function() {
     console.log(vm.ppcTactic);
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/ppcTactics', vm.ppcTactic)
-      .then(function(response){
+      .then(function(response) {
         vm.ppcTactic.providerName = '';
         vm.ppcTactic.tacticName = '';
         vm.ppcTactic.tacticSpend = '';
@@ -161,61 +181,61 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
 
-  vm.cpmTacticSubmit = function(){
+  vm.cpmTacticSubmit = function() {
     console.log(vm.cpmTactic);
 
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/cpmTactics', vm.cpmTactic)
-    .then(function(response){
-      vm.cpmTactic.providerName = '';
-      vm.cpmTactic.tacticName = '';
-      vm.cpmTactic.contractedImpressions = '';
-      vm.cpmTactic.tacticSpend = '';
-    });
+      .then(function(response) {
+        vm.cpmTactic.providerName = '';
+        vm.cpmTactic.tacticName = '';
+        vm.cpmTactic.contractedImpressions = '';
+        vm.cpmTactic.tacticSpend = '';
+      });
   };
 
 
-  vm.emailTacticSubmit = function(){
+  vm.emailTacticSubmit = function() {
     console.log(vm.emailTactic);
 
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/emailTactics', vm.emailTactic)
-    .then(function(response){
-      vm.emailTactic.providerName = '';
-      vm.emailTactic.tacticName = '';
-      vm.emailTactic.tacticSpend = '';
-    });
+      .then(function(response) {
+        vm.emailTactic.providerName = '';
+        vm.emailTactic.tacticName = '';
+        vm.emailTactic.tacticSpend = '';
+      });
   };
 
 
-  vm.flatFeeTacticSubmit = function(){
+  vm.flatFeeTacticSubmit = function() {
     console.log(vm.flatFeeTactic);
 
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/flatFeeTactics', vm.flatFeeTactic)
-    .then(function(response){
-      vm.flatFeeTactic.providerName = '';
-      vm.flatFeeTactic.tacticName = '';
-      vm.flatFeeTactic.tacticSpend = '';
-    });
+      .then(function(response) {
+        vm.flatFeeTactic.providerName = '';
+        vm.flatFeeTactic.tacticName = '';
+        vm.flatFeeTactic.tacticSpend = '';
+      });
   };
 
 
-  vm.listingTacticSubmit = function(){
+  vm.listingTacticSubmit = function() {
     console.log(vm.listingTactic);
 
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/listingTactics', vm.listingTactic)
-    .then(function(response){
-      vm.listingTactic.providerName = '';
-      vm.listingTactic.tacticName = '';
-      vm.listingTactic.tacticSpend = '';
-    });
+      .then(function(response) {
+        vm.listingTactic.providerName = '';
+        vm.listingTactic.tacticName = '';
+        vm.listingTactic.tacticSpend = '';
+      });
   };
 
 
   //==============================================================================
   // LOGOUT FUNCTION
   //==============================================================================
-  vm.logout = function(){
+  vm.logout = function() {
     authService.logout()
-      .then(function(response){
+      .then(function(response) {
         $location.path('/login');
         console.log('User is now logged out!');
       });
