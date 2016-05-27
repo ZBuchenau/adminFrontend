@@ -1,10 +1,5 @@
 <div class="header">
-    <input type="button"
-    class="btn btn-default logout"
-    id="logout"
-    name="name"
-    value="logout"
-    ng-click="ac.logout()" >
+    <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
 </div>
 
 <div class="adminBody">
@@ -20,64 +15,29 @@
         <!-- *************************************************************************** -->
         <div class="addTactics">
             <div class="buttonsBox">
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-default addButton active"
-                  toggle-class="active"
-                  ng-click="clientInfoOpen = !clientInfoOpen" >
-                  Client Info
+                <button type="button" name="button" class="btn btn-default addButton active" toggle-class="active" ng-click="clientInfoOpen = !clientInfoOpen">
+                    Client Info
                 </button>
 
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-default addButton"
-                  toggle-class="active"
-                  ng-click="ppcTacticOpen = !ppcTacticOpen"
-                  ng-disabled="ac.access">
-                  PPC Tactic
+                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="ppcTacticOpen = !ppcTacticOpen" ng-disabled="ac.access">
+                    PPC Tactic
                 </button>
 
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-default addButton"
-                  toggle-class="active"
-                  ng-click="cpmTacticOpen = !cpmTacticOpen"
-                  ng-disabled="ac.access">
-                  CPM Tactic
+                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="cpmTacticOpen = !cpmTacticOpen" ng-disabled="ac.access">
+                    CPM Tactic
                 </button>
 
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-default addButton"
-                  toggle-class="active"
-                  ng-click="listingTacticOpen = !listingTacticOpen"
-                  ng-disabled="ac.access">
-                  Listing Tactic
+                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="listingTacticOpen = !listingTacticOpen" ng-disabled="ac.access">
+                    Listing Tactic
                 </button>
 
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-default addButton"
-                  toggle-class="active"
-                  ng-click="emailTacticOpen = !emailTacticOpen"
-                  ng-disabled="ac.access">
-                  Email Tactic
+                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="emailTacticOpen = !emailTacticOpen" ng-disabled="ac.access">
+                    Email Tactic
                 </button>
 
 
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-default addButton"
-                  toggle-class="active"
-                  ng-click="flatFeeTacticOpen = !flatFeeTacticOpen"
-                  ng-disabled="ac.access">
-                  Flat Fee Tactic
+                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="flatFeeTacticOpen = !flatFeeTacticOpen" ng-disabled="ac.access">
+                    Flat Fee Tactic
                 </button>
 
             </div>
@@ -90,12 +50,10 @@
             <h3>Create/Edit Plans: </h3>
 
             <div class="mediaPlanDD">
-              <form method="GET">
-                <select >
-                  <option value="" disabled>Select Existing Plan:</option>
-                  <option ng-repeat="item in ac.accounts track by $index" value="item.id">{{item.name}}</option>
+                <select ng-model="ac.selectedItem" ng-change="ac.selectItemChanged()">
+                    <option value="" disabled>Select Existing Plan:</option>
+                    <option ng-repeat="item in ac.accounts track by $index" value={{item.id}}>{{item.name}}</option>
                 </select>
-              </form>
             </div>
 
             <!-- *************************************************************************** -->
@@ -115,7 +73,7 @@
                     <label for="year">Media Plan Year</label>
                     <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
                 </div>
-                <button type="submit" class="btn btn-default" >Submit</button>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
 
             <!-- *************************************************************************** -->
@@ -234,7 +192,7 @@
         <!-- *************************************************************************** -->
 
         <div class="pieWrapper">
-            <h2 class="pieTitle">{{ac.mediaPlan[0].clientName}}  {{ac.mediaPlan[0].year}}</h2>
+            <h2 class="pieTitle">{{ac.mediaPlan.clientName}}  {{ac.mediaPlan.year}}</h2>
             <pie-chart pie-data="ac.data"></pie-chart>
         </div>
 

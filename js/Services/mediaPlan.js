@@ -3,7 +3,8 @@ app.factory('mediaPlanService', ['$q', '$timeout', '$http', 'localStorageService
 function mediaPlanService($q, $timeout, $http, localStorageService, server) {
   return ({
     tacticSubmit: tacticSubmit,
-    pullMediaPlans: pullMediaPlans
+    pullMedia: pullMedia,
+    pullTactic: pullTactic
   });
 
 
@@ -28,9 +29,31 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
 
 
 
-  function pullMediaPlans(endpoint) {
+  function pullMedia(endpoint) {
     var deferred = $q.defer();
     $http.get(endpoint)
+      .then(success, failure)
+      .catch(function(err) {
+        console.log(err);
+      });
+
+      function success(response){
+        // console.log(response);
+        deferred.resolve(response);
+      }
+
+      function failure(response){
+        console.log(response);
+        deferred.reject(response);
+      }
+    return deferred.promise;
+  }
+
+
+  function pullTactic(endpoint, obj){
+    var deferred = $q.defer();
+
+    $http.post(endpoint, obj)
       .then(success, failure)
       .catch(function(err) {
         console.log(err);
@@ -45,9 +68,9 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
         console.log(response);
         deferred.reject(response);
       }
+
     return deferred.promise;
   }
-
 
 
 }
