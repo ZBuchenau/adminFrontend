@@ -103,6 +103,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     console.log(vm.selectedItem);
     if (!vm.selectedItem) {
       vm.access = true;
+      vm.mediaPlan = {
+        clientName: '',
+        clientMonthlyBudget: '',
+        year: '',
+      };
     } else {
       vm.access = false;
       var client = vm.selectedItem;
@@ -117,13 +122,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           mediaPlanId: vm.selectedItem
         })
         .then(function(response) {
-          console.log("*************", response.config.data.mediaPlanId);
+          console.log("*************", response.data);
+          vm.officialMediaPlan = response.data;
           var id = response.config.data.mediaPlanId;
           mediaPlanService.pullTactic(server + '/users/mediaPlans/titles', {
               mediaPlanId: id
             })
             .then(function(response) {
-              console.log(response.data);
               var data = response.data;
               vm.mediaPlan = {
                 mediaPlanId: data.media_plan_id,
