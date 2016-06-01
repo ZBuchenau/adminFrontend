@@ -41,7 +41,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   vm.access = true;
   vm.toggle = false;
-  vm.data = [12, 34, 216, 52, 63, 11, 21, 31, 45, 68, 67];
+  // vm.data = [12, 34, 216, 52, 63, 11, 21, 31, 45, 68, 67];
+  vm.data = [1, 2, 3];
 
 
   //==============================================================================
@@ -126,25 +127,27 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       vm.cpmTactic.mediaPlan = client;
       vm.ppcTactic.mediaPlan = client;
 
-      mediaPlanService.pullTactic(server + '/users/mediaPlans/allTactics', {
+      mediaPlanService.getItems(server + '/users/mediaPlans/allTactics', {
           mediaPlanId: vm.selectedItem
         })
         .then(function(response) {
           console.log("*************", response.data);
           vm.officialMediaPlan = response.data;
+
           var id = response.config.data.mediaPlanId;
-          mediaPlanService.pullTactic(server + '/users/mediaPlans/titles', {
-              mediaPlanId: id
-            })
-            .then(function(response) {
-              var data = response.data;
-              vm.mediaPlan = {
-                mediaPlanId: data.media_plan_id,
-                clientName: data.name,
-                clientMonthlyBudget: parseInt(data.monthly_budget, 10),
-                year: parseInt(data.year, 10)
-              };
-            });
+          mediaPlanService.getItems(server + '/users/mediaPlans/titles', {
+            mediaPlanId: id
+          }).then(function(response) {
+            var data = response.data;
+            console.log("THIS IS THE DATA >>>>>", data);
+            vm.mediaPlan = {
+              mediaPlanId: data.media_plan_id,
+              clientName: data.name,
+              clientMonthlyBudget: parseInt(data.monthly_budget, 10),
+              year: parseInt(data.year, 10)
+            };
+            console.log(vm.mediaPlan);
+          });
         }).catch(function(error) {
           console.log(error);
         });
@@ -175,7 +178,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
               .then(function(response) {
                 console.log(vm.ppcTactic);
               });
-          }).catch(function(error){
+          }).catch(function(error) {
             console.log(error);
           });
       });
@@ -189,6 +192,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.ppcTactic.providerName = '';
         vm.ppcTactic.tacticName = '';
         vm.ppcTactic.tacticSpend = '';
+        vm.officialMediaPlan[0].push(response);
       });
   };
 
@@ -202,6 +206,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.cpmTactic.tacticName = '';
         vm.cpmTactic.contractedImpressions = '';
         vm.cpmTactic.tacticSpend = '';
+        vm.officialMediaPlan[1].push(response);
       });
   };
 
@@ -214,6 +219,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.emailTactic.providerName = '';
         vm.emailTactic.tacticName = '';
         vm.emailTactic.tacticSpend = '';
+        vm.officialMediaPlan[3].push(response);
       });
   };
 
@@ -226,6 +232,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.flatFeeTactic.providerName = '';
         vm.flatFeeTactic.tacticName = '';
         vm.flatFeeTactic.tacticSpend = '';
+        vm.officialMediaPlan[4].push(response);
       });
   };
 
@@ -238,6 +245,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.listingTactic.providerName = '';
         vm.listingTactic.tacticName = '';
         vm.listingTactic.tacticSpend = '';
+        vm.officialMediaPlan[2].push(response);
       });
   };
 

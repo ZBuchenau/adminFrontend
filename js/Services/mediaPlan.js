@@ -4,7 +4,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
   return ({
     tacticSubmit: tacticSubmit,
     pullMedia: pullMedia,
-    pullTactic: pullTactic
+    getItems: getItems
   });
 
 
@@ -50,7 +50,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
   }
 
 
-  function pullTactic(endpoint, obj){
+  function getItems(endpoint, obj){
     var deferred = $q.defer();
 
     $http.post(endpoint, obj)
