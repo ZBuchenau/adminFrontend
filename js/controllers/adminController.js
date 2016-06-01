@@ -42,7 +42,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
     if(vm.cumulativeSpend){
       if(vm.spendDelta > 0){
-        vm.spendToBudget = "SPEND: $" +vm.cumulativeSpend.toLocaleString()+ " ($" + vm.spendDelta.toLocaleString() + " Remaining In Budget)";
+        vm.spendToBudget = "SPEND = $" + vm.cumulativeSpend.toLocaleString() + " ($" + vm.spendDelta.toLocaleString() + " Remaining In Budget)";
         vm.underBudget = true;
         vm.overBudget = false;
       } else {
@@ -125,11 +125,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   vm.selectItemChanged = function(item) {
 
-    // vm.data = [];
-
-
-    // console.log(item);
-    // console.log(vm.selectedItem);
     if (!vm.selectedItem) {
       console.log('here we are====');
       vm.access = true;
@@ -155,7 +150,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         })
         .then(function(response) {
           console.log("*************", response.data);
-          // vm.officialMediaPlan = '';
+
           vm.officialMediaPlan = response.data;
 
           var id = response.config.data.mediaPlanId;
@@ -179,11 +174,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
             mediaPlanService.spendDelta(budget, obj, item)
               .then(function(response){
-                console.log(response);
+                // console.log(response);
                 vm.cumulativeSpend = response.spend;
                 vm.spendDelta = response.delta;
-                console.log(vm.cumulativeSpend);
-                console.log(vm.spendDelta);
+                // console.log(vm.cumulativeSpend);
+                // console.log(vm.spendDelta);
               }).then(function(){
                 vm.spendRelations();
               }).catch(function(error){
@@ -239,7 +234,27 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.officialMediaPlan[0].push(response[0]);
         console.log(vm.officialMediaPlan[0]);
         // vm.data.push(response[0].monthly_spend);
-      });
+        //
+      }).then(function(response){
+        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
+      }).then(function(response){
+        var budget = vm.mediaPlan.clientMonthlyBudget;
+        var obj = vm.data;
+        var item = 'monthly_spend';
+
+        mediaPlanService.spendDelta(budget, obj, item)
+          .then(function(response){
+            // console.log(response);
+            vm.cumulativeSpend = response.spend;
+            vm.spendDelta = response.delta;
+            // console.log(vm.cumulativeSpend);
+            // console.log(vm.spendDelta);
+          }).then(function(){
+            vm.spendRelations();
+          }).catch(function(error){
+            console.log(error);
+          });
+      });//
   };
 
 
@@ -253,6 +268,25 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.cpmTactic.contractedImpressions = '';
         vm.cpmTactic.tacticSpend = '';
         vm.officialMediaPlan[1].push(response[0]);
+      }).then(function(response){
+        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
+      }).then(function(response){
+        var budget = vm.mediaPlan.clientMonthlyBudget;
+        var obj = vm.data;
+        var item = 'monthly_spend';
+
+        mediaPlanService.spendDelta(budget, obj, item)
+          .then(function(response){
+            // console.log(response);
+            vm.cumulativeSpend = response.spend;
+            vm.spendDelta = response.delta;
+            // console.log(vm.cumulativeSpend);
+            // console.log(vm.spendDelta);
+          }).then(function(){
+            vm.spendRelations();
+          }).catch(function(error){
+            console.log(error);
+          });
       });
   };
 
@@ -266,6 +300,25 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.emailTactic.tacticName = '';
         vm.emailTactic.tacticSpend = '';
         vm.officialMediaPlan[3].push(response[0]);
+      }).then(function(response){
+        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
+      }).then(function(response){
+        var budget = vm.mediaPlan.clientMonthlyBudget;
+        var obj = vm.data;
+        var item = 'monthly_spend';
+
+        mediaPlanService.spendDelta(budget, obj, item)
+          .then(function(response){
+            // console.log(response);
+            vm.cumulativeSpend = response.spend;
+            vm.spendDelta = response.delta;
+            // console.log(vm.cumulativeSpend);
+            // console.log(vm.spendDelta);
+          }).then(function(){
+            vm.spendRelations();
+          }).catch(function(error){
+            console.log(error);
+          });
       });
   };
 
@@ -279,6 +332,25 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.flatFeeTactic.tacticName = '';
         vm.flatFeeTactic.tacticSpend = '';
         vm.officialMediaPlan[4].push(response[0]);
+      }).then(function(response){
+        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
+      }).then(function(response){
+        var budget = vm.mediaPlan.clientMonthlyBudget;
+        var obj = vm.data;
+        var item = 'monthly_spend';
+
+        mediaPlanService.spendDelta(budget, obj, item)
+          .then(function(response){
+            // console.log(response);
+            vm.cumulativeSpend = response.spend;
+            vm.spendDelta = response.delta;
+            // console.log(vm.cumulativeSpend);
+            // console.log(vm.spendDelta);
+          }).then(function(){
+            vm.spendRelations();
+          }).catch(function(error){
+            console.log(error);
+          });
       });
   };
 
@@ -292,6 +364,25 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.listingTactic.tacticName = '';
         vm.listingTactic.tacticSpend = '';
         vm.officialMediaPlan[2].push(response[0]);
+      }).then(function(response){
+        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
+      }).then(function(response){
+        var budget = vm.mediaPlan.clientMonthlyBudget;
+        var obj = vm.data;
+        var item = 'monthly_spend';
+
+        mediaPlanService.spendDelta(budget, obj, item)
+          .then(function(response){
+            // console.log(response);
+            vm.cumulativeSpend = response.spend;
+            vm.spendDelta = response.delta;
+            // console.log(vm.cumulativeSpend);
+            // console.log(vm.spendDelta);
+          }).then(function(){
+            vm.spendRelations();
+          }).catch(function(error){
+            console.log(error);
+          });
       });
   };
 
