@@ -110,7 +110,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     // console.log(item);
     // console.log(vm.selectedItem);
     if (!vm.selectedItem) {
+      console.log('here we are====');
       vm.access = true;
+      vm.officialMediaPlan = '';
       vm.mediaPlan = {
         clientName: '',
         clientMonthlyBudget: '',
