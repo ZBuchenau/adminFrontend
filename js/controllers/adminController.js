@@ -6,6 +6,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.accounts = [];
 
   vm.mediaPlanGetter = function() {
+    var deferred = $q.defer();
     vm.accounts = [];
     mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
       .then(function(response) {
@@ -17,9 +18,12 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           });
         }
 
-        console.log(vm.accounts);
-        console.log("Success!!!!!");
+        // console.log(vm.accounts);
+        // console.log("Success!!!!!");
+        deferred.resolve(vm.accounts);
       });
+
+    return deferred.promise;
   };
 
   vm.tacticGetter = function() {
@@ -28,7 +32,10 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
 
-  vm.mediaPlanGetter();
+  vm.mediaPlanGetter()
+    .then(function(response) {
+      console.log("MEDIA PLANS RETRIEVED: ", response);
+    });
 
   // console.log(server);
 
@@ -100,7 +107,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.selectItemChanged = function(item) {
 
     // console.log(item);
-    console.log(vm.selectedItem);
+    // console.log(vm.selectedItem);
     if (!vm.selectedItem) {
       vm.access = true;
       vm.mediaPlan = {
@@ -111,6 +118,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     } else {
       vm.access = false;
       var client = vm.selectedItem;
+      console.log(client);
       vm.mediaPlan.id = client;
       vm.listingTactic.mediaPlan = client;
       vm.flatFeeTactic.mediaPlan = client;
@@ -141,7 +149,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           console.log(error);
         });
     }
-
   };
 
 
@@ -154,8 +161,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', vm.mediaPlan)
       .then(function(data) {
-        console.log(data[0]);
-        var client = data[0].media_plan_id;
+        // console.log(data);
+        var client = data.media_plan_id;
         vm.listingTactic.mediaPlan = client;
         vm.flatFeeTactic.mediaPlan = client;
         vm.emailTactic.mediaPlan = client;
@@ -164,14 +171,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
         mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
           .then(function(response) {
-            // console.log(response);
-            vm.mediaPlanGetter();
-            console.log("Success!!!!!");
-            console.log(vm.ppcTactic);
+            vm.mediaPlanGetter()
+              .then(function(response) {
+                console.log(vm.ppcTactic);
+              });
+          }).catch(function(error){
+            console.log(error);
           });
       });
-
-    // console.log(vm.listingTactic, vm.flatFeeTactic, vm.emailTactic, vm.cpmTactic, vm.ppcTactic);
   };
 
 
