@@ -204,6 +204,9 @@
         <!-- *************************************************************************** -->
         <div class="mediaPlanTable">
             <h3 class="tableTitle">Media Plan By Tactic</h3>
+            <h4 ng-class="{underBudget: ac.underBudget, overBudget: ac.overBudget}">
+              {{ac.spendToBudget}}
+            </h4>
 
             <!-- PPC TABLE -->
             <table class="tacticTable" id="ppcTactics">

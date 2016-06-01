@@ -37,12 +37,30 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       console.log("MEDIA PLANS RETRIEVED: ", response);
     });
 
+  vm.spendRelations = function(){
+    vm.data = [];
+
+    if(vm.cumulativeSpend){
+      if(vm.spendDelta > 0){
+        vm.spendToBudget = "SPEND: $" +vm.cumulativeSpend.toLocaleString()+ " ($" + vm.spendDelta.toLocaleString() + " Remaining In Budget)";
+        vm.underBudget = true;
+        vm.overBudget = false;
+      } else {
+        vm.spendToBudget = "$" + (vm.spendDelta * - 1).toLocaleString() + " Over Budget!";
+        vm.overBudget = true;
+        vm.underBudget = false;
+      }
+    } else {
+      vm.spendToBudget = '';
+    }
+  };
+
   // console.log(server);
 
   vm.access = true;
   vm.toggle = false;
   // vm.data = [12, 34, 216, 52, 63, 11, 21, 31, 45, 68, 67];
-  vm.data = [1, 2, 3];
+  vm.data = [];
 
 
   //==============================================================================
@@ -107,6 +125,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   vm.selectItemChanged = function(item) {
 
+    // vm.data = [];
+
+
     // console.log(item);
     // console.log(vm.selectedItem);
     if (!vm.selectedItem) {
@@ -134,6 +155,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         })
         .then(function(response) {
           console.log("*************", response.data);
+          // vm.officialMediaPlan = '';
           vm.officialMediaPlan = response.data;
 
           var id = response.config.data.mediaPlanId;
@@ -148,7 +170,25 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
               clientMonthlyBudget: parseInt(data.monthly_budget, 10),
               year: parseInt(data.year, 10)
             };
-            console.log(vm.mediaPlan);
+
+            mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
+          }).then(function(response){
+            var budget = vm.mediaPlan.clientMonthlyBudget;
+            var obj = vm.data;
+            var item = 'monthly_spend';
+
+            mediaPlanService.spendDelta(budget, obj, item)
+              .then(function(response){
+                console.log(response);
+                vm.cumulativeSpend = response.spend;
+                vm.spendDelta = response.delta;
+                console.log(vm.cumulativeSpend);
+                console.log(vm.spendDelta);
+              }).then(function(){
+                vm.spendRelations();
+              }).catch(function(error){
+                console.log(error);
+              });
           });
         }).catch(function(error) {
           console.log(error);

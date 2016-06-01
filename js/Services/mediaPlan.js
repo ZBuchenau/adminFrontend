@@ -4,7 +4,9 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
   return ({
     tacticSubmit: tacticSubmit,
     pullMedia: pullMedia,
-    getItems: getItems
+    getItems: getItems,
+    doubleLooper: doubleLooper,
+    spendDelta: spendDelta
   });
 
 
@@ -69,6 +71,37 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
         console.log(response);
         deferred.reject(response);
       }
+
+    return deferred.promise;
+  }
+
+
+  function doubleLooper(obj, pushObj){
+    for(var i = 0; i < obj.length; i++){
+      for(var j = 0; j < obj[i].length; j++){
+        pushObj.push(obj[i][j]);
+      }
+    }
+    console.log(pushObj);
+  }
+
+  function spendDelta(budget, obj, thing){
+    var deferred = $q.defer();
+
+    var spend = 0;
+    var delta;
+    for(var i = 0; i < obj.length; i++){
+      spend += parseInt(obj[i][thing]);
+    }
+    delta = budget - spend;
+
+    data = {
+      spend: spend,
+      delta: delta
+    };
+
+    deferred.resolve(data);
+    deferred.reject(data);
 
     return deferred.promise;
   }
