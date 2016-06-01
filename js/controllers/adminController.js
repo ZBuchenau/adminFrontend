@@ -191,10 +191,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     console.log(vm.ppcTactic);
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/ppcTactics', vm.ppcTactic)
       .then(function(response) {
+        console.log("PPC TACTIC SUBMIT RESPONSE: ", response[0]);
         vm.ppcTactic.providerName = '';
         vm.ppcTactic.tacticName = '';
         vm.ppcTactic.tacticSpend = '';
-        vm.officialMediaPlan[0].push(response);
+
+        vm.officialMediaPlan[0].push(response[0]);
+        console.log(vm.officialMediaPlan[0]);
+        // vm.data.push(response[0].monthly_spend);
       });
   };
 
@@ -208,7 +212,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.cpmTactic.tacticName = '';
         vm.cpmTactic.contractedImpressions = '';
         vm.cpmTactic.tacticSpend = '';
-        vm.officialMediaPlan[1].push(response);
+        vm.officialMediaPlan[1].push(response[0]);
       });
   };
 
@@ -221,7 +225,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.emailTactic.providerName = '';
         vm.emailTactic.tacticName = '';
         vm.emailTactic.tacticSpend = '';
-        vm.officialMediaPlan[3].push(response);
+        vm.officialMediaPlan[3].push(response[0]);
       });
   };
 
@@ -234,7 +238,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.flatFeeTactic.providerName = '';
         vm.flatFeeTactic.tacticName = '';
         vm.flatFeeTactic.tacticSpend = '';
-        vm.officialMediaPlan[4].push(response);
+        vm.officialMediaPlan[4].push(response[0]);
       });
   };
 
@@ -247,7 +251,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.listingTactic.providerName = '';
         vm.listingTactic.tacticName = '';
         vm.listingTactic.tacticSpend = '';
-        vm.officialMediaPlan[2].push(response);
+        vm.officialMediaPlan[2].push(response[0]);
       });
   };
 
