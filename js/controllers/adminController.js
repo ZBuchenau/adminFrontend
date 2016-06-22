@@ -254,7 +254,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           }).catch(function(error){
             console.log(error);
           });
-      });//
+      });
   };
 
 
@@ -384,6 +384,36 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
             console.log(error);
           });
       });
+  };
+
+  vm.deletePPC = function(obj){
+    obj.tactic_id = 1;
+    console.log('****************************************', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
+  };
+
+  vm.deleteCPM = function(obj){
+    obj.tactic_id = 2;
+    console.log('****************************************', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
+  };
+
+  vm.deleteListing = function(obj){
+    obj.tactic_id = 3;
+    console.log('****************************************', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
+  };
+
+  vm.deleteEmail = function(obj){
+    obj.tactic_id = 4;
+    console.log('****************************************', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
+  };
+
+  vm.deleteFlatFee = function(obj){
+    obj.tactic_id = 5;
+    console.log('****************************************', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
   };
 
 

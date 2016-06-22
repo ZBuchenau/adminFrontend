@@ -225,7 +225,7 @@
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
                         <td><button type="button" name="button">Re-Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteTactic()">Delete</button></td>
+                        <td><button type="button" name="button" ng-click="ac.deletePPC(this.item)" value="">Delete</button></td>
                     </tr>
 
                 </tbody>
@@ -252,7 +252,7 @@
                         <td contenteditable>${{item.impressions_contracted}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
                         <td><button type="button" name="button">Re-Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteTactic()">Delete</button></td>
+                        <td><button type="button" name="button" ng-click="ac.deleteCPM(this.item)" value="">Delete</button></td>
                     </tr>
 
 
@@ -278,7 +278,7 @@
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
                         <td><button type="button" name="button">Re-Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteTactic()">Delete</button></td>
+                        <td><button type="button" name="button" ng-click="ac.deleteListing(this.item)" value="">Delete</button></td>
                     </tr>
 
                 </tbody>
@@ -303,7 +303,7 @@
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
                         <td><button type="button" name="button">Re-Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteTactic()">Delete</button></td>
+                        <td><button type="button" name="button" ng-click="ac.deleteEmail(this.item)" value="">Delete</button></td>
                     </tr>
 
                 </tbody>
@@ -323,12 +323,12 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[4]">
-                        <td contenteditable>{{item.provider_name}}</td>
+                        <td contenteditable>{{item.provider_name}}{{item}}</td>
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
                         <td><button type="button" name="button">Re-Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteTactic()">Delete</button></td>
+                        <td><button type="button" name="button" ng-click="ac.deleteFlatFee(this.item)">Delete</button></td>
                     </tr>
 
                 </tbody>

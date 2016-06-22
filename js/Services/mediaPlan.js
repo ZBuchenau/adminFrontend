@@ -6,7 +6,8 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     pullMedia: pullMedia,
     getItems: getItems,
     doubleLooper: doubleLooper,
-    spendDelta: spendDelta
+    spendDelta: spendDelta,
+    tacticDelete: tacticDelete
   });
 
 
@@ -104,6 +105,28 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     deferred.reject(data);
 
     return deferred.promise;
+  }
+
+  function tacticDelete(endPoint, obj, type){
+
+    var deferred = $q.defer();
+    $http.post(endPoint, obj)
+      .then(success, failure)
+      .catch(function(error){
+        console.log(error);
+      });
+
+      function success(response){
+        console.log(response);
+        deferred.resolve(response);
+      }
+
+      function failure(response){
+        console.log(response);
+        deferred.reject(response);
+      }
+
+      return deferred.promise;
   }
 
 
