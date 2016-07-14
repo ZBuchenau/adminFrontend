@@ -18,8 +18,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           });
         }
 
-        // console.log(vm.accounts);
-        // console.log("Success!!!!!");
         deferred.resolve(vm.accounts);
       });
 
@@ -28,7 +26,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   vm.tacticGetter = function() {
     vm.plan = [];
-
   };
 
 
@@ -387,33 +384,86 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.deletePPC = function(obj){
-    obj.tactic_id = 1;
+    obj.tactic_id = 'ppc';
     console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj)
+    .then(function(response){
+      console.log(response);
+      var client = response.data[0];
+      console.log(client);
+      mediaPlanService.reloadTactics(server + '/users/mediaPlans/allTactics', client)
+        .then(function(response){
+          console.log(response);
+        });
+    });
   };
 
   vm.deleteCPM = function(obj){
-    obj.tactic_id = 2;
+    obj.tactic_id = 'cpm';
     console.log('****************************************', obj);
     mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
   };
 
   vm.deleteListing = function(obj){
-    obj.tactic_id = 3;
+    obj.tactic_id = 'listings';
     console.log('****************************************', obj);
     mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
   };
 
   vm.deleteEmail = function(obj){
-    obj.tactic_id = 4;
+    obj.tactic_id = 'email';
     console.log('****************************************', obj);
     mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
   };
 
   vm.deleteFlatFee = function(obj){
-    obj.tactic_id = 5;
+    obj.tactic_id = 'flat_fee';
     console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj)
+      .then(function(response){
+        console.log(response);
+      });
+  };
+
+// *******************************************************************************
+//  Re-Starting Here
+// *******************************************************************************
+
+  vm.addNewTactic = function(tacticType, item){
+    var emptyPPC = {
+    'tacticType' : tacticType,
+    'mediaPlanId': item,
+    'monthly_spend' : '',
+    'ppc_id' : '',
+    'provider_name' : '',
+    'tactic_name' : '',
+    'user_id' : ''
+  };
+
+    if(tacticType === 'ppc'){
+      vm.officialMediaPlan[0].push(emptyPPC);
+    } else if(tacticType === 'cpm') {
+      vm.officialMediaPlan[1].push(emptyCPM);
+    } else if(tacticType === 'listing'){
+      vm.officialMediaPlan[2].push(emptyListing);
+    } else if (tacticType === 'email'){
+      vm.officialMediaPlan[3].push(emptyEmail);
+    } else if(tacticType === 'flatFee'){
+      vm.officialMediaPlan[4].push(emptyFlatFee);
+    }
+  };
+
+  vm.addPPCTactic = function(item){
+    console.log(item);
+    console.log(vm.officialMediaPlan);
+    vm.officialMediaPlan[0].push({
+      'mediaPlanId': item,
+      'monthly_spend' : '',
+      'ppc_id' : '',
+      'provider_name' : '',
+      'tactic_name' : '',
+      'user_id' : ''
+    });
   };
 
 

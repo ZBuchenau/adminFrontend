@@ -5,6 +5,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     tacticSubmit: tacticSubmit,
     pullMedia: pullMedia,
     getItems: getItems,
+    reloadTactics: reloadTactics,
     doubleLooper: doubleLooper,
     spendDelta: spendDelta,
     tacticDelete: tacticDelete
@@ -52,7 +53,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     return deferred.promise;
   }
 
-
+// Pulls all tactics for a given media plan
   function getItems(endpoint, obj){
     var deferred = $q.defer();
 
@@ -129,5 +130,27 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
       return deferred.promise;
   }
 
+  function reloadTactics(endpoint, obj){
+    var deferred = $q.defer();
+
+    $http.post(endpoint, obj)
+      .then(success, failure)
+      .catch(function(err) {
+        console.log(err);
+      });
+
+      function success(response){
+        var mediaPlan = response;
+        console.log(mediaPlan);
+        deferred.resolve(mediaPlan);
+      }
+
+      function failure(response){
+        console.log(response);
+        deferred.reject(response);
+      }
+
+    return deferred.promise;
+  }
 
 }

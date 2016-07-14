@@ -13,7 +13,7 @@
         <!-- *************************************************************************** -->
         <!-- TACTIC SELECTOR TABS -->
         <!-- *************************************************************************** -->
-        <div class="addTactics">
+        <!-- <div class="addTactics">
             <div class="buttonsBox">
                 <button type="button" name="button" class="btn btn-default addButton active" toggle-class="active" ng-click="clientInfoOpen = !clientInfoOpen">
                     Client Info
@@ -41,7 +41,7 @@
                 </button>
 
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -79,7 +79,7 @@
             <!-- *************************************************************************** -->
             <!-- PPC TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic ppcTactic" ng-submit="ac.ppcTacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
+            <!-- <form class="tactic ppcTactic" ng-submit="ac.ppcTacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
                 <h4>PPC Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
@@ -94,14 +94,14 @@
                     <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.ppcTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
 
 
 
             <!-- *************************************************************************** -->
             <!-- CPM TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic cpmTactic" ng-submit="ac.cpmTacticSubmit()" ng-init="cpmTacticOpen = false" ng-show="cpmTacticOpen" method="post">
+            <!-- <form class="tactic cpmTactic" ng-submit="ac.cpmTacticSubmit()" ng-init="cpmTacticOpen = false" ng-show="cpmTacticOpen" method="post">
                 <h4>CPM Tactic (Display)</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
@@ -120,12 +120,12 @@
                     <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.cpmTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
 
             <!-- *************************************************************************** -->
             <!-- LISTING TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic listingTactic" ng-submit="ac.listingTacticSubmit()" ng-init="listingTacticOpen = false" ng-show="listingTacticOpen" method="post">
+            <!-- <form class="tactic listingTactic" ng-submit="ac.listingTacticSubmit()" ng-init="listingTacticOpen = false" ng-show="listingTacticOpen" method="post">
                 <h4>Listing Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
@@ -140,14 +140,14 @@
                     <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.listingTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
 
 
 
             <!-- *************************************************************************** -->
             <!-- EMAIL TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic emailTactic" ng-submit="ac.emailTacticSubmit()" ng-init="emailTacticOpen = false" ng-show="emailTacticOpen" method="post">
+            <!-- <form class="tactic emailTactic" ng-submit="ac.emailTacticSubmit()" ng-init="emailTacticOpen = false" ng-show="emailTacticOpen" method="post">
                 <h4>Email Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
@@ -162,13 +162,13 @@
                     <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.emailTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
 
 
             <!-- *************************************************************************** -->
             <!-- FLAT-FEE TACTIC FORM -->
             <!-- *************************************************************************** -->
-            <form class="tactic flatFeeTactic" ng-submit="ac.flatFeeTacticSubmit()" ng-init="flatFeeTacticOpen = false" ng-show="flatFeeTacticOpen" method="post">
+            <!-- <form class="tactic flatFeeTactic" ng-submit="ac.flatFeeTacticSubmit()" ng-init="flatFeeTacticOpen = false" ng-show="flatFeeTacticOpen" method="post">
                 <h4>Flat-Fee Tactic</h4>
                 <div class="form-group">
                     <label for="providerName">Provider Name</label>
@@ -183,7 +183,7 @@
                     <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.flatFeeTactic.tacticSpend" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
         </div>
 
 
@@ -224,12 +224,13 @@
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Re-Submit</button></td>
+                        <td><button type="button" name="button">Submit</button></td>
                         <td><button type="button" name="button" ng-click="ac.deletePPC(this.item)" value="">Delete</button></td>
                     </tr>
-
                 </tbody>
             </table>
+            <button type="button" name="button" ng-click="ac.addNewTactic('ppc', ac.selectedItem)">+ New Tactic</button>
+
 
             <br></br>
 
@@ -251,7 +252,7 @@
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.impressions_contracted}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Re-Submit</button></td>
+                        <td><button type="button" name="button">Submit</button></td>
                         <td><button type="button" name="button" ng-click="ac.deleteCPM(this.item)" value="">Delete</button></td>
                     </tr>
 
@@ -277,7 +278,7 @@
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Re-Submit</button></td>
+                        <td><button type="button" name="button">Submit</button></td>
                         <td><button type="button" name="button" ng-click="ac.deleteListing(this.item)" value="">Delete</button></td>
                     </tr>
 
@@ -302,7 +303,7 @@
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Re-Submit</button></td>
+                        <td><button type="button" name="button">Submit</button></td>
                         <td><button type="button" name="button" ng-click="ac.deleteEmail(this.item)" value="">Delete</button></td>
                     </tr>
 
@@ -327,7 +328,7 @@
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Re-Submit</button></td>
+                        <td><button type="button" name="button">Submit</button></td>
                         <td><button type="button" name="button" ng-click="ac.deleteFlatFee(this.item)">Delete</button></td>
                     </tr>
 
