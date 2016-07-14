@@ -116,9 +116,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   //==============================================================================
   // TACTIC / MEDIA-PLAN-INFO SELECT FUNCTIONS
   //==============================================================================
-  vm.clientCreate = function() {
-    vm.access = true;
-  };
 
   vm.selectItemChanged = function(item) {
 
@@ -429,43 +426,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 //  Re-Starting Here
 // *******************************************************************************
 
-  vm.addNewTactic = function(tacticType, item){
-    var emptyPPC = {
-    'tacticType' : tacticType,
-    'mediaPlanId': item,
-    'monthly_spend' : '',
-    'ppc_id' : '',
-    'provider_name' : '',
-    'tactic_name' : '',
-    'user_id' : ''
-  };
+// =============================================================================
+// ADD A NEW TACTIC TO A MEDIA PLAN
+// =============================================================================
+  vm.flatFeeFormShow = false;
 
-    if(tacticType === 'ppc'){
-      vm.officialMediaPlan[0].push(emptyPPC);
-    } else if(tacticType === 'cpm') {
-      vm.officialMediaPlan[1].push(emptyCPM);
-    } else if(tacticType === 'listing'){
-      vm.officialMediaPlan[2].push(emptyListing);
-    } else if (tacticType === 'email'){
-      vm.officialMediaPlan[3].push(emptyEmail);
-    } else if(tacticType === 'flatFee'){
-      vm.officialMediaPlan[4].push(emptyFlatFee);
-    }
-  };
-
-  vm.addPPCTactic = function(item){
+  vm.submitNewTactic = function(item){
     console.log(item);
-    console.log(vm.officialMediaPlan);
-    vm.officialMediaPlan[0].push({
-      'mediaPlanId': item,
-      'monthly_spend' : '',
-      'ppc_id' : '',
-      'provider_name' : '',
-      'tactic_name' : '',
-      'user_id' : ''
-    });
   };
-
 
   //==============================================================================
   // LOGOUT FUNCTION
