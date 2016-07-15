@@ -154,8 +154,6 @@ input {
   top: 0;
   left: 35%;
   text-align: center;
-  /*border: .1 solid black;*/
-  /*overflow: visible;*/
 }
 
 .pieWrapper h2{
@@ -205,12 +203,6 @@ th {
   width: auto;
   margin-bottom: .5rem;
 }
-
-/*.addTacticButton {
-  margin-top: .3rem;
-  border-radius: 3px;
-  background-color: #ffb732;
-}*/
 
 .addTacticForm {
   margin-top: .3rem;
