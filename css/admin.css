@@ -77,7 +77,6 @@ input {
 }
 
 .addTacticButton,
-.addTacticButton:focus,
 .addTacticButton:visited{
   outline: 0;
   position: relative;
@@ -97,6 +96,7 @@ input {
 }
 
 .addTacticButton:hover,
+.addTacticButton:focus,
 .addTacticButton:active{
   color: black;
   outline: 0;
@@ -104,23 +104,6 @@ input {
   background-color: #ffb732;
   box-shadow: 1px 1px 6px 1px rgba(30, 33, 35, .5);
 }
-
-/*.addTacticButton:active,
-.addTacticButton:focus {
-  outline: 0;
-  height: 100%;
-  color: black;
-  font-weight: 400;
-  font-size: 100%;
-  letter-spacing: 1px;
-  background-color: #ffb732;
-  border: .1rem solid black;
-}
-
-.addTacticButton.active:hover {
-  background-color: #ffb732;
-  border: 2px solid black;
-}*/
 
 .tacticFormsBox {
   position: relative;
@@ -234,5 +217,5 @@ th {
 }
 
 .submitTactic {
-  background-color: #ffb732; 
+  background-color: #ffb732;
 }
