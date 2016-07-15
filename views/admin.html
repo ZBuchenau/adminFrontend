@@ -9,181 +9,31 @@
     </div>
 
     <div class="visuals">
-
-        <!-- *************************************************************************** -->
-        <!-- TACTIC SELECTOR TABS -->
-        <!-- *************************************************************************** -->
-        <!-- <div class="addTactics">
-            <div class="buttonsBox">
-                <button type="button" name="button" class="btn btn-default addButton active" toggle-class="active" ng-click="clientInfoOpen = !clientInfoOpen">
-                    Client Info
-                </button>
-
-                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="ppcTacticOpen = !ppcTacticOpen" ng-disabled="ac.access">
-                    PPC Tactic
-                </button>
-
-                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="cpmTacticOpen = !cpmTacticOpen" ng-disabled="ac.access">
-                    CPM Tactic
-                </button>
-
-                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="listingTacticOpen = !listingTacticOpen" ng-disabled="ac.access">
-                    Listing Tactic
-                </button>
-
-                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="emailTacticOpen = !emailTacticOpen" ng-disabled="ac.access">
-                    Email Tactic
-                </button>
-
-
-                <button type="button" name="button" class="btn btn-default addButton" toggle-class="active" ng-click="flatFeeTacticOpen = !flatFeeTacticOpen" ng-disabled="ac.access">
-                    Flat Fee Tactic
-                </button>
-
-            </div>
-        </div> -->
-
-
-
-
         <div class="tacticFormsBox">
-            <h3>Create/Edit Plans: </h3>
-
-            <div class="mediaPlanDD">
-                <select ng-model="ac.selectedItem" ng-change="ac.selectItemChanged()">
-                    <option value="">Create Plan</option>
-                    <option ng-repeat="item in ac.accounts track by $index" value={{item.id}}>{{item.name}}</option>
-                </select>
-            </div>
 
             <!-- *************************************************************************** -->
             <!-- CLIENT INFO FORM -->
             <!-- *************************************************************************** -->
+            <div class="mediaPlanDD">
+                <select ng-model="ac.selectedItem" ng-change="ac.selectItemChanged()">
+                    <option value="">Create/Select a Plan</option>
+                    <option ng-repeat="item in ac.accounts track by $index" value={{item.id}}>{{item.name}}</option>
+                </select>
+            </div>
+
             <form class="tactic clientInfo" ng-submit="ac.clientSubmit()" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
-                <h4>Client Info</h4>
-                <div class="form-group">
-                    <label for="clientName">Client Name</label>
-                    <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan.clientName" required>
-                </div>
-                <div class="form-group">
-                    <label for="monthlyBudget">Monthly Budget</label>
-                    <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan.clientMonthlyBudget" required>
-                </div>
-                <div class="form-group">
-                    <label for="year">Media Plan Year</label>
-                    <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
-                </div>
+                <label for="clientName">Client Name</label>
+                <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan.clientName" required>
+
+                <label for="monthlyBudget">Monthly Budget</label>
+                <input type="number" class="form-control" id="monthlyBudget" placeholder="Monthly Budget" ng-model="ac.mediaPlan.clientMonthlyBudget" required>
+
+                <label for="year">Media Plan Year</label>
+                <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
+
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
 
-            <!-- *************************************************************************** -->
-            <!-- PPC TACTIC FORM -->
-            <!-- *************************************************************************** -->
-            <!-- <form class="tactic ppcTactic" ng-submit="ac.ppcTacticSubmit()" ng-init="ppcTacticOpen = false" ng-show="ppcTacticOpen" method="post">
-                <h4>PPC Tactic</h4>
-                <div class="form-group">
-                    <label for="providerName">Provider Name</label>
-                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tactic">Tactic Name</label>
-                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.ppcTactic.tacticName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
-                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.ppcTactic.tacticSpend" required>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form> -->
-
-
-
-            <!-- *************************************************************************** -->
-            <!-- CPM TACTIC FORM -->
-            <!-- *************************************************************************** -->
-            <!-- <form class="tactic cpmTactic" ng-submit="ac.cpmTacticSubmit()" ng-init="cpmTacticOpen = false" ng-show="cpmTacticOpen" method="post">
-                <h4>CPM Tactic (Display)</h4>
-                <div class="form-group">
-                    <label for="providerName">Provider Name</label>
-                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.cpmTactic.providerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tactic">Tactic Name</label>
-                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.cpmTactic.tacticName" required>
-                </div>
-                <div class="form-group">
-                    <label for="contractedClicks">Contracted Impressions (Monthly)</label>
-                    <input type="number" class="form-control" id="contractedClicks" placeholder="Contracted Impressions (Monthly)" ng-model="ac.cpmTactic.contractedImpressions" required>
-                </div>
-                <div class="form-group">
-                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
-                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.cpmTactic.tacticSpend" required>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form> -->
-
-            <!-- *************************************************************************** -->
-            <!-- LISTING TACTIC FORM -->
-            <!-- *************************************************************************** -->
-            <!-- <form class="tactic listingTactic" ng-submit="ac.listingTacticSubmit()" ng-init="listingTacticOpen = false" ng-show="listingTacticOpen" method="post">
-                <h4>Listing Tactic</h4>
-                <div class="form-group">
-                    <label for="providerName">Provider Name</label>
-                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.listingTactic.providerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tactic">Tactic Name</label>
-                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.listingTactic.tacticName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
-                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.listingTactic.tacticSpend" required>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form> -->
-
-
-
-            <!-- *************************************************************************** -->
-            <!-- EMAIL TACTIC FORM -->
-            <!-- *************************************************************************** -->
-            <!-- <form class="tactic emailTactic" ng-submit="ac.emailTacticSubmit()" ng-init="emailTacticOpen = false" ng-show="emailTacticOpen" method="post">
-                <h4>Email Tactic</h4>
-                <div class="form-group">
-                    <label for="providerName">Provider Name</label>
-                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.emailTactic.providerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tactic">Tactic Name</label>
-                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.emailTactic.tacticName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
-                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.emailTactic.tacticSpend" required>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form> -->
-
-
-            <!-- *************************************************************************** -->
-            <!-- FLAT-FEE TACTIC FORM -->
-            <!-- *************************************************************************** -->
-            <!-- <form class="tactic flatFeeTactic" ng-submit="ac.flatFeeTacticSubmit()" ng-init="flatFeeTacticOpen = false" ng-show="flatFeeTacticOpen" method="post">
-                <h4>Flat-Fee Tactic</h4>
-                <div class="form-group">
-                    <label for="providerName">Provider Name</label>
-                    <input type="text" class="form-control" id="providerName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tactic">Tactic Name</label>
-                    <input type="text" class="form-control" id="tactic" placeholder="Tactic" ng-model="ac.flatFeeTactic.tacticName" required>
-                </div>
-                <div class="form-group">
-                    <label for="tacticSpend">Tactic Spend (Monthly)</label>
-                    <input type="number" class="form-control" id="tacticSpend" placeholder="Tactic Spend (Monthly)" ng-model="ac.flatFeeTactic.tacticSpend" required>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form> -->
         </div>
 
 
@@ -194,7 +44,7 @@
         <div class="pieWrapper">
             <h2 class="pieTitle">{{ac.mediaPlan.clientName}}  {{ac.mediaPlan.year}}</h2>
             <!-- <div class="svgWrapper"> -->
-              <pie-chart pie-data="ac.data"></pie-chart>
+            <pie-chart pie-data="ac.data"></pie-chart>
             <!-- </div> -->
         </div>
 
@@ -220,12 +70,16 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[0]">
-                        <td contenteditable>{{item.provider_name}}{{item}}</td>
+                        <td contenteditable>{{item.provider_name}}</td>
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deletePPC(this.item)" value="">Delete</button></td>
+                        <td>
+                            <button type="button" name="button">Submit</button>
+                        </td>
+                        <td>
+                            <button type="button" name="button" ng-click="ac.deletePPC(this.item)" value="">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -247,13 +101,17 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[1]">
-                        <td contenteditable>{{item.provider_name}}{{item}}</td>
+                        <td contenteditable>{{item.provider_name}}</td>
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.impressions_contracted}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteCPM(this.item)" value="">Delete</button></td>
+                        <td>
+                            <button type="button" name="button">Submit</button>
+                        </td>
+                        <td>
+                            <button type="button" name="button" ng-click="ac.deleteCPM(this.item)" value="">Delete</button>
+                        </td>
                     </tr>
 
 
@@ -276,12 +134,16 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[2]">
-                        <td contenteditable>{{item.provider_name}}{{item}}</td>
+                        <td contenteditable>{{item.provider_name}}</td>
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteListing(this.item)" value="">Delete</button></td>
+                        <td>
+                            <button type="button" name="button">Submit</button>
+                        </td>
+                        <td>
+                            <button type="button" name="button" ng-click="ac.deleteListing(this.item)" value="">Delete</button>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -303,12 +165,16 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[3]">
-                        <td contenteditable>{{item.provider_name}}{{item}}</td>
+                        <td contenteditable>{{item.provider_name}}</td>
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" name="button">Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteEmail(this.item)" value="">Delete</button></td>
+                        <td>
+                            <button type="button" name="button">Submit</button>
+                        </td>
+                        <td>
+                            <button type="button" name="button" ng-click="ac.deleteEmail(this.item)" value="">Delete</button>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -330,21 +196,25 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[4]">
-                        <td contenteditable>{{item.provider_name}}{{item}}</td>
+                        <td contenteditable>{{item.provider_name}}</td>
                         <td contenteditable>{{item.tactic_name}}</td>
                         <td contenteditable>${{item.monthly_spend}}</td>
                         <td contenteditable>${{item.monthly_spend*12}}</td>
-                        <td><button type="button" ng-click="ac.submitNewTactic(this.item)" name="button">Submit</button></td>
-                        <td><button type="button" name="button" ng-click="ac.deleteFlatFee(this.item)">Delete</button></td>
+                        <td>
+                            <button type="button" ng-click="ac.submitNewTactic(this.item)" name="button">Submit</button>
+                        </td>
+                        <td>
+                            <button type="button" name="button" ng-click="ac.deleteFlatFee(this.item)">Delete</button>
+                        </td>
                     </tr>
 
                 </tbody>
             </table>
-            <form class="addTacticForm" ng-submit="ac.addNewTactic('flatFee', ac.selectedItem)" ng-show="ac.flatFeeFormShow" method="post">
-              <input type="text" id="ProviderName" placeholder="Provider Name">
-              <input type="text" id="tacticName" placeholder="Tactic Name">
-              <input type="text" id="monthlySpend" placeholder="Monthly Spend">
-              <input type="submit" name="button" ng-click="ac.addNewTactic('flatFee', ac.selectedItem)">
+            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.flatFeeTactic)" ng-show="ac.flatFeeFormShow" method="post">
+                <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
+                <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.flatFeeTactic.tacticName" required>
+                <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.flatFeeTactic.tacticSpend" required>
+                <input type="submit" name="button" ng-click="ac.addNewTactic('flatFee', ac.selectedItem)">
             </form>
             <button type="button" name="button" ng-click="ac.flatFeeFormShow = !ac.flatFeeFormShow">+ New Tactic</button>
 
@@ -367,9 +237,9 @@
 
 
 
-    <!-- <test-directive my-data="{{ac.data}}"></test-directive> -->
+        <!-- <test-directive my-data="{{ac.data}}"></test-directive> -->
 
 
 
-</div>
-<!-- adminBody div -->
+    </div>
+    <!-- adminBody div -->
