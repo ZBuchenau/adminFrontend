@@ -151,254 +151,29 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     }
   };
 
-
-  //==============================================================================
-  // TACTIC / MEDIA-PLAN-INFO SUBMIT FUNCTIONS
-  //==============================================================================
-
-  vm.clientSubmit = function() {
-    vm.access = false;
-
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', vm.mediaPlan)
-      .then(function(data) {
-        // console.log(data);
-        var client = data.media_plan_id;
-        vm.listingTactic.mediaPlan = client;
-        vm.flatFeeTactic.mediaPlan = client;
-        vm.emailTactic.mediaPlan = client;
-        vm.cpmTactic.mediaPlan = client;
-        vm.ppcTactic.mediaPlan = client;
-
-        mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
-          .then(function(response) {
-            vm.mediaPlanGetter()
-              .then(function(response) {
-                console.log(vm.ppcTactic);
-              });
-          }).catch(function(error) {
-            console.log(error);
-          });
-      });
-  };
-
-
-  vm.ppcTacticSubmit = function() {
-    console.log(vm.ppcTactic);
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/ppcTactics', vm.ppcTactic)
-      .then(function(response) {
-        console.log("PPC TACTIC SUBMIT RESPONSE: ", response[0]);
-        vm.ppcTactic.providerName = '';
-        vm.ppcTactic.tacticName = '';
-        vm.ppcTactic.tacticSpend = '';
-
-        vm.officialMediaPlan[0].push(response[0]);
-        console.log(vm.officialMediaPlan[0]);
-        // vm.data.push(response[0].monthly_spend);
-        //
-      }).then(function(response){
-        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
-      }).then(function(response){
-        var budget = vm.mediaPlan.clientMonthlyBudget;
-        var obj = vm.data;
-        var item = 'monthly_spend';
-
-        mediaPlanService.spendDelta(budget, obj, item)
-          .then(function(response){
-            // console.log(response);
-            vm.cumulativeSpend = response.spend;
-            vm.spendDelta = response.delta;
-            // console.log(vm.cumulativeSpend);
-            // console.log(vm.spendDelta);
-          }).then(function(){
-            vm.spendRelations();
-          }).catch(function(error){
-            console.log(error);
-          });
-      });
-  };
-
-
-  vm.cpmTacticSubmit = function() {
-    console.log(vm.cpmTactic);
-
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/cpmTactics', vm.cpmTactic)
-      .then(function(response) {
-        vm.cpmTactic.providerName = '';
-        vm.cpmTactic.tacticName = '';
-        vm.cpmTactic.contractedImpressions = '';
-        vm.cpmTactic.tacticSpend = '';
-        vm.officialMediaPlan[1].push(response[0]);
-      }).then(function(response){
-        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
-      }).then(function(response){
-        var budget = vm.mediaPlan.clientMonthlyBudget;
-        var obj = vm.data;
-        var item = 'monthly_spend';
-
-        mediaPlanService.spendDelta(budget, obj, item)
-          .then(function(response){
-            // console.log(response);
-            vm.cumulativeSpend = response.spend;
-            vm.spendDelta = response.delta;
-            // console.log(vm.cumulativeSpend);
-            // console.log(vm.spendDelta);
-          }).then(function(){
-            vm.spendRelations();
-          }).catch(function(error){
-            console.log(error);
-          });
-      });
-  };
-
-
-  vm.emailTacticSubmit = function() {
-    console.log(vm.emailTactic);
-
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/emailTactics', vm.emailTactic)
-      .then(function(response) {
-        vm.emailTactic.providerName = '';
-        vm.emailTactic.tacticName = '';
-        vm.emailTactic.tacticSpend = '';
-        vm.officialMediaPlan[3].push(response[0]);
-      }).then(function(response){
-        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
-      }).then(function(response){
-        var budget = vm.mediaPlan.clientMonthlyBudget;
-        var obj = vm.data;
-        var item = 'monthly_spend';
-
-        mediaPlanService.spendDelta(budget, obj, item)
-          .then(function(response){
-            // console.log(response);
-            vm.cumulativeSpend = response.spend;
-            vm.spendDelta = response.delta;
-            // console.log(vm.cumulativeSpend);
-            // console.log(vm.spendDelta);
-          }).then(function(){
-            vm.spendRelations();
-          }).catch(function(error){
-            console.log(error);
-          });
-      });
-  };
-
-
-  vm.flatFeeTacticSubmit = function() {
-    console.log(vm.flatFeeTactic);
-
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/flatFeeTactics', vm.flatFeeTactic)
-      .then(function(response) {
-        vm.flatFeeTactic.providerName = '';
-        vm.flatFeeTactic.tacticName = '';
-        vm.flatFeeTactic.tacticSpend = '';
-        vm.officialMediaPlan[4].push(response[0]);
-      }).then(function(response){
-        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
-      }).then(function(response){
-        var budget = vm.mediaPlan.clientMonthlyBudget;
-        var obj = vm.data;
-        var item = 'monthly_spend';
-
-        mediaPlanService.spendDelta(budget, obj, item)
-          .then(function(response){
-            // console.log(response);
-            vm.cumulativeSpend = response.spend;
-            vm.spendDelta = response.delta;
-            // console.log(vm.cumulativeSpend);
-            // console.log(vm.spendDelta);
-          }).then(function(){
-            vm.spendRelations();
-          }).catch(function(error){
-            console.log(error);
-          });
-      });
-  };
-
-
-  vm.listingTacticSubmit = function() {
-    console.log(vm.listingTactic);
-
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/listingTactics', vm.listingTactic)
-      .then(function(response) {
-        vm.listingTactic.providerName = '';
-        vm.listingTactic.tacticName = '';
-        vm.listingTactic.tacticSpend = '';
-        vm.officialMediaPlan[2].push(response[0]);
-      }).then(function(response){
-        mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
-      }).then(function(response){
-        var budget = vm.mediaPlan.clientMonthlyBudget;
-        var obj = vm.data;
-        var item = 'monthly_spend';
-
-        mediaPlanService.spendDelta(budget, obj, item)
-          .then(function(response){
-            // console.log(response);
-            vm.cumulativeSpend = response.spend;
-            vm.spendDelta = response.delta;
-            // console.log(vm.cumulativeSpend);
-            // console.log(vm.spendDelta);
-          }).then(function(){
-            vm.spendRelations();
-          }).catch(function(error){
-            console.log(error);
-          });
-      });
-  };
-
-  vm.deletePPC = function(obj){
-    obj.tactic_id = 'ppc';
-    console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj)
-    .then(function(response){
-      console.log(response);
-      var client = response.data[0];
-      console.log(client);
-      mediaPlanService.reloadTactics(server + '/users/mediaPlans/allTactics', client)
-        .then(function(response){
-          console.log(response);
-        });
-    });
-  };
-
-  vm.deleteCPM = function(obj){
-    obj.tactic_id = 'cpm';
-    console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
-  };
-
-  vm.deleteListing = function(obj){
-    obj.tactic_id = 'listings';
-    console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
-  };
-
-  vm.deleteEmail = function(obj){
-    obj.tactic_id = 'email';
-    console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj);
-  };
-
-  vm.deleteFlatFee = function(obj){
-    obj.tactic_id = 'flat_fee';
-    console.log('****************************************', obj);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', obj)
-      .then(function(response){
-        console.log(response);
-      });
-  };
-
 // *******************************************************************************
 //  Re-Starting Here
 // *******************************************************************************
+
+// =============================================================================
+// CLEAR A FORM ON SUBMISSION
+// =============================================================================
   vm.resetForm = function(formModel){
     console.log(formModel.toString());
     if(formModel !== 'cpmTactic'){
       console.log(vm[formModel]);
+      vm[formModel].providerName = null;
+      vm[formModel].tacticName = null;
+      vm[formModel].tacticSpend = null;
     } else if (formModel === 'cpmTactic'){
       console.log(vm[formModel]);
+      vm[formModel].providerName = null;
+      vm[formModel].tacticName = null;
+      vm[formModel].tacticSpend = null;
+      vm[formModel].contractedImpressions = null;
     }
   };
+
 // =============================================================================
 // ADD A NEW TACTIC TO A MEDIA PLAN
 // =============================================================================
@@ -407,19 +182,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.submitNewTactic = function(item, formName){
     //submit data to database
     console.log(item);
+    //clear the form after submission to prepare it for a new entry
     vm.resetForm(formName);
-
-    // if(formName === ppcTactic){
-    //   vm.ppcTactic.$setPristine();
-    // } else if(formName === cpmTactic){
-    //   vm.cpmTactic.$setPristine();
-    // } else if(formName === listingTactic){
-    //   vm.listingTactic.$setPristine();
-    // } else if(formName === emailTactic){
-    //   vm.email.$setPristine();
-    // } else if(formName === flatFeeTactic){
-    //   vm.flatFeeTactic.$setPristine();
-    // }
   };
 
   //==============================================================================

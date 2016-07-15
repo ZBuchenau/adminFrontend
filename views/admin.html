@@ -31,7 +31,7 @@
                 <label for="year">Media Plan Year</label>
                 <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
 
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit">Submit</button>
             </form>
 
         </div>
@@ -75,7 +75,7 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button">Submit</button>
+                            <button type="button" name="button">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deletePPC(this.item)" value="">Delete</button>
@@ -107,7 +107,7 @@
                         <td>${{item.impressions_contracted}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button">Submit</button>
+                            <button type="button" name="button">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deleteCPM(this.item)" value="">Delete</button>
@@ -139,7 +139,7 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button">Submit</button>
+                            <button type="button" name="button">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deleteListing(this.item)" value="">Delete</button>
@@ -170,7 +170,7 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button">Submit</button>
+                            <button type="button" name="button">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deleteEmail(this.item)" value="">Delete</button>
@@ -201,7 +201,7 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" ng-click="ac.submitNewTactic(this.item)" name="button">Submit</button>
+                            <button type="button" ng-click="ac.submitNewTactic(this.item)" name="button">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deleteFlatFee(this.item)">Delete</button>
@@ -214,7 +214,7 @@
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.flatFeeTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.flatFeeTactic.tacticSpend" required>
-                <input type="submit" name="button" ng-click="ac.addNewTactic('flatFee', ac.selectedItem)">
+                <input class="submitTactic" type="submit" name="button" ng-click="ac.addNewTactic('flatFee', ac.selectedItem)">
             </form>
             <button class="addTacticButton" type="button" name="button" ng-click="ac.flatFeeFormShow = !ac.flatFeeFormShow">+ New Tactic</button>
 

@@ -105,9 +105,8 @@ input {
   box-shadow: 1px 1px 6px 1px rgba(30, 33, 35, .5);
 }
 
-.addTacticButton:active,
-.addTacticButton:focus,
-.addTacticButton:active {
+/*.addTacticButton:active,
+.addTacticButton:focus {
   outline: 0;
   height: 100%;
   color: black;
@@ -121,7 +120,7 @@ input {
 .addTacticButton.active:hover {
   background-color: #ffb732;
   border: 2px solid black;
-}
+}*/
 
 .tacticFormsBox {
   position: relative;
@@ -232,4 +231,8 @@ th {
 
 .addTacticForm {
   margin-top: .3rem;
+}
+
+.submitTactic {
+  background-color: #ffb732; 
 }
