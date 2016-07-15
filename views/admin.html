@@ -70,10 +70,10 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[0]">
-                        <td contenteditable>{{item.provider_name}}</td>
-                        <td contenteditable>{{item.tactic_name}}</td>
-                        <td contenteditable>${{item.monthly_spend}}</td>
-                        <td contenteditable>${{item.monthly_spend*12}}</td>
+                        <td>{{item.provider_name}}</td>
+                        <td>{{item.tactic_name}}</td>
+                        <td>${{item.monthly_spend}}</td>
+                        <td>${{item.monthly_spend*12}}</td>
                         <td>
                             <button type="button" name="button">Submit</button>
                         </td>
@@ -83,7 +83,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="button" name="button" ng-click="ac.addNewTactic('ppc', ac.selectedItem)">+ New Tactic</button>
+            <button class="addTacticButton" type="button" name="button" ng-click="ac.addNewTactic('ppc', ac.selectedItem)">+ New Tactic</button>
 
 
             <br></br>
@@ -101,11 +101,11 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[1]">
-                        <td contenteditable>{{item.provider_name}}</td>
-                        <td contenteditable>{{item.tactic_name}}</td>
-                        <td contenteditable>${{item.monthly_spend}}</td>
-                        <td contenteditable>${{item.impressions_contracted}}</td>
-                        <td contenteditable>${{item.monthly_spend*12}}</td>
+                        <td>{{item.provider_name}}</td>
+                        <td>{{item.tactic_name}}</td>
+                        <td>${{item.monthly_spend}}</td>
+                        <td>${{item.impressions_contracted}}</td>
+                        <td>${{item.monthly_spend*12}}</td>
                         <td>
                             <button type="button" name="button">Submit</button>
                         </td>
@@ -117,7 +117,7 @@
 
                 </tbody>
             </table>
-            <button type="button" name="button" ng-click="ac.addNewTactic('cpm', ac.selectedItem)">+ New Tactic</button>
+            <button class="addTacticButton" type="button" name="button" ng-click="ac.addNewTactic('cpm', ac.selectedItem)">+ New Tactic</button>
 
 
             <br></br>
@@ -134,10 +134,10 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[2]">
-                        <td contenteditable>{{item.provider_name}}</td>
-                        <td contenteditable>{{item.tactic_name}}</td>
-                        <td contenteditable>${{item.monthly_spend}}</td>
-                        <td contenteditable>${{item.monthly_spend*12}}</td>
+                        <td>{{item.provider_name}}</td>
+                        <td>{{item.tactic_name}}</td>
+                        <td>${{item.monthly_spend}}</td>
+                        <td>${{item.monthly_spend*12}}</td>
                         <td>
                             <button type="button" name="button">Submit</button>
                         </td>
@@ -148,7 +148,7 @@
 
                 </tbody>
             </table>
-            <button type="button" name="button" ng-click="ac.addNewTactic('listing', ac.selectedItem)">+ New Tactic</button>
+            <button class="addTacticButton" type="button" name="button" ng-click="ac.addNewTactic('listing', ac.selectedItem)">+ New Tactic</button>
 
 
             <br></br>
@@ -165,10 +165,10 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[3]">
-                        <td contenteditable>{{item.provider_name}}</td>
-                        <td contenteditable>{{item.tactic_name}}</td>
-                        <td contenteditable>${{item.monthly_spend}}</td>
-                        <td contenteditable>${{item.monthly_spend*12}}</td>
+                        <td>{{item.provider_name}}</td>
+                        <td>{{item.tactic_name}}</td>
+                        <td>${{item.monthly_spend}}</td>
+                        <td>${{item.monthly_spend*12}}</td>
                         <td>
                             <button type="button" name="button">Submit</button>
                         </td>
@@ -179,7 +179,7 @@
 
                 </tbody>
             </table>
-            <button type="button" name="button" ng-click="ac.addNewTactic('email', ac.selectedItem)">+ New Tactic</button>
+            <button class="addTacticButton" type="button" name="button" ng-click="ac.addNewTactic('email', ac.selectedItem)">+ New Tactic</button>
 
 
             <br></br>
@@ -196,10 +196,10 @@
 
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[4]">
-                        <td contenteditable>{{item.provider_name}}</td>
-                        <td contenteditable>{{item.tactic_name}}</td>
-                        <td contenteditable>${{item.monthly_spend}}</td>
-                        <td contenteditable>${{item.monthly_spend*12}}</td>
+                        <td>{{item.provider_name}}</td>
+                        <td>{{item.tactic_name}}</td>
+                        <td>${{item.monthly_spend}}</td>
+                        <td>${{item.monthly_spend*12}}</td>
                         <td>
                             <button type="button" ng-click="ac.submitNewTactic(this.item)" name="button">Submit</button>
                         </td>
@@ -210,13 +210,13 @@
 
                 </tbody>
             </table>
-            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.flatFeeTactic)" ng-show="ac.flatFeeFormShow" method="post">
+            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.flatFeeTactic, 'flatFeeTactic')" ng-show="ac.flatFeeFormShow" method="post">
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.flatFeeTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.flatFeeTactic.tacticSpend" required>
                 <input type="submit" name="button" ng-click="ac.addNewTactic('flatFee', ac.selectedItem)">
             </form>
-            <button type="button" name="button" ng-click="ac.flatFeeFormShow = !ac.flatFeeFormShow">+ New Tactic</button>
+            <button class="addTacticButton" type="button" name="button" ng-click="ac.flatFeeFormShow = !ac.flatFeeFormShow">+ New Tactic</button>
 
         </div>
 

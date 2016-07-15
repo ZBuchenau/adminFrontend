@@ -391,14 +391,35 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 // *******************************************************************************
 //  Re-Starting Here
 // *******************************************************************************
-
+  vm.resetForm = function(formModel){
+    console.log(formModel.toString());
+    if(formModel !== 'cpmTactic'){
+      console.log(vm[formModel]);
+    } else if (formModel === 'cpmTactic'){
+      console.log(vm[formModel]);
+    }
+  };
 // =============================================================================
 // ADD A NEW TACTIC TO A MEDIA PLAN
 // =============================================================================
   vm.flatFeeFormShow = false;
 
-  vm.submitNewTactic = function(item){
+  vm.submitNewTactic = function(item, formName){
+    //submit data to database
     console.log(item);
+    vm.resetForm(formName);
+
+    // if(formName === ppcTactic){
+    //   vm.ppcTactic.$setPristine();
+    // } else if(formName === cpmTactic){
+    //   vm.cpmTactic.$setPristine();
+    // } else if(formName === listingTactic){
+    //   vm.listingTactic.$setPristine();
+    // } else if(formName === emailTactic){
+    //   vm.email.$setPristine();
+    // } else if(formName === flatFeeTactic){
+    //   vm.flatFeeTactic.$setPristine();
+    // }
   };
 
   //==============================================================================
