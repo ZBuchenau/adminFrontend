@@ -1,3 +1,7 @@
+html {
+  background-color: #f1f1f1;
+}
+
 div {
   margin: 0;
 }
@@ -52,7 +56,7 @@ input {
 }
 
 .sideBar {
-  background-color: #e3e7ea;
+  background-color: #47515b;
   /*box-shadow: 1px 1px .5px 1px grey;*/
   width: 15%;
   min-width: 200px;
@@ -114,6 +118,14 @@ input {
   border: 1px solid #23282d;
   padding: 8px;
   background-color: #adb7c1;
+}
+
+.clientSubmit {
+  border-radius: 4px;
+  background-color: #23282d;
+  color: #f1f1f1;
+  font-weight: 200;
+  letter-spacing: 2px;
 }
 
 .mediaPlanDD {
