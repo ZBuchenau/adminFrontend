@@ -160,12 +160,18 @@ input {
 
 .pieWrapper {
   width: 100%;
+  /*margin-left: 3rem;*/
   height: 50vh;
   z-index: -11;
   position: absolute;
   top: 0;
-  left: 35%;
+  padding-top: 0;
+  left: auto;
   text-align: center;
+}
+
+svg {
+  padding: 0;
 }
 
 .pieWrapper h2{

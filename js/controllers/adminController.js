@@ -66,23 +66,23 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   // NG-MODEL OBJECTS TO BE PUSHED TO DATABASE
   //==============================================================================
   vm.ppcTactic = {
-    type: 'ppc'
+    tacticType: 'ppc'
   };
 
   vm.cpmTactic = {
-    type: 'cpm'
+    tacticType: 'cpm'
   };
 
   vm.emailTactic = {
-    type: 'email'
+    tacticType: 'email'
   };
 
   vm.flatFeeTactic = {
-    type: 'flatFee'
+    tacticType: 'flat_fee'
   };
 
   vm.listingTactic = {
-    type: 'listing'
+    tacticType: 'listings'
   };
 
   //==============================================================================
@@ -182,8 +182,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.submitNewTactic = function(item, formName){
     //submit data to database
     console.log(item);
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/submitTactic', item)
+      .then(function(response){
+        //run function to re-populate tactics in media plans
+        console.log(response);
+        // vm.resetForm(formName);
+      });
     //clear the form after submission to prepare it for a new entry
-    vm.resetForm(formName);
+
   };
 
   //==============================================================================
