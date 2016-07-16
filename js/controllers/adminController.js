@@ -111,29 +111,23 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       mediaPlanService.reloadTactics(server + '/users/mediaPlans/allTactics', {
           mediaPlanId: vm.selectedItem
         }).then(function(response) {
-          console.log("*************", response.data);
-
           vm.officialMediaPlan = response.data;
-
           var id = response.config.data.mediaPlanId;
           mediaPlanService.getItems(server + '/users/mediaPlans/titles', {
             mediaPlanId: id
           }).then(function(response) {
             var data = response.data;
-            console.log("THIS IS THE DATA >>>>>", data);
             vm.mediaPlan = {
               mediaPlanId: data.media_plan_id,
               clientName: data.name,
               clientMonthlyBudget: parseInt(data.monthly_budget, 10),
               year: parseInt(data.year, 10)
             };
-            console.log(vm.officialMediaPlan);
             mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
           }).then(function(response){
             var budget = vm.mediaPlan.clientMonthlyBudget;
             var obj = vm.data;
             var item = 'monthly_spend';
-
             mediaPlanService.spendDelta(budget, obj, item)
               .then(function(response){
                 // console.log(response);
@@ -179,7 +173,12 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 // =============================================================================
 // ADD A NEW TACTIC TO A MEDIA PLAN
 // =============================================================================
+  vm.ppcFormShow = false;
+  vm.cpmFormShow = false;
+  vm.listingFormShow = false;
+  vm.emailFormShow = false;
   vm.flatFeeFormShow = false;
+
 
   vm.submitNewTactic = function(item, formName){
     //submit data to database
@@ -188,7 +187,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       .then(function(response){
         //run function to re-populate tactics in media plans
         console.log(response);
-        // vm.resetForm(formName);
+        console.log(vm.officialMediaPlan);
+        vm.officialMediaPlan = response;
+        vm.resetForm(formName);
       });
     //clear the form after submission to prepare it for a new entry
 
