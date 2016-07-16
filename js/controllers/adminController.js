@@ -98,7 +98,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         year: '',
       };
     } else {
+      console.log("hey");
       var client = vm.selectedItem;
+      console.log(client);
       vm.mediaPlan.id = client;
       vm.listingTactic.mediaPlan = client;
       vm.flatFeeTactic.mediaPlan = client;
@@ -125,7 +127,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
               clientMonthlyBudget: parseInt(data.monthly_budget, 10),
               year: parseInt(data.year, 10)
             };
-
+            console.log(vm.officialMediaPlan);
             mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
           }).then(function(response){
             var budget = vm.mediaPlan.clientMonthlyBudget;
