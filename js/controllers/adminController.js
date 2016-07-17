@@ -22,12 +22,19 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     return deferred.promise;
   };
 
+
   vm.mediaPlanGetter()
     .then(function(response) {
       console.log("MEDIA PLANS RETRIEVED: ", response);
     });
 
 
+  vm.clientSubmit = function(item){
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', item)
+      .then(function(response){
+        console.log(response);
+      });
+  };
   // =============================================================================
   // SHOW WHETHER OR NOT THE SPEND IS OVER OR UNDER BUDGET
   // =============================================================================
@@ -193,6 +200,16 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       });
     //clear the form after submission to prepare it for a new entry
 
+  };
+
+  vm.deleteTactic = function(item, type){
+    console.log(item);
+    console.log(type);
+    mediaPlanService.tacticDelete(server + '/users/tactics/delete', item, type)
+      .then(function(response){
+        console.log(response);
+        vm.officialMediaPlan = response;
+      });
   };
 
   //==============================================================================

@@ -16,10 +16,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
   function tacticSubmit(endPoint, obj) {
     var deferred = $q.defer();
 
-    $http.post(endPoint, {
-        data: obj,
-        token: localStorageService.get('fiveWeightAdmin')
-      })
+    $http.post(endPoint, obj)
       .success(function(response) {
         var data = response;
         deferred.resolve(data);
@@ -109,7 +106,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
   }
 
   function tacticDelete(endPoint, obj, type){
-
+    obj.tacticType = type;
     var deferred = $q.defer();
     $http.post(endPoint, obj)
       .then(success, failure)

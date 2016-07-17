@@ -18,15 +18,13 @@ function authService($q, $timeout, $http, localStorageService, server) {
     var deferred = $q.defer();
 
     if (theToken) {
-      $http.post(server + '/users/auth', {
-          token: theToken
-        })
+      $http.post(server + '/users/auth', {'check': theToken})
         .success(function(response) {
           var user = response;
           deferred.resolve(user);
         })
         .error(function(data) {
-          console.log(data);
+          console.log('ZACH ERROR', data);
         });
 
 

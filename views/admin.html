@@ -1,3 +1,4 @@
+
 <div class="header">
     <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
 </div>
@@ -21,7 +22,7 @@
                 </select>
             </div>
 
-            <form class="tactic clientInfo" ng-submit="ac.clientSubmit()" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
+            <form class="tactic clientInfo" ng-submit="ac.clientSubmit(ac.mediaPlan)" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
                 <label for="clientName">Client Name</label>
                 <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan.clientName" required>
 
@@ -78,7 +79,7 @@
                             <button type="button" name="button">Edit</button>
                         </td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.deletePPC(this.item)" value="">Delete</button>
+                            <button type="submit" name="button" ng-click="ac.deleteTactic(this.item, 'ppc')" value="">Delete</button>
                         </td>
                     </tr>
                 </tbody>
