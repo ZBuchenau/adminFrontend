@@ -117,7 +117,7 @@
                             <button type="button" name="button">Edit</button>
                         </td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.deleteCPM(this.item)" value="">Delete</button>
+                            <button type="button" name="button" ng-click="ac.deleteTactic(this.item, 'cpm')" value="">Delete</button>
                         </td>
                     </tr>
 
@@ -155,7 +155,7 @@
                             <button type="button" name="button">Edit</button>
                         </td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.deleteListing(this.item)" value="">Delete</button>
+                            <button type="button" name="button" ng-click="ac.deleteTactic(this.item, 'listings')" value="">Delete</button>
                         </td>
                     </tr>
 
@@ -192,7 +192,7 @@
                             <button type="button" name="button">Edit</button>
                         </td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.deleteEmail(this.item)" value="">Delete</button>
+                            <button type="button" name="button" ng-click="ac.deleteTactic(this.item, 'email')" value="">Delete</button>
                         </td>
                     </tr>
 
@@ -229,7 +229,7 @@
                             <button type="button" ng-click="ac.submitNewTactic(this.item)" name="button">Edit</button>
                         </td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.deleteFlatFee(this.item)">Delete</button>
+                            <button type="button" name="button" ng-click="ac.deleteTactic(this.item, 'flat_fee')">Delete</button>
                         </td>
                     </tr>
 

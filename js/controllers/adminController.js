@@ -199,7 +199,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.resetForm(formName);
       });
     //clear the form after submission to prepare it for a new entry
-
   };
 
   vm.deleteTactic = function(item, type){
@@ -207,8 +206,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     console.log(type);
     mediaPlanService.tacticDelete(server + '/users/tactics/delete', item, type)
       .then(function(response){
-        console.log(response);
-        vm.officialMediaPlan = response;
+        console.log('THIS IS THE RESPONSE: ', response);
+        vm.officialMediaPlan = response.data;
       });
   };
 
