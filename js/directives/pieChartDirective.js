@@ -20,11 +20,13 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
         height = el[0].parentElement.clientHeight,
         radius = Math.min(width, height) / 2;
 
+      var dataArray = ["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"];
+
       var svg = d3.select("pie-chart")
         .append("svg")
         .style("height", "100%")
         .style("width", "100%")
-        .style("viewBox", "[0 0 " + width*1.5 +" "+ height*1.5 + "]")
+        .style("viewBox", "[0 0 " + width * 1.5 + " " + height * 1.5 + "]")
         .style("overflow", "auto")
         .append("g");
 
@@ -36,7 +38,7 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
       svg.append("g")
         .attr("class", "lines");
 
-        console.log(el[0].parentElement.clientWidth);
+      console.log(el[0].parentElement.clientWidth);
 
 
 
@@ -60,9 +62,24 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
         return d.data.label;
       };
 
+      var getRandomColor = function(arr) {
+        console.log(arr);
+        var colors = [];
+        for (var i = 0; i < arr.length; i++) {
+          var letters = '0123456789ABCDEF'.split('');
+          var color = '#';
+          for (var j = 0; j < 6; j++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            console.log(color);
+          }
+          colors.push(color);
+        }
+        return colors;
+      };
+
       var color = d3.scale.ordinal()
-        .domain(["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"])
-        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+        .domain(dataArray)
+        .range(getRandomColor(dataArray));
 
       function randomData() {
         var labels = color.domain();
