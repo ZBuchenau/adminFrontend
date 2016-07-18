@@ -173,7 +173,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       vm[formModel].providerName = null;
       vm[formModel].tacticName = null;
       vm[formModel].tacticSpend = null;
-      vm[formModel].contractedImpressions = null;
+      vm[formModel].cost_per_thousand = null;
     }
   };
 

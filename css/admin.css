@@ -159,9 +159,9 @@ input {
 }
 
 .pieWrapper {
-  width: 100%;
-  /*margin-left: 3rem;*/
-  height: 50vh;
+  width: 80%;
+  margin-left: 10%;
+  height: 35vh;
   z-index: -11;
   position: absolute;
   top: 0;
@@ -172,6 +172,8 @@ input {
 
 svg {
   padding: 0;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .pieWrapper h2{
