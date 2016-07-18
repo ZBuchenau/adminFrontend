@@ -3,6 +3,7 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
   vm.dataTest = [1,2,3,4,5];
+  // vm.officialMediaPlan = '';
 
 // =============================================================================
 // GET THE MEDIA PLANS TO PLACE IN THE DROPDOWN MENU

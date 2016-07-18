@@ -8,7 +8,8 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     reloadTactics: reloadTactics,
     doubleLooper: doubleLooper,
     spendDelta: spendDelta,
-    tacticDelete: tacticDelete
+    tacticDelete: tacticDelete,
+    pieValueArrays: pieValueArrays
   });
 
 
@@ -150,4 +151,21 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     return deferred.promise;
   }
 
+  function pieValueArrays(info){
+    var deferred = $q.defer();
+    var arr1 = [];
+    var arr2 = [];
+    for(var i = 0; i < info.length; i++){
+      for(var j = 0; j < info[i].length; j++){
+        arr1.push(info[i][j].provider_name + " - " + info[i][j].tactic_name);
+        arr2.push(parseInt(info[i][j].monthly_spend));
+      }
+    }
+    // console.log(arr1, arr2);
+    deferred.resolve ({
+      tactics: arr1,
+      values: arr2
+    });
+    return deferred.promise;
+  }
 }
