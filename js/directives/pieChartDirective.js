@@ -110,11 +110,11 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                 //   });
 
 
-                function change(valueArray) {
+                function change(data) {
 
                   /* ------- PIE SLICES -------*/
                   var slice = svg.select(".slices").selectAll("path.slice")
-                    .data(pie(valueArray), key);
+                    .data(pie(data), key);
 
                   slice.enter()
                     .insert("path")
