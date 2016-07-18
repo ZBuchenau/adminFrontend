@@ -50,7 +50,7 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
 
       var arc = d3.svg.arc()
         .outerRadius(radius * 0.8)
-        .innerRadius(radius * 0.4);
+        .innerRadius(radius * 0.05);
 
       var outerArc = d3.svg.arc()
         .innerRadius(radius * 0.9)
@@ -70,8 +70,8 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
           var color = '#';
           for (var j = 0; j < 6; j++) {
             color += letters[Math.floor(Math.random() * 16)];
-            console.log(color);
           }
+          console.log(color);
           colors.push(color);
         }
         return colors;
@@ -198,22 +198,21 @@ app.directive('pieChart', ['d3Service', function(d3Service) {
       }
       //=============================================================================
       //=============================================================================
-
     }
   };
 
 }]);
 
-app.directive('testDirective', [function() {
-
-  return {
-    restrict: "EA",
-    scope: {
-      myData: "@"
-    },
-    link: function(scope, element, attrs) {
-      var data = scope.myData;
-      // console.log(data);
-    }
-  };
-}]);
+// app.directive('testDirective', [function() {
+//
+//   return {
+//     restrict: "EA",
+//     scope: {
+//       myData: "@",
+//     },
+//     link: function(scope, element, attrs) {
+//         var data = scope.myData;
+//         console.log(data);
+//     }
+//   };
+// }]);

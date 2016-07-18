@@ -2,6 +2,7 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
+  vm.dataTest = [1,2,3,4,5];
 
 // =============================================================================
 // GET THE MEDIA PLANS TO PLACE IN THE DROPDOWN MENU
@@ -96,6 +97,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   // MEDIA PLAN SELECTION FROM DROPDOWN
   //==============================================================================
   vm.selectItemChanged = function(item) {
+    vm.dataTest = [6,7,8,9,10];
 
     if (!vm.selectedItem) {
       vm.officialMediaPlan = '';
@@ -221,4 +223,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         console.log('User is now logged out!');
       });
   };
+
+
 }

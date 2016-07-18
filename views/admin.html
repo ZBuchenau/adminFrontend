@@ -46,7 +46,7 @@
         <div class="pieWrapper">
             <h2 class="pieTitle">{{ac.mediaPlan.clientName}}  {{ac.mediaPlan.year}}</h2>
             <!-- <div class="svgWrapper"> -->
-            <pie-chart pie-data="ac.data"></pie-chart>
+            <pie-chart pie-data="ac.officialMediaPlan"></pie-chart>
             <!-- </div> -->
         </div>
 
@@ -249,9 +249,10 @@
 
         </div>
 
-        <!-- <test-directive my-data="{{ac.data}}"></test-directive> -->
+        <!-- <test-directive my-data={{ac.officialMediaPlan}}></test-directive> -->
 
 
 
     </div>
     <!-- adminBody div -->
+{{ac.officialMediaPlan}}
