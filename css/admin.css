@@ -158,6 +158,18 @@ input {
   font-size: 95%;
 }
 
+.tacticForm {
+  display: inline;
+}
+
+.formHide {
+  display: inline;
+}
+
+.addTacticButton {
+  display: block;
+}
+
 .pieWrapper {
   width: 80%;
   margin-left: 10%;

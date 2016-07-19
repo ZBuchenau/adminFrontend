@@ -230,14 +230,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       }
   };
 
-  vm.editTacticSubmit = function(item, type){
+  vm.editTacticSubmit = function(item, type, formName){
     item.tacticType = type;
     mediaPlanService.tacticSubmit(server + '/users/tactics/edit', item)
     .then(function(response){
       console.log(response);
       if(response !== false){
         vm.officialMediaPlan = response;
-        vm.resetForm(item);
       }
     });
   };
