@@ -3,6 +3,8 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
 
+  vm.mediaPlanShow = false;
+
   //----------RETRIEVE MEDIA PLANS TO POPULATE DROPDOWN MENU----------
   vm.mediaPlanGetter = function() {
     var deferred = $q.defer();
@@ -29,7 +31,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.clientSubmit = function(item){
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', item)
       .then(function(response){
-        console.log(response);
+        vm.mediaPlanGetter()
+          .then(function(response) {
+            console.log("MEDIA PLANS RETRIEVED: ", response);
+          });
+        //TODO: repopulate form with new client
       });
   };
 
@@ -85,7 +91,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   //----------MEDIA PLAN DROPDOWN SELECTOR FUNCTION----------
   vm.selectItemChanged = function(item) {
-    vm.dataTest = [6,7,8,9,10];
 
     if (!vm.selectedItem) {
       vm.officialMediaPlan = '';
@@ -94,10 +99,12 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         clientMonthlyBudget: '',
         year: '',
       };
+      vm.mediaPlanShow = false;
     } else {
-      console.log("hey");
+      vm.mediaPlanShow = true;
+      // console.log("hey");
       var client = vm.selectedItem;
-      console.log(client);
+      console.log('CLIENT = ', client);
       vm.mediaPlan.id = client;
       vm.listingTactic.mediaPlan = client;
       vm.flatFeeTactic.mediaPlan = client;
@@ -151,14 +158,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
 //----------FORM CLEARING FUNCTION----------
   vm.resetForm = function(formModel){
-    console.log(formModel.toString());
+    // console.log(formModel.toString());
     if(formModel !== 'cpmTactic'){
-      console.log(vm[formModel]);
+      // console.log(vm[formModel]);
       vm[formModel].providerName = null;
       vm[formModel].tacticName = null;
       vm[formModel].tacticSpend = null;
     } else if (formModel === 'cpmTactic'){
-      console.log(vm[formModel]);
+      // console.log(vm[formModel]);
       vm[formModel].providerName = null;
       vm[formModel].tacticName = null;
       vm[formModel].tacticSpend = null;
@@ -176,13 +183,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   //----------ADD NEW TACTIC----------
   vm.submitNewTactic = function(item, formName){
     //submit data to database
-    console.log(item);
+    // console.log(item);
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/submitTactic', item)
       .then(function(response){
         //run function to re-populate tactics in media plans
         if(response !== false){
-          console.log(response);
-          console.log(vm.officialMediaPlan);
+          // console.log(response);
+          // console.log(vm.officialMediaPlan);
           vm.officialMediaPlan = response;
           vm.resetForm(formName);
         } else {
@@ -202,11 +209,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   //----------DELETE TACTIC----------
   vm.deleteTactic = function(item, type){
-    console.log(item);
-    console.log(type);
+    // console.log(item);
+    // console.log(type);
     mediaPlanService.tacticPost(server + '/users/tactics/delete', item, type)
       .then(function(response){
-        console.log('THIS IS THE RESPONSE: ', response);
+        // console.log('THIS IS THE RESPONSE: ', response);
         vm.officialMediaPlan = response.data;
       });
   };

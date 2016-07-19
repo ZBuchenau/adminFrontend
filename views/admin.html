@@ -43,7 +43,7 @@
         <!-- PIE CHART -->
         <!-- *************************************************************************** -->
 
-        <div class="pieWrapper">
+        <div class="pieWrapper" ng-show="ac.mediaPlanShow">
             <h2 class="pieTitle">{{ac.mediaPlan.clientName}}  {{ac.mediaPlan.year}}</h2>
             <!-- <div class="svgWrapper"> -->
             <pie-chart pie-data="{{ac.officialMediaPlan}}"></pie-chart>
@@ -54,7 +54,7 @@
         <!-- *************************************************************************** -->
         <!-- MEDIA PLAN TABLE -->
         <!-- *************************************************************************** -->
-        <div class="mediaPlanTable">
+        <div class="mediaPlanTable" ng-show="ac.mediaPlanShow">
             <h3 class="tableTitle">Media Plan By Tactic</h3>
             <h4 ng-class="{underBudget: ac.underBudget, overBudget: ac.overBudget}">
               {{ac.spendToBudget}}
