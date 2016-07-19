@@ -16,10 +16,8 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
 
           dataArray = [];
           console.log('WATCHING');
-          // console.log(newVal);
+          console.log(Math.random());
           data = JSON.parse(newVal);
-          // console.log(data);
-          // console.log(data);
           mediaPlanService.pieValueArrays(data, 'provider_name', 'tactic_name', 'monthly_spend')
             .then(function(response) {
                 console.log(response);
@@ -49,9 +47,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                 svg.append("g")
                   .attr("class", "lines");
 
-                console.log(el[0].parentElement.clientWidth);
-
-
+                // console.log(el[0].parentElement.clientWidth);
 
                 var pie = d3.layout.pie()
                   .sort(null)
@@ -73,6 +69,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                   return d.data.label;
                 };
 
+
                 var getRandomColor = function(arr) {
                   console.log(arr);
                   var colors = [];
@@ -92,25 +89,28 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                   .domain(dataArray)
                   .range(getRandomColor(dataArray));
 
+
                 function randomData() {
                   var labels = color.domain();
+                  var values = valueArray;
+                  console.log(typeof labels);
                   return labels.map(function(label) {
-                    return {
+                    var index = labels.indexOf(label);
+                    var returned = {
                       label: label,
-                      value: Math.random()
+                      value: values[index]
                     };
+                    console.log(returned);
+                    return returned;
                   });
+
                 }
 
                 change(randomData());
 
-                // d3.select(".randomize")
-                //   .on("click", function() {
-                //     change(randomData());
-                //   });
-
 
                 function change(data) {
+                  console.log(data);
 
                   /* ------- PIE SLICES -------*/
                   var slice = svg.select(".slices").selectAll("path.slice")
@@ -124,7 +124,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     .attr("class", "slice");
 
                   slice.transition()
-                    .duration(4000)
+                    .duration(1000)
                     .attrTween("d", function(d) {
                       this._current = this._current || d;
                       var interpolate = d3.interpolate(this._current, d);
