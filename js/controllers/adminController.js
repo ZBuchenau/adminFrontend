@@ -101,12 +101,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
     if (!vm.selectedItem) {
       vm.officialMediaPlan = '';
+      vm.mediaPlanShow = false;
       vm.mediaPlan = {
         clientName: '',
         clientMonthlyBudget: '',
         year: '',
       };
-      vm.mediaPlanShow = false;
+
     } else {
       vm.mediaPlanShow = true;
       // console.log("hey");
