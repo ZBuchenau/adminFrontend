@@ -77,12 +77,18 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button">Edit</button>
+                            <button type="button" name="button" ng-click="ac.editTactic(this.item, 'ppc')">Edit</button>
                         </td>
                         <td>
                             <button type="submit" name="button" ng-click="ac.deleteTactic(this.item, 'ppc')" value="">Delete</button>
                         </td>
+
                     </tr>
+                    <form class="" action="index.html" method="post">
+                      <input type="text" name="name" value="">
+                    </form>
+
+
                 </tbody>
             </table>
             <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.ppcTactic, 'ppcTactic')" ng-show="ac.ppcFormShow" method="post">

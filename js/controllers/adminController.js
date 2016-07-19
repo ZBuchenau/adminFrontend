@@ -2,12 +2,8 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
-  vm.dataTest = [1,2,3,4,5];
-  // vm.officialMediaPlan = '';
 
-// =============================================================================
-// GET THE MEDIA PLANS TO PLACE IN THE DROPDOWN MENU
-// =============================================================================
+  //----------RETRIEVE MEDIA PLANS TO POPULATE DROPDOWN MENU----------
   vm.mediaPlanGetter = function() {
     var deferred = $q.defer();
     vm.accounts = [];
@@ -24,22 +20,20 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     return deferred.promise;
   };
 
-
   vm.mediaPlanGetter()
     .then(function(response) {
       console.log("MEDIA PLANS RETRIEVED: ", response);
     });
 
-
+  //----------SUBMIT NEW CLIENT----------
   vm.clientSubmit = function(item){
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', item)
       .then(function(response){
         console.log(response);
       });
   };
-  // =============================================================================
-  // SHOW WHETHER OR NOT THE SPEND IS OVER OR UNDER BUDGET
-  // =============================================================================
+
+  //----------SHOW WHETHER OR NOT THE SPEND IS OVER OR UNDER BUDGET----------
   vm.spendRelations = function(){
     vm.data = [];
 
@@ -57,23 +51,18 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       vm.spendToBudget = '';
     }
   };
-  vm.access = true;
-  vm.toggle = false;
+
   vm.data = [];
 
 
-  //==============================================================================
-  // TITLE DATA TO BE PUSHED TO THE DATABASE AND USED IN TACTIC SUBMISSION
-  //==============================================================================
+  //----------CLIENT MEDIA PLAN OBJECT----------
   vm.mediaPlan = {
     clientName: '',
     clientMonthlyBudget: '',
     year: '',
   };
 
-  //==============================================================================
-  // NG-MODEL OBJECTS TO BE PUSHED TO DATABASE
-  //==============================================================================
+  //----------NG-MODEL OBJECTS FOR TACTICS----------
   vm.ppcTactic = {
     tacticType: 'ppc'
   };
@@ -94,9 +83,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     tacticType: 'listings'
   };
 
-  //==============================================================================
-  // MEDIA PLAN SELECTION FROM DROPDOWN
-  //==============================================================================
+  //----------MEDIA PLAN DROPDOWN SELECTOR FUNCTION----------
   vm.selectItemChanged = function(item) {
     vm.dataTest = [6,7,8,9,10];
 
@@ -157,13 +144,12 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     }
   };
 
-// *******************************************************************************
-//  Re-Starting Here
-// *******************************************************************************
 
 // =============================================================================
-// CLEAR A FORM ON SUBMISSION
+// TACTIC HANDLERS
 // =============================================================================
+
+//----------FORM CLEARING FUNCTION----------
   vm.resetForm = function(formModel){
     console.log(formModel.toString());
     if(formModel !== 'cpmTactic'){
@@ -180,43 +166,52 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     }
   };
 
-// =============================================================================
-// ADD A NEW TACTIC TO A MEDIA PLAN
-// =============================================================================
+//----------SHOW/HIDE "+ NEW TACTIC" FORMS----------
   vm.ppcFormShow = false;
   vm.cpmFormShow = false;
   vm.listingFormShow = false;
   vm.emailFormShow = false;
   vm.flatFeeFormShow = false;
 
-
+  //----------ADD NEW TACTIC----------
   vm.submitNewTactic = function(item, formName){
     //submit data to database
     console.log(item);
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/submitTactic', item)
       .then(function(response){
         //run function to re-populate tactics in media plans
-        console.log(response);
-        console.log(vm.officialMediaPlan);
-        vm.officialMediaPlan = response;
-        vm.resetForm(formName);
+        if(response !== false){
+          console.log(response);
+          console.log(vm.officialMediaPlan);
+          vm.officialMediaPlan = response;
+          vm.resetForm(formName);
+        } else {
+          alert('This Tactic Already Exists In The Database!!');
+        }
       });
-    //clear the form after submission to prepare it for a new entry
   };
 
+  //----------EDIT TACTIC----------
+  vm.editTactic = function(item, type){
+    console.log(item);
+    mediaPlanService.tacticPost(server + '/users/tactics/edit', item, type)
+      .then(function(response){
+        console.log(response);
+      });
+  };
+
+  //----------DELETE TACTIC----------
   vm.deleteTactic = function(item, type){
     console.log(item);
     console.log(type);
-    mediaPlanService.tacticDelete(server + '/users/tactics/delete', item, type)
+    mediaPlanService.tacticPost(server + '/users/tactics/delete', item, type)
       .then(function(response){
         console.log('THIS IS THE RESPONSE: ', response);
         vm.officialMediaPlan = response.data;
       });
   };
 
-  //==============================================================================
-  // LOGOUT FUNCTION
-  //==============================================================================
+  //----------LOGOUT----------
   vm.logout = function() {
     authService.logout()
       .then(function(response) {

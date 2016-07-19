@@ -8,7 +8,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     reloadTactics: reloadTactics,
     doubleLooper: doubleLooper,
     spendDelta: spendDelta,
-    tacticDelete: tacticDelete,
+    tacticPost: tacticPost,
     pieValueArrays: pieValueArrays
   });
 
@@ -106,7 +106,7 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     return deferred.promise;
   }
 
-  function tacticDelete(endPoint, obj, type){
+  function tacticPost(endPoint, obj, type){
     obj.tacticType = type;
     var deferred = $q.defer();
     $http.post(endPoint, obj)
@@ -127,6 +127,28 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
 
       return deferred.promise;
   }
+
+  // function tacticDelete(endPoint, obj, type){
+  //   obj.tacticType = type;
+  //   var deferred = $q.defer();
+  //   $http.post(endPoint, obj)
+  //     .then(success, failure)
+  //     .catch(function(error){
+  //       console.log(error);
+  //     });
+  //
+  //     function success(response){
+  //       console.log(response);
+  //       deferred.resolve(response);
+  //     }
+  //
+  //     function failure(response){
+  //       console.log(response);
+  //       deferred.reject(response);
+  //     }
+  //
+  //     return deferred.promise;
+  // }
 
   function reloadTactics(endpoint, obj){
     var deferred = $q.defer();
@@ -161,7 +183,6 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
         arr2.push(parseInt(info[i][j].monthly_spend));
       }
     }
-    // console.log(arr1, arr2);
     deferred.resolve ({
       tactics: arr1,
       values: arr2
