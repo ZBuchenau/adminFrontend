@@ -77,26 +77,33 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.editTactic(this.item, 'ppc')">Edit</button>
+                            <button type="button" name="button" ng-click="ac.editTactic(this.item, 'ppc'); ac.showEditPPC = true;">Edit</button>
                         </td>
                         <td>
-                            <button type="submit" name="button" ng-click="ac.deleteTactic(this.item, 'ppc')" value="">Delete</button>
+                            <button type="submit" name="button" ng-click="ac.deleteTactic(this.item, 'ppc')">Delete</button>
                         </td>
 
                     </tr>
-                    <form class="" action="index.html" method="post">
-                      <input type="text" name="name" value="">
-                    </form>
-
-
                 </tbody>
             </table>
+
+            <form class="" name="editPPCForm" ng-show="ac.showEditPPC" ng-model="ac.ppcEdit" ng-submit="ac.editTacticSubmit(ac.ppcEdit, 'ppc')" method="post">
+              <label for="editForm">Edit Tactic: </label>
+              <input type="text" name="name" ng-model="ac.ppcEdit.provider_name">
+              <input type="text" name="name" ng-model="ac.ppcEdit.tactic_name">
+              <input type="decimal" name="name" ng-model="ac.ppcEdit.monthly_spend">
+              <input class="submitTactic" type="submit">
+            </form>
+
+            <span>
             <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.ppcTactic, 'ppcTactic')" ng-show="ac.ppcFormShow" method="post">
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.ppcTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.ppcTactic.tacticSpend" required>
-                <input class="submitTactic" type="submit" name="button" ng-click="ac.addNewTactic('ppc', ac.selectedItem)">
+                <input class="submitTactic" type="submit" name="button">
             </form>
+            <button type="button" name="button" ng-show="ac.showEditPPC" ng-click="ac.showEditPPC = false">Hide Edit</button>
+          </span>
             <button class="addTacticButton" type="button" name="button" ng-click="ac.ppcFormShow = !ac.ppcFormShow">+ New Tactic</button>
 
 
@@ -138,7 +145,7 @@
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.cpmTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.cpmTactic.tacticSpend" required>
                 <input type="decimal" id="cpm" placeholder="CPM" ng-model="ac.cpmTactic.cost_per_thousand" required>
-                <input class="submitTactic" type="submit" name="button" ng-click="ac.addNewTactic('cpm', ac.selectedItem)">
+                <input class="submitTactic" type="submit" name="button">
             </form>
             <button class="addTacticButton" type="button" name="button" ng-click="ac.cpmFormShow = !ac.cpmFormShow">+ New Tactic</button>
 
@@ -175,7 +182,7 @@
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.listingTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.listingTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.listingTactic.tacticSpend" required>
-                <input class="submitTactic" type="submit" name="button" ng-click="ac.addNewTactic('listing', ac.selectedItem)">
+                <input class="submitTactic" type="submit" name="button">
             </form>
             <button class="addTacticButton" type="button" name="button" ng-click="ac.listingFormShow = !ac.listingFormShow">+ New Tactic</button>
 
@@ -212,7 +219,7 @@
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.emailTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.emailTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.emailTactic.tacticSpend" required>
-                <input class="submitTactic" type="submit" name="button" ng-click="ac.addNewTactic('email', ac.selectedItem)">
+                <input class="submitTactic" type="submit" name="button">
             </form>
             <button class="addTacticButton" type="button" name="button" ng-click="ac.emailFormShow = !ac.emailFormShow">+ New Tactic</button>
 
@@ -249,7 +256,7 @@
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.flatFeeTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.flatFeeTactic.tacticSpend" required>
-                <input class="submitTactic" type="submit" name="button" ng-click="ac.addNewTactic('flatFee', ac.selectedItem)">
+                <input class="submitTactic" type="submit" name="button">
             </form>
             <button class="addTacticButton" type="button" name="button" ng-click="ac.flatFeeFormShow = !ac.flatFeeFormShow">+ New Tactic</button>
 

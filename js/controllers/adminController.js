@@ -4,6 +4,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   var vm = this;
 
   vm.mediaPlanShow = false;
+  vm.showEditPPC = false;
+  vm.showEditCPM = false;
+  vm.showEditListing = false;
+  vm.showEditEmail = false;
+  vm.showEditFlatFee = false;
+
+
 
   //----------RETRIEVE MEDIA PLANS TO POPULATE DROPDOWN MENU----------
   vm.mediaPlanGetter = function() {
@@ -188,8 +195,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       .then(function(response){
         //run function to re-populate tactics in media plans
         if(response !== false){
-          // console.log(response);
-          // console.log(vm.officialMediaPlan);
           vm.officialMediaPlan = response;
           vm.resetForm(formName);
         } else {
@@ -199,12 +204,42 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   //----------EDIT TACTIC----------
+  vm.ppcEdit = {};
+  vm.cpmEdit = {};
+  vm.listingsEdit = {};
+  vm.emailEdit = {};
+  vm.flatFeeEdit = {};
+
   vm.editTactic = function(item, type){
-    console.log(item);
-    mediaPlanService.tacticPost(server + '/users/tactics/edit', item, type)
-      .then(function(response){
-        console.log(response);
-      });
+      console.log(type + 'Edit');
+      if(type === 'ppc'){
+        // vm.showEditPPC = !vm.showEditPPC;
+        vm.ppcEdit = angular.copy(item);
+      } else if (type === 'cpm'){
+        vm.showEditCPM = !vm.showEditCPM;
+        vm.cpmEdit = angular.copy(item);
+      } else if (type === 'listing'){
+        vm.showEditListing = !vm.showEditListing;
+        vm.listingsEdit = angular.copy(item);
+      } else if (type === 'email'){
+        vm.showEditEmail = !vm.showEditPPC;
+        vm.emailEdit = angular.copy(item);
+      } else if (type === 'flatFee'){
+        vm.showEditFlatFee = !vm.showEditPPC;
+        vm.flatFeeEdit = angular.copy(item);
+      }
+  };
+
+  vm.editTacticSubmit = function(item, type){
+    item.tacticType = type;
+    mediaPlanService.tacticSubmit(server + '/users/tactics/edit', item)
+    .then(function(response){
+      console.log(response);
+      if(response !== false){
+        vm.officialMediaPlan = response;
+        vm.resetForm(item);
+      }
+    });
   };
 
   //----------DELETE TACTIC----------
