@@ -1,0 +1,11 @@
+<div class="tacticFormContainer">
+  <form class="tacticForm" ng-submit="ac.submitNewTactic(ac.ppcTactic, 'ppcTactic')" ng-show="ac.ppcFormShow" method="post">
+      <label for="editForm">Add Tactic: </label>
+      <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName" required>
+      <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.ppcTactic.tacticName" required>
+      <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.ppcTactic.tacticSpend" required>
+      <input class="submitTactic" type="submit" name="button">
+  </form>
+  <button class="formHide" type="button" name="button" ng-show="ac.ppcFormShow" ng-click="ac.ppcFormShow = false">X</button>
+</div>
+<button class="addTacticButton" type="button" name="button" ng-show="!ac.ppcFormShow" ng-click="ac.ppcFormShow = true">+ New Tactic</button>

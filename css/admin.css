@@ -1,6 +1,6 @@
-html {
+/*html {
   background-color: #f1f1f1;
-}
+}*/
 
 div {
   margin: 0;
@@ -164,6 +164,11 @@ input {
 
 .formHide {
   display: inline;
+  border: .2rem outset red;
+  color: red;
+  font-size: 100%;
+  font-weight: 900;
+  width: 5rem;
 }
 
 .addTacticButton {
@@ -185,12 +190,15 @@ input {
 .pieWrapper pie-chart svg {
   padding: 0;
   width: 80%;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .pieWrapper h2{
   margin: 0;
+  width: 50%;
   font-size: 130%;
+  margin-left: 25vw;
+
   /*border: .1rem solid black;*/
 }
 

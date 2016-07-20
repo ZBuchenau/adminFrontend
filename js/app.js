@@ -24,7 +24,7 @@ app.run(function($rootScope, $location, $route, authService, localStorageService
               });
           } else if (!response && next.access.restricted) {
             console.log('That path is Restricted! User Must Sign Up.');
-            $location.path('/login');
+            $location.path('/');
           } else if(!response && !next.access.restricted) {
             $location.path(next.originalPath);
           }

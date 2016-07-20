@@ -4,7 +4,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
   return {
     restrict: "E",
     // template: "<svg width='500' height='500'></svg>",
-    replace: false,
+    replace: true,
     scope: {
       pieData: "@"
     },
@@ -144,8 +144,8 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
 
                   text.enter()
                     .append("text")
-                    .attr("dy", ".35em")
-                    .style("font-size", "80%")
+                    .attr("dy", ".3em")
+                    .style("font-size", "100%")
                     .text(function(d) {
                       return d.data.label;
                     });

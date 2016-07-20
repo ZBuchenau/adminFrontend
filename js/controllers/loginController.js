@@ -4,11 +4,12 @@ app.controller('loginController', ['$scope', '$http', 'server', 'localStorageSer
 function loginController($scope, $http, server, localStorageService, authService, $location){
   var vm = this;
 
-  vm.user = {};
-  vm.user.email = 'ZBuchenau@yahoo.com';
-  vm.user.password = '12345';
 
-  vm.submit = function(){
+
+  vm.submitLogin = function(){
+    vm.user = {};
+    vm.user.email = 'ZBuchenau@yahoo.com';
+    vm.user.password = '12345';
 
     $scope.error = false;
     $scope.disabled = true;

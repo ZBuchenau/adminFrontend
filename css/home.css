@@ -1,0 +1,155 @@
+/* grey = #3d3e40
+orange = #ee6927
+lightGrey = #d1d3d4
+*/
+#homePageContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  background-color: #23282d;
+}
+#homePageContainer svg{
+  height: 35vh;
+  position: absolute;
+  bottom: 55%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 0;
+}
+
+
+.layer2WavyLine {
+  fill: none;
+}
+.layer2Rect {
+  stroke-width: 5px;
+  stroke: #d1d3d4;
+  fill: none;
+}
+/*.layer2Rect,*/
+.layer2WavyLine {
+  stroke: #231f20;
+}
+.layer1Rect,
+.layer1WavyLine,
+.layer2Rect,
+.layer2WavyLine {
+  stroke-miterlimit: 10;
+}
+/*.layer2Rect {
+  stroke-width: 5px;
+  fill: #3d3e40;
+}*/
+
+.letters {
+  fill: #d1d3d4;
+  /*stroke-width: 5px;
+  stroke: #3d3e40;*/
+}
+.number5 {
+  fill: #ee6927;
+  /*stroke-width: 5px;
+  stroke: #3d3e40;*/
+}
+.layer2WavyLine {
+  fill: none;
+  stroke-width: 3px;
+  stroke:  #d1d3d4;
+}
+
+
+.layer2Rect, .layer2WavyLine, .number5, .letters {
+  stroke-dasharray: 2450;
+  stroke-dashoffset: 2450;
+  animation: 3.5s logo-outline forwards;
+}
+
+@keyframes logo-outline {
+  from {
+    stroke-dashoffset: 2450;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.userButtons {
+  width: 100%;
+  position: absolute;
+  bottom: 47%;
+  margin-top: 1rem;
+}
+
+.userButton {
+  width: 25%;
+  position: relative;
+  top: 0;
+  bottom:0;
+  left:25%;
+  border: 2px solid #d1d3d4;
+  background-color: transparent;
+  border-radius: 5px;
+  color: #ee6927;
+  font-size: 2rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.userButton:hover,
+.userButton:active,
+.userButton:focus,
+.userButton:visited {
+  border-color: #ee6927;
+  outline: 0;
+}
+
+.forms {
+  /*border: .1rem solid white;*/
+  width: 50%;
+  height: 45%;
+  position: relative;
+  top: 53%;
+  margin-left: 25%;
+}
+
+.signUpFormDiv {
+  width: 45%;
+  position: absolute;
+  top: 0;
+  right: 50%;
+
+  margin-right: 2rem;
+}
+
+.logInFormDiv {
+  width: 45%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  margin-left: 2rem;
+}
+
+.homeFormLabel {
+  color: #d1d3d4;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+}
+
+
+
+
+
+/*

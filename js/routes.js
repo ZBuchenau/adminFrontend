@@ -2,15 +2,9 @@
 app.config(function($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: '../views/signup.html',
-    controller: 'signupController as sc',
-    css: 'css/homePage.css',
-    access: {restricted: false}
-  })
-  .when('/login', {
-    templateUrl: '../views/login.html',
-    controller: 'loginController as lc',
-    css: 'css/homePage.css',
+    templateUrl: '../views/home.html',
+    controller: 'homeController as hc',
+    css: 'css/home.css',
     access: {restricted: false}
   })
   .when('/logout', {
