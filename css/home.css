@@ -13,6 +13,7 @@ lightGrey = #d1d3d4
   width: 100%;
   background-color: #23282d;
 }
+
 #homePageContainer svg{
   height: 35vh;
   position: absolute;
@@ -27,6 +28,7 @@ lightGrey = #d1d3d4
 .layer2WavyLine {
   fill: none;
 }
+
 .layer2Rect {
   stroke-width: 5px;
   stroke: #d1d3d4;
@@ -36,6 +38,7 @@ lightGrey = #d1d3d4
 .layer2WavyLine {
   stroke: #231f20;
 }
+
 .layer1Rect,
 .layer1WavyLine,
 .layer2Rect,
@@ -52,11 +55,13 @@ lightGrey = #d1d3d4
   /*stroke-width: 5px;
   stroke: #3d3e40;*/
 }
+
 .number5 {
   fill: #ee6927;
   /*stroke-width: 5px;
   stroke: #3d3e40;*/
 }
+
 .layer2WavyLine {
   fill: none;
   stroke-width: 3px;
