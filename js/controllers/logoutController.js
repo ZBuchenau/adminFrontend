@@ -6,7 +6,7 @@ function logoutController($scope, $http, server, localStorageService){
 
   authService.logout()
     .then(function(){
-      $location.path('/login');
+      $location.path('/');
     });
 
 }

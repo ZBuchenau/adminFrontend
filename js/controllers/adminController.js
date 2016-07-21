@@ -257,7 +257,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.logout = function() {
     authService.logout()
       .then(function(response) {
-        $location.path('/login');
+        $location.path('/');
         console.log('User is now logged out!');
       });
   };

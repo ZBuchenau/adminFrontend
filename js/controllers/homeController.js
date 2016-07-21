@@ -39,9 +39,6 @@ function homeController($scope, $http, server, localStorageService, $q, $locatio
 
 
   vm.submitLogin = function() {
-    vm.user = {};
-    vm.user.email = 'ZBuchenau@yahoo.com';
-    vm.user.password = '12345';
 
     $scope.error = false;
     $scope.disabled = true;
