@@ -30,7 +30,7 @@ input {
 .header {
   background-color: #23282d;
   /*box-shadow: 6px 1px 6px .5px rgba(30, 33, 35, .95);*/
-  border-bottom: 2px solid #ee6927;
+  border-bottom: 3px solid rgba(238, 105, 39, .8);
   display: block;
   float: left;
   position: fixed;
