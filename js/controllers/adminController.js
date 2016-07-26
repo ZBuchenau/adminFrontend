@@ -110,7 +110,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
     } else {
       vm.mediaPlanShow = true;
-      // console.log("hey");
+
       var client = vm.selectedItem;
       console.log('CLIENT = ', client);
       vm.mediaPlan.id = client;
