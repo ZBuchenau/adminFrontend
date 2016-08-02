@@ -10,9 +10,7 @@ function addTactic($q, mediaPlanService){
       providerModel : "@",
       tacticModel : "@",
       spendModel : "@",
-      cancelButtonShow : "@",
-
-
+      cancelButtonShow : "@"
     },
     templateUrl: '../../views/addTacticForm.html'
   };
