@@ -9,7 +9,8 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     doubleLooper: doubleLooper,
     spendDelta: spendDelta,
     tacticPost: tacticPost,
-    pieValueArrays: pieValueArrays
+    pieValueArrays: pieValueArrays,
+    deleteTacticAlert: deleteTacticAlert
   });
 
 
@@ -165,6 +166,17 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
       tactics: arr1,
       values: arr2
     });
+    return deferred.promise;
+  }
+
+  function deleteTacticAlert(message){
+    var deferred = $q.defer();
+    var retVal = confirm(message);
+    if (retVal === true){
+      deferred.resolve(true);
+    } else {
+      deferred.resolve(false);
+    }
     return deferred.promise;
   }
 }

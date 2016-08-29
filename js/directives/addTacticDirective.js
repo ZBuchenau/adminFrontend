@@ -1,20 +1,20 @@
-app.directive('addTactic', ['$q', 'mediaPlanService', addTactic]);
-
-function addTactic($q, mediaPlanService){
-  return {
-    restrict: "E",
-    replace: true,
-    scope : {
-      submitFunction : "@",
-      showModel : "@",
-      providerModel : "@",
-      tacticModel : "@",
-      spendModel : "@",
-      cancelButtonShow : "@"
-    },
-    templateUrl: '../../views/addTacticForm.html'
-  };
-}
+// app.directive('add-tactic', ['$q', 'mediaPlanService', addTactic]);
+//
+// function addTactic($q, mediaPlanService){
+//   return {
+//     restrict: "E",
+//     templateUrl: '../../views/addTacticForm.html',
+//     replace: true,
+//     scope : {
+//       submitFunction : "=",
+//       showModel : "=",
+//       providerModel : "=",
+//       tacticModel : "=",
+//       spendModel : "=",
+//       cancelButtonShow : "="
+//     }
+//   };
+// }
 
 
 // <div class="tacticFormContainer">

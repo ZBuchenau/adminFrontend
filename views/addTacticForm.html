@@ -1,24 +1,12 @@
-<!-- <div class="tacticFormContainer">
-  <form class="tacticForm" ng-submit="ac.submitNewTactic(ac.ppcTactic, 'ppcTactic')" ng-show="ac.ppcFormShow" method="post">
-      <label for="editForm">Add Tactic: </label>
-      <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.ppcTactic.providerName" required>
-      <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.ppcTactic.tacticName" required>
-      <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.ppcTactic.tacticSpend" required>
-      <input class="submitTactic" type="submit" name="button">
-  </form>
-  <button class="formHide" type="button" name="button" ng-show="ac.ppcFormShow" ng-click="ac.ppcFormShow = false">X</button>
-</div>
-<button class="addTacticButton" type="button" name="button" ng-show="!ac.ppcFormShow" ng-click="ac.ppcFormShow = true">+ New Tactic</button> -->
-
-
+<!--
 <div class="tacticFormContainer">
-  <form name="editForm" class="tacticForm" ng-submit="{{submitFunction}}" ng-show="{{showModel}}" method="post">
+  <form class="tacticForm" ng-submit="submitFunction" ng-show="showModel" method="post">
       <label for="editForm">Add Tactic: </label>
-      <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="{{providerModel}}" required>
-      <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="{{tacticModel}}" required>
-      <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="{{spendModel}}" required>
+      <input type="text" placeholder="Provider Name" ng-model="providerModel" required>
+      <input type="text" placeholder="Tactic Name" ng-model="tacticModel" required>
+      <input type="number" placeholder="Monthly Spend" ng-model="spendModel" required>
       <input class="submitTactic" type="submit" name="button">
   </form>
-  <button class="formHide" type="button" name="button" ng-show="{{showModel}}" ng-click="{{showModel}} = false">X</button>
+  <button class="formHide" type="button" name="button" ng-show="cancelButtonShow" ng-click="cancelButtonShow = false">X</button>
 </div>
-<button class="addTacticButton" type="button" name="button" ng-show="!{{showModel}}" ng-click="{{showModel}} = true">+ New Tactic</button>
+<button class="addTacticButton" type="button" name="button" ng-show="!cancelButtonShow" ng-click="cancelButtonShow = true">+ New Tactic</button> -->

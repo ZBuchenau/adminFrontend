@@ -246,11 +246,17 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.deleteTactic = function(item, type){
     // console.log(item);
     // console.log(type);
-    mediaPlanService.tacticPost(server + '/users/tactics/delete', item, type)
-      .then(function(response){
-        // console.log('THIS IS THE RESPONSE: ', response);
-        vm.officialMediaPlan = response.data;
-      });
+    mediaPlanService.deleteTacticAlert('Are you sure you want to DELETE this tactic?')
+    .then(function(response){
+      if(response === true){
+        mediaPlanService.tacticPost(server + '/users/tactics/delete', item, type)
+          .then(function(response){
+            vm.officialMediaPlan = response.data;
+          });
+      } else {
+        console.log("DELETE TACTIC CANCELLED");
+      }
+    });
   };
 
   //----------LOGOUT----------
