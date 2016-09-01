@@ -212,7 +212,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.flatFeeEdit = {};
 
   vm.editTactic = function(item, type){
-      console.log(type + 'Edit');
+      console.log(type + ':::::::::::::::::Edit');
       if(type === 'ppc'){
         // vm.showEditPPC = !vm.showEditPPC;
         vm.ppcEdit = angular.copy(item);
@@ -224,7 +224,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         // vm.showEditListing = !vm.showEditListing;
         vm.listingsEdit = angular.copy(item);
       } else if (type === 'email'){
-        vm.showEditEmail = !vm.showEditEmail;
+        // vm.showEditEmail = !vm.showEditEmail;
         vm.emailEdit = angular.copy(item);
       } else if (type === 'flatFee'){
         // vm.showEditFlatFee = !vm.showEditFlatFee;
@@ -232,7 +232,8 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       }
   };
 
-  vm.editTacticSubmit = function(item, type, formName){
+  vm.editTacticSubmit = function(item, type){
+    console.log('THIS IS THE ITEM!!!!!!!!!', item);
     item.tacticType = type;
     mediaPlanService.tacticSubmit(server + '/users/tactics/edit', item)
     .then(function(response){
