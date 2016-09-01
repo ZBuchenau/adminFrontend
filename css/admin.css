@@ -174,10 +174,11 @@ input {
   font-size: 100%;
   font-weight: 900;
   width: 5rem;
+  margin-top: .5rem;
 }
 
 .addTacticButton {
-  display: block;
+  display: inline;
 }
 
 .pieWrapper {

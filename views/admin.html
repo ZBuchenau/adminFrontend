@@ -59,6 +59,7 @@
               {{ac.spendToBudget}}
             </h4>
 
+<!-- ***************************************************************************************************************************************************** -->
             <!-- PPC TABLE -->
             <table class="tacticTable" id="ppcTactics">
                 <thead>
@@ -105,9 +106,9 @@
               <button class="formHide" type="button" name="button" ng-show="ac.ppcFormShow" ng-click="ac.ppcFormShow = false">X</button>
             </div>
             <button class="addTacticButton" type="button" name="button" ng-show="!ac.ppcFormShow" ng-click="ac.ppcFormShow = true">+ New Tactic</button>
-<!-- ***************************************************************************************************************************************************** -->
             <br></br>
 
+<!-- ***************************************************************************************************************************************************** -->
             <!-- CPM TABLE -->
             <table class="tacticTable" id="cpmTactics">
                 <thead>
@@ -153,7 +154,7 @@
             </div>
 
             <div class="tacticFormContainer">
-            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.cpmTactic, 'cpmTactic')" ng-show="ac.cpmFormShow" method="post">
+            <form class="tacticForm" ng-submit="ac.submitNewTactic(ac.cpmTactic, 'cpmTactic')" ng-show="ac.cpmFormShow" method="post">
                 <label for="editForm">Add Tactic: </label>
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.cpmTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.cpmTactic.tacticName" required>
@@ -165,9 +166,9 @@
             </div>
             <button class="addTacticButton" type="button" name="button" ng-show="!ac.cpmFormShow" ng-click="ac.cpmFormShow = true">+ New Tactic</button>
 
-
             <br></br>
 
+<!-- ***************************************************************************************************************************************************** -->
             <!-- LISTINGS TABLE -->
             <table class="tacticTable" id="listingTactics">
                 <thead>
@@ -185,7 +186,7 @@
                         <td>${{item.monthly_spend}}</td>
                         <td>${{item.monthly_spend*12}}</td>
                         <td>
-                            <button type="button" name="button">Edit</button>
+                          <button type="button" name="button" ng-click="ac.editTactic(this.item, 'listing'); ac.showEditListing = true;">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deleteTactic(this.item, 'listings')" value="">Delete</button>
@@ -194,8 +195,21 @@
 
                 </tbody>
             </table>
+
             <div class="tacticFormContainer">
-            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.listingTactic, 'listingTactic')" ng-show="ac.listingFormShow" method="post">
+              <form class="tacticForm" name="editlistingForm" ng-show="ac.showEditListing" ng-model="ac.listingsEdit" ng-submit="ac.editTacticSubmit(ac.listingsEdit, 'listing', 'listingTactic')" method="post">
+                  <label for="editForm">Edit Tactic: </label>
+                  <input type="text" name="name" ng-model="ac.listingsEdit.provider_name">
+                  <input type="text" name="name" ng-model="ac.listingsEdit.tactic_name">
+                  <input type="decimal" name="name" ng-model="ac.listingsEdit.monthly_spend">
+                  <input class="submitTactic" type="submit">
+              </form>
+              <button class="formHide" type="button" name="button" ng-show="ac.showEditListing" ng-click="ac.showEditListing = false">X</button>
+            </div>
+
+            <div class="tacticFormContainer">
+            <form class="tacticForm" ng-submit="ac.submitNewTactic(ac.listingTactic, 'listingTactic')" ng-show="ac.listingFormShow" method="post">
+                <label for="tacticForm">Add Tactic: </label>
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.listingTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.listingTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.listingTactic.tacticSpend" required>
@@ -207,6 +221,7 @@
 
             <br></br>
 
+<!-- ***************************************************************************************************************************************************** -->
             <!-- EMAIL TABLE -->
             <table class="tacticTable" id="emailTactics">
                 <thead>
@@ -233,17 +248,20 @@
 
                 </tbody>
             </table>
-            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.emailTactic, 'emailTactic')" ng-show="ac.emailFormShow" method="post">
+            <div class="tacticFormContainer">
+            <form class="tacticForm" ng-submit="ac.submitNewTactic(ac.emailTactic, 'emailTactic')" ng-show="ac.emailFormShow" method="post">
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.emailTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.emailTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.emailTactic.tacticSpend" required>
                 <input class="submitTactic" type="submit" name="button">
             </form>
-            <button class="addTacticButton" type="button" name="button" ng-click="ac.emailFormShow = !ac.emailFormShow">+ New Tactic</button>
-
+            <button class="formHide" type="button" name="button" ng-show="ac.emailFormShow" ng-click="ac.emailFormShow = false">X</button>
+            <div>
+            <button class="addTacticButton" type="button" name="button" ng-show="!ac.emailFormShow" ng-click="ac.emailFormShow = true">+ New Tactic</button>
 
             <br></br>
 
+<!-- ***************************************************************************************************************************************************** -->
             <!-- FLAT-FEE TABLE -->
             <table class="tacticTable" id="flatFeeTactics">
                 <thead>
@@ -270,14 +288,16 @@
 
                 </tbody>
             </table>
-            <form class="addTacticForm" ng-submit="ac.submitNewTactic(ac.flatFeeTactic, 'flatFeeTactic')" ng-show="ac.flatFeeFormShow" method="post">
+            <div class="tacticFormContainer">
+            <form class="tacticForm" ng-submit="ac.submitNewTactic(ac.flatFeeTactic, 'flatFeeTactic')" ng-show="ac.flatFeeFormShow" method="post">
                 <input type="text" id="ProviderName" placeholder="Provider Name" ng-model="ac.flatFeeTactic.providerName" required>
                 <input type="text" id="tacticName" placeholder="Tactic Name" ng-model="ac.flatFeeTactic.tacticName" required>
                 <input type="number" id="monthlySpend" placeholder="Monthly Spend" ng-model="ac.flatFeeTactic.tacticSpend" required>
                 <input class="submitTactic" type="submit" name="button">
             </form>
-            <button class="addTacticButton" type="button" name="button" ng-click="ac.flatFeeFormShow = !ac.flatFeeFormShow">+ New Tactic</button>
-
+            <button class="formHide" type="button" name="button" ng-show="ac.flatFeeFormShow" ng-click="ac.flatFeeFormShow = false">X</button>
+            <div>
+            <button class="addTacticButton" type="button" name="button" ng-show="!ac.flatFeeFormShow" ng-click="ac.flatFeeFormShow = true">+ New Tactic</button>
         </div>
 
         <!-- <test-directive my-data="{{ac.officialMediaPlan}}"></test-directive> -->
