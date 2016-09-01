@@ -177,6 +177,10 @@ input {
   margin-top: .5rem;
 }
 
+.tacticField {
+  width: 15%;
+}
+
 .addTacticButton {
   display: inline;
 }
