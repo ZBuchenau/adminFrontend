@@ -68,7 +68,6 @@
                     <th>Monthly Spend</th>
                     <th>Annual Total</th>
                 </thead>
-
                 <tbody>
                     <tr ng-repeat="item in ac.officialMediaPlan[0]">
                         <td>{{item.provider_name}}</td>
@@ -81,7 +80,6 @@
                         <td>
                             <button type="submit" name="button" ng-click="ac.deleteTactic(this.item, 'ppc')">Delete</button>
                         </td>
-
                     </tr>
                 </tbody>
             </table>
@@ -148,6 +146,7 @@
                   <input type="text" name="name" ng-model="ac.cpmEdit.provider_name">
                   <input type="text" name="name" ng-model="ac.cpmEdit.tactic_name">
                   <input type="decimal" name="name" ng-model="ac.cpmEdit.monthly_spend">
+                  <input type="decimal" name="name" ng-model="ac.cpmEdit.cost_per_thousand">
                   <input class="submitTactic" type="submit">
               </form>
               <button class="formHide" type="button" name="button" ng-show="ac.showEditCPM" ng-click="ac.showEditCPM = false">X</button>

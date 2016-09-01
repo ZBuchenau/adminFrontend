@@ -217,8 +217,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         // vm.showEditPPC = !vm.showEditPPC;
         vm.ppcEdit = angular.copy(item);
       } else if (type === 'cpm'){
-        vm.showEditCPM = !vm.showEditCPM;
+        // vm.showEditCPM = !vm.showEditCPM;
         vm.cpmEdit = angular.copy(item);
+        console.log("^^^^^^^^^^^^^^^", vm.cpmEdit);
       } else if (type === 'listing'){
         vm.showEditListing = !vm.showEditListing;
         vm.listingsEdit = angular.copy(item);
