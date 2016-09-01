@@ -221,13 +221,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.cpmEdit = angular.copy(item);
         console.log("^^^^^^^^^^^^^^^", vm.cpmEdit);
       } else if (type === 'listing'){
-        vm.showEditListing = !vm.showEditListing;
+        // vm.showEditListing = !vm.showEditListing;
         vm.listingsEdit = angular.copy(item);
       } else if (type === 'email'){
-        vm.showEditEmail = !vm.showEditPPC;
+        vm.showEditEmail = !vm.showEditEmail;
         vm.emailEdit = angular.copy(item);
       } else if (type === 'flatFee'){
-        vm.showEditFlatFee = !vm.showEditPPC;
+        // vm.showEditFlatFee = !vm.showEditFlatFee;
         vm.flatFeeEdit = angular.copy(item);
       }
   };
