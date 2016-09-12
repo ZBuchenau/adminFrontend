@@ -175,7 +175,8 @@
                     <h4>Listing Tactics</h4>
                     <th>Provider</th>
                     <th>Tactic</th>
-                    <th>Monthly Spend</th>
+                    <th>Spend Per Comm.</th>
+                    <th># Communities</th>
                     <th>Annual Total</th>
                 </thead>
 
@@ -184,7 +185,8 @@
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
                         <td>${{item.monthly_spend}}</td>
-                        <td>${{item.monthly_spend*12}}</td>
+                        <td>{{item.communities}}</td>
+                        <td>${{(item.monthly_spend * item.communities) * 12}}</td>
                         <td>
                           <button type="button" name="button" ng-click="ac.editTactic(this.item, 'listing'); ac.showEditListing = true;">Edit</button>
                         </td>
@@ -212,7 +214,8 @@
                 <label for="tacticForm">Add Tactic: </label>
                 <input type="text" class="tacticField" placeholder="Provider Name" ng-model="ac.listingTactic.providerName" required>
                 <input type="text" class="tacticField" placeholder="Tactic Name" ng-model="ac.listingTactic.tacticName" required>
-                <input type="number" class="tacticField" placeholder="Monthly Spend" ng-model="ac.listingTactic.tacticSpend" required>
+                <input type="number" class="tacticField" placeholder="Spend/Comm." ng-model="ac.listingTactic.tacticSpend" required>
+                <input type="number" class="tacticField" placeholder="# Communities" ng-model="ac.listingTactic.communities" required>
                 <input class="submitTactic" type="submit" name="button">
             </form>
             <button class="formHide" type="button" name="button" ng-show="ac.listingFormShow" ng-click="ac.listingFormShow = false">X</button>
