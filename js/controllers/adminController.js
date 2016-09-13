@@ -53,11 +53,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.clientEdit = function(item){
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientEdit', item)
     .then(function(response){
-      console.log('45454545454545454545454545454545454545454', response);
       if(response === false){
         alert('A MEDIA PLAN WITH THIS NAME ALREADY EXISTS!');
       } else {
-        console.log('45454545454545454545454545454545454545454');
         vm.mediaPlanGetter()
           .then(function(response) {
             console.log("MEDIA PLANS RETRIEVED: ", response);
