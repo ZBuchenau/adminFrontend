@@ -167,7 +167,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 //----------FORM CLEARING FUNCTION----------
   vm.resetForm = function(formModel){
     console.log(formModel.toString());
-    if(formModel !== 'cpmTactic' && formModel !== 'listingTactic'){
+    if(formModel !== 'cpmTactic' && formModel !== 'listingTactic' && formModel !== 'emailTactic'){
       // console.log(vm[formModel]);
       vm[formModel].providerName = null;
       vm[formModel].tacticName = null;
@@ -184,6 +184,12 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       vm[formModel].tacticName = null;
       vm[formModel].tacticSpend = null;
       vm[formModel].communities = null;
+    } else if (formModel === 'emailTactic'){
+      // console.log(vm[formModel]);
+      vm[formModel].providerName = null;
+      vm[formModel].tacticName = null;
+      vm[formModel].tacticSpend = null;
+      vm[formModel].emails_per_year = null;
     }
   };
 
