@@ -167,28 +167,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 //----------FORM CLEARING FUNCTION----------
   vm.resetForm = function(formModel){
     console.log(formModel.toString());
-    if(formModel !== 'cpmTactic' && formModel !== 'listingTactic' && formModel !== 'emailTactic'){
-      // console.log(vm[formModel]);
-      vm[formModel].providerName = null;
-      vm[formModel].tacticName = null;
-      vm[formModel].tacticSpend = null;
-    } else if (formModel === 'cpmTactic'){
-      // console.log(vm[formModel]);
-      vm[formModel].providerName = null;
-      vm[formModel].tacticName = null;
-      vm[formModel].tacticSpend = null;
+    vm[formModel].providerName = null;
+    vm[formModel].tacticName = null;
+    vm[formModel].tacticSpend = null;
+    if (formModel === 'cpmTactic'){
       vm[formModel].cost_per_thousand = null;
     } else if (formModel === 'listingTactic'){
-      // console.log(vm[formModel]);
-      vm[formModel].providerName = null;
-      vm[formModel].tacticName = null;
-      vm[formModel].tacticSpend = null;
       vm[formModel].communities = null;
     } else if (formModel === 'emailTactic'){
-      // console.log(vm[formModel]);
-      vm[formModel].providerName = null;
-      vm[formModel].tacticName = null;
-      vm[formModel].tacticSpend = null;
       vm[formModel].emails_per_year = null;
     }
   };
