@@ -61,6 +61,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.mediaPlanGetter()
           .then(function(response) {
             console.log("MEDIA PLANS RETRIEVED: ", response);
+            vm.mediaPlan = response;
           });
         //TODO: repopulate form with new client
       }
