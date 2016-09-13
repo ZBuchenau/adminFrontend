@@ -38,11 +38,16 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.clientSubmit = function(item){
     mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', item)
       .then(function(response){
-        vm.mediaPlanGetter()
-          .then(function(response) {
-            console.log("MEDIA PLANS RETRIEVED: ", response);
-          });
-        //TODO: repopulate form with new client
+        console.log(response);
+        if(response === false){
+          alert('A MEDIA PLAN WITH THIS NAME ALREADY EXISTS!');
+        } else {
+          vm.mediaPlanGetter()
+            .then(function(response) {
+              console.log("MEDIA PLANS RETRIEVED: ", response);
+            });
+          //TODO: repopulate form with new client
+        }
       });
   };
 
@@ -166,7 +171,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
 //----------FORM CLEARING FUNCTION----------
   vm.resetForm = function(formModel){
-    console.log(formModel.toString());
+    // console.log(formModel.toString());
     vm[formModel].providerName = null;
     vm[formModel].tacticName = null;
     vm[formModel].tacticSpend = null;
