@@ -23,7 +23,7 @@
                 </select>
             </div>
 
-            <form class="tactic clientInfo" ng-submit="ac.clientSubmit(ac.mediaPlan)" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
+            <form class="tactic clientInfo" ng-init="clientInfoOpen = true" ng-show="clientInfoOpen" method="post">
                 <label for="clientName">Client Name</label>
                 <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="ac.mediaPlan.clientName" required>
 
@@ -33,8 +33,11 @@
                 <label for="year">Media Plan Year</label>
                 <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
 
-                <button class="clientSubmit" type="submit">Submit</button>
             </form>
+            <button class="clientSubmit" ng-hide="ac.clientSubmitButton" ng-click="ac.clientSubmit(ac.mediaPlan)">Submit</button>
+            <button class="clientSubmit" ng-hide=!ac.clientSubmitButton ng-click="ac.clientEdit(ac.mediaPlan)">Submit Edit</button>
+
+
         </div>
 
 

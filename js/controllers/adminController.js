@@ -51,6 +51,22 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       });
   };
 
+  vm.clientEdit = function(item){
+    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientEdit', item)
+    .then(function(response){
+      console.log(response);
+      if(response === false){
+        alert('A MEDIA PLAN WITH THIS NAME ALREADY EXISTS!');
+      } else {
+        vm.mediaPlanGetter()
+          .then(function(response) {
+            console.log("MEDIA PLANS RETRIEVED: ", response);
+          });
+        //TODO: repopulate form with new client
+      }
+    });
+  };
+
   //----------SHOW WHETHER OR NOT THE SPEND IS OVER OR UNDER BUDGET----------
   vm.spendRelations = function(){
     vm.data = [];
@@ -112,9 +128,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         clientMonthlyBudget: '',
         year: '',
       };
+      vm.clientSubmitButton = false;
 
     } else {
       vm.mediaPlanShow = true;
+      vm.clientSubmitButton = true;
 
       var client = vm.selectedItem;
       console.log('CLIENT = ', client);
