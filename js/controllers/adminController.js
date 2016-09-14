@@ -36,18 +36,26 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   //----------SUBMIT NEW CLIENT----------
   vm.clientSubmit = function(item){
-    mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', item)
-      .then(function(response){
-        if(response === false){
-          alert('A MEDIA PLAN WITH THIS NAME ALREADY EXISTS!');
-        } else {
-          vm.mediaPlanGetter()
-            .then(function(response) {
-              console.log("MEDIA PLANS RETRIEVED: ", response);
-            });
-          //TODO: repopulate form with new client
-        }
-      });
+    if(item.clientName === "" || item.clientMonthlyBudget === "" || item.year === ""){
+      alert("Media Plan Form Incomplete.");
+    } else {
+      mediaPlanService.tacticSubmit(server + '/users/mediaPlans/clientInfo', item)
+        .then(function(response){
+          if(response === false){
+            alert('A MEDIA PLAN WITH THIS NAME ALREADY EXISTS!');
+          } else {
+            vm.mediaPlanGetter()
+              .then(function(response) {
+                console.log("MEDIA PLANS RETRIEVED: ", response);
+                vm.mediaPlan = {
+                  clientName: '',
+                  clientMonthlyBudget: '',
+                  year: '',
+                };
+              });
+          }
+        });
+    }
   };
 
   vm.clientEdit = function(item){

@@ -131,6 +131,8 @@ input {
   color: #f1f1f1;
   font-weight: 200;
   letter-spacing: 2px;
+  width: 80%;
+  margin-left:10%;
 }
 
 .mediaPlanDD {

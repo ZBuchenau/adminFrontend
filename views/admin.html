@@ -32,7 +32,6 @@
 
                 <label for="year">Media Plan Year</label>
                 <input type="number" class="form-control" id="year" placeholder="Year" ng-model="ac.mediaPlan.year" required>
-
             </form>
             <button class="clientSubmit" ng-hide="ac.clientSubmitButton" ng-click="ac.clientSubmit(ac.mediaPlan)">Submit</button>
             <button class="clientSubmit" ng-hide=!ac.clientSubmitButton ng-click="ac.clientEdit(ac.mediaPlan)">Submit Edit</button>
