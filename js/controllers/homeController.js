@@ -10,11 +10,11 @@ function homeController($scope, $http, server, localStorageService, $q, $locatio
 
 
   vm.user = {};
-  vm.user.firstName = 'Zach';
-  vm.user.lastName = 'Buchenau';
-  vm.user.userName = 'ZBuchenau';
-  vm.user.password = '12345';
-  vm.user.email = 'ZBuchenau@yahoo.com';
+  // vm.user.firstName = 'Zach';
+  // vm.user.lastName = 'Buchenau';
+  // vm.user.userName = 'ZBuchenau';
+  // vm.user.password = '12345';
+  // vm.user.email = 'ZBuchenau@yahoo.com';
 
   vm.submitSignUp = function() {
 

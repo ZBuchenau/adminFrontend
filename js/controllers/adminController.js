@@ -226,6 +226,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         if(response !== false){
           vm.officialMediaPlan = response;
           vm.resetForm(formName);
+          mediaPlanService.spendFinder(vm.officialMediaPlan, 0)
+            .then(function(response){
+              var spend = vm.cumulativeSpend = response;
+              var budget = vm.mediaPlan.clientMonthlyBudget;
+              vm.spendDelta = budget - spend;
+              console.log('budget: ', vm.spendDelta);
+              vm.spendRelations();
+            });
         } else {
           alert('This Tactic Already Exists In The Database!!');
         }
@@ -247,6 +255,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       } else if (type === 'cpm'){
         // vm.showEditCPM = !vm.showEditCPM;
         vm.cpmEdit = angular.copy(item);
+
         console.log("^^^^^^^^^^^^^^^", vm.cpmEdit);
       } else if (type === 'listing'){
         // vm.showEditListing = !vm.showEditListing;
@@ -268,6 +277,22 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       console.log(response);
       if(response !== false){
         vm.officialMediaPlan = response;
+        // ##################################################################
+        // TODO: AUTOMATICALLY UPDATE THE SPEND DELTA AND RELATIONS
+        console.log(vm.officialMediaPlan);
+        mediaPlanService.spendFinder(vm.officialMediaPlan, 0)
+          .then(function(response){
+            var spend = vm.cumulativeSpend = response;
+            var budget = vm.mediaPlan.clientMonthlyBudget;
+            vm.spendDelta = budget - spend;
+            console.log('budget: ', vm.spendDelta);
+            vm.spendRelations();
+          });
+
+        // ##################################################################
+
+      } else {
+        console.log(false);
       }
     });
   };

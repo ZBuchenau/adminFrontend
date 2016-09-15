@@ -10,7 +10,9 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     spendDelta: spendDelta,
     tacticPost: tacticPost,
     pieValueArrays: pieValueArrays,
-    deleteTacticAlert: deleteTacticAlert
+    deleteTacticAlert: deleteTacticAlert,
+    spendFinder: spendFinder,
+    spendCalc: spendCalc
   });
 
 
@@ -179,4 +181,32 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     }
     return deferred.promise;
   }
+
+  function spendFinder(mediaPlan, zero){
+    //mediaPlan MUST BE AN ARRAY OF ARRAYS
+    //ALWAYS ENTER 0 IN FOR THE zero PARAMETER
+    var deferred = $q.defer();
+
+    for(var i = 0; i < mediaPlan.length; i++){
+      for(var j = 0; j < mediaPlan[i].length; j++){
+        zero += parseInt(mediaPlan[i][j].monthly_spend);
+      }
+    }
+    deferred.resolve(zero);
+    return deferred.promise;
+  }
+
+  function spendCalc(currentSpend, budget){
+    var deferred = $q.defer();
+
+    var spendData = {
+      spend : currentSpend,
+      budgetRemaining: (budget - currentSpend),
+    };
+    deferred.resolve(spendData);
+
+    return deferred.promise;
+
+  }
+
 }
