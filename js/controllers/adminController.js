@@ -307,6 +307,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         mediaPlanService.tacticPost(server + '/users/tactics/delete', item, type)
           .then(function(response){
             vm.officialMediaPlan = response.data;
+            mediaPlanService.spendFinder(vm.officialMediaPlan, 0)
+              .then(function(response){
+                var spend = vm.cumulativeSpend = response;
+                var budget = vm.mediaPlan.clientMonthlyBudget;
+                vm.spendDelta = budget - spend;
+                console.log('budget: ', vm.spendDelta);
+                vm.spendRelations();
+              });
           });
       } else {
         console.log("DELETE TACTIC CANCELLED");
