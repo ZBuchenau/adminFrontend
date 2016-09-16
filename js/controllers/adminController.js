@@ -260,9 +260,11 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       } else if (type === 'listing'){
         // vm.showEditListing = !vm.showEditListing;
         vm.listingsEdit = angular.copy(item);
+        vm.listingsEdit.monthly_spend = (item.monthly_spend / item.communities);
       } else if (type === 'email'){
         // vm.showEditEmail = !vm.showEditEmail;
         vm.emailEdit = angular.copy(item);
+
       } else if (type === 'flatFee'){
         // vm.showEditFlatFee = !vm.showEditFlatFee;
         vm.flatFeeEdit = angular.copy(item);
@@ -279,7 +281,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         vm.officialMediaPlan = response;
         // ##################################################################
         // TODO: AUTOMATICALLY UPDATE THE SPEND DELTA AND RELATIONS
-        console.log(vm.officialMediaPlan);
+        console.log("HERE WE GO AGAIN: ", vm.officialMediaPlan);
         mediaPlanService.spendFinder(vm.officialMediaPlan, 0)
           .then(function(response){
             var spend = vm.cumulativeSpend = response;
