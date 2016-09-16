@@ -78,7 +78,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     vm.data = [];
 
     if(vm.cumulativeSpend){
-      if(vm.spendDelta > 0){
+      if(vm.spendDelta >= 0){
         vm.spendToBudget = "SPEND = $" + vm.cumulativeSpend.toLocaleString() + " ($" + vm.spendDelta.toLocaleString() + " Remaining In Budget)";
         vm.underBudget = true;
         vm.overBudget = false;

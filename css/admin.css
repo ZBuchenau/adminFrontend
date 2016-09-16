@@ -263,3 +263,13 @@ th {
 .submitTactic {
   background-color: #ffb732;
 }
+
+.pdfButton {
+  margin-top: 3rem;
+  margin-right: 10%;
+  margin-bottom: 3rem;
+  border: 2px solid black;
+  float: right;
+}
+
+/**/
