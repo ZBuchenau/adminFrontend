@@ -72,7 +72,7 @@
                     <th>Annual Total</th>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in ac.officialMediaPlan[0]">
+                    <tr ng-repeat="item in ac.officialMediaPlan[0] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
                         <td>${{item.monthly_spend}}</td>
@@ -124,7 +124,7 @@
                 </thead>
 
                 <tbody>
-                    <tr ng-repeat="item in ac.officialMediaPlan[1]">
+                    <tr ng-repeat="item in ac.officialMediaPlan[1] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
                         <td>${{item.monthly_spend}}</td>
@@ -184,7 +184,7 @@
                 </thead>
 
                 <tbody>
-                    <tr ng-repeat="item in ac.officialMediaPlan[2]">
+                    <tr ng-repeat="item in ac.officialMediaPlan[2] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
                         <td>${{item.monthly_spend/item.communities}}</td>
@@ -243,7 +243,7 @@
                 </thead>
 
                 <tbody>
-                    <tr ng-repeat="item in ac.officialMediaPlan[3]">
+                    <tr ng-repeat="item in ac.officialMediaPlan[3] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
                         <td>${{((item.monthly_spend * 12)/item.emails_per_year) | number : 0}}</td>
@@ -300,7 +300,7 @@
                 </thead>
 
                 <tbody>
-                    <tr ng-repeat="item in ac.officialMediaPlan[4]">
+                    <tr ng-repeat="item in ac.officialMediaPlan[4] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
                         <td>${{item.monthly_spend}}</td>
