@@ -246,12 +246,12 @@
                     <tr ng-repeat="item in ac.officialMediaPlan[3]">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
-                        <td>${{item.monthly_spend}}</td>
+                        <td>${{((item.monthly_spend * 12)/item.emails_per_year).toFixed(0)}}</td>
                         <td>{{item.emails_per_year}}</td>
                         <td>${{(item.monthly_spend * item.emails_per_year) / 12 | number : 2}}</td>
-                        <td>${{(item.monthly_spend * item.emails_per_year)}}</td>
+                        <td>${{(item.monthly_spend * item.emails_per_year).toFixed(0)}}</td>
                         <td>
-                            <button type="button" name="button" ng-click="ac.editTactic(this.item, 'email'); ac.showEditEmail = true;">Edit</button>
+                            <button type="button" name="button" ng-click="ac.editTactic(this.item, 'email'); ac.showEditEmail = true; ac.emailEdit.tacticSpend = ((item.monthly_spend * 12)/item.emails_per_year).toFixed(0)">Edit</button>
                         </td>
                         <td>
                             <button type="button" name="button" ng-click="ac.deleteTactic(this.item, 'email')" value="">Delete</button>
@@ -266,7 +266,7 @@
                   <label for="editForm">Edit Tactic: </label>
                   <input type="text" class="tacticField" name="name" ng-model="ac.emailEdit.provider_name">
                   <input type="text" class="tacticField" name="name" ng-model="ac.emailEdit.tactic_name">
-                  <input type="decimal" class="tacticField" name="name" ng-model="ac.emailEdit.monthly_spend">
+                  <input type="decimal" class="tacticField" name="name" ng-model="ac.emailEdit.tacticSpend">
                   <input type="decimal" class="tacticField" name="name" ng-model="ac.emailEdit.emails_per_year">
                   <input class="submitTactic" type="submit">
               </form>
