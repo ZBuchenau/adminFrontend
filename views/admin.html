@@ -19,7 +19,7 @@
             <div class="mediaPlanDD">
                 <select ng-model="ac.selectedItem" ng-change="ac.selectItemChanged()">
                     <option value="">Create/Select a Plan</option>
-                    <option ng-repeat="item in ac.accounts track by $index" value={{item.id}}>{{item.name}}</option>
+                    <option ng-repeat="item in ac.accounts | orderBy : 'name' track by $index" value={{item.id}}>{{item.name}}</option>
                 </select>
             </div>
 
@@ -246,10 +246,10 @@
                     <tr ng-repeat="item in ac.officialMediaPlan[3]">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
-                        <td>${{((item.monthly_spend * 12)/item.emails_per_year).toFixed(0)}}</td>
+                        <td>${{((item.monthly_spend * 12)/item.emails_per_year) | number : 0}}</td>
                         <td>{{item.emails_per_year}}</td>
-                        <td>${{(item.monthly_spend * item.emails_per_year) / 12 | number : 2}}</td>
-                        <td>${{(item.monthly_spend * item.emails_per_year).toFixed(0)}}</td>
+                        <td>${{item.monthly_spend | number : 0}}</td>
+                        <td>${{(item.monthly_spend * 12) | number : 0}}</td>
                         <td>
                             <button type="button" name="button" ng-click="ac.editTactic(this.item, 'email'); ac.showEditEmail = true; ac.emailEdit.tacticSpend = ((item.monthly_spend * 12)/item.emails_per_year).toFixed(0)">Edit</button>
                         </td>
