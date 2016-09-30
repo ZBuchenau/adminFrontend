@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fiveWeightAdmin">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="./css/normalize.css" media="screen" title="no title" charset="utf-8"> -->
+    <link rel="stylesheet" href="./css/home.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
+    <!-- <link rel="stylesheet" href="./css/homePage.css" media="screen" title="no title" charset="utf-8"> -->
+    <link rel="stylesheet" href="./css/admin.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./css/printVersion.css" media="screen" title="no title" charset="utf-8">
+
+
+    <style>
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div ng-view ng-cloak></div>
+
+
+
+
+
+
+    <!-- Angular CDN -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <!-- Angular Routes CDN -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDaDbNtPfqYCRy1WWCPfoUmBnJ33fTrF30",
+        authDomain: "fiveweightadmin-29ea3.firebaseapp.com",
+        databaseURL: "https://fiveweightadmin-29ea3.firebaseio.com",
+        storageBucket: "",
+        messagingSenderId: "552718837357"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
+
+    <script>
+      var config = {
+        // ...
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v4.0.0-alpha.40.min.js"></script>
+    <!-- Local Javascript Files -->
+
+
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+
+
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/routes.js"></script>
+    <script type="text/javascript" src="./js/services1/d3Factory.js"></script>
+
+    <script type="text/javascript" src="./js/services1/services.js"></script>
+    <script type="text/javascript" src="./js/services1/mediaPlan.js"></script>
+    <script type="text/javascript" src="./js/services1/authenticate.js"></script>
+    <script type="text/javascript" src="./js/directives/pieChartDirective.js"></script>
+    <script type="text/javascript" src="./js/directives/toggleClass.js"></script>
+    <script type="text/javascript" src="./js/controllers/homeController.js"></script>
+    <script type="text/javascript" src="./js/controllers/printController.js"></script>
+    <script type="text/javascript" src="./js/controllers/adminController.js"></script>
+    <script type="text/javascript" src="./js/controllers/logoutController.js"></script>
+    <!-- <script type="text/javascript" src="./js/directives/addTacticDirective.js"></script> -->
+    <script type="text/javascript" src="./js/filters/filters.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>
