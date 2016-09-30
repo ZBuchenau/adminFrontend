@@ -145,7 +145,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                   text.enter()
                     .append("text")
                     .attr("dy", ".3em")
-                    .style("font-size", "80%")
+                    .style("font-size", "75%")
                     .style("font-weight", "bold")
                     .style("color", "black")
                     .text(function(d) {

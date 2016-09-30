@@ -2,17 +2,57 @@
 <div class="pageOutline">
   <img class="printLogo" src="../media/5weight_logo.jpg" alt="" />
   <h3 class="printTitle">Back Country 2017</h3>
+
   <div class="piePreview">
     <div class="pie">
       <pie-chart pie-data="{{pc.mediaPlan}}"></pie-chart>
     </div>
   </div>
 
+  <div class="spendData">
+    <table class="spendTable">
+      <thead>
+        <h6>Spend Data</h6>
+        <th>Budget</th>
+        <th>Planned</th>
+        <th>Remaining</th>
+      </thead>
+
+      <tbody>
+        <td>20,000</td>
+        <td>19,900</td>
+        <td>100</td>
+      </tbody>
+
+    </table>
+  </div>
+
+  <div class="providerData">
+    <table class="providerTable">
+      <thead>
+        <h6>Provider Data</h6>
+        <th>Name</th>
+        <th>Spend</th>
+        <th>% of Total</th>
+      </thead>
+
+      <tbody>
+        <td>GOOGLE</td>
+        <td>5000</td>
+        <td>20%</td>
+      </tbody>
+
+    </table>
+  </div>
+
   <div class="tables">
+
+
+
     <!-- PPC TABLE -->
     <table class="printTables" id="ppcTactics">
         <thead>
-            <h5>PPC Tactics</h5>
+            <h6>PPC Tactics</h6>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Monthly Spend</th>
@@ -31,7 +71,7 @@
     <!-- CPM TABLE -->
     <table class="printTables" id="cpmTactics">
         <thead>
-            <h5>CPM Tactics</h5>
+            <h6>CPM Tactics</h6>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Monthly Spend</th>
@@ -55,7 +95,7 @@
     <!-- LISTINGS TABLE -->
     <table class="printTables" id="listingTactics">
         <thead>
-            <h5>Listing Tactics</h5>
+            <h6>Listing Tactics</h6>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Spend Per Comm.</th>
@@ -79,7 +119,7 @@
     <!-- EMAIL TABLE -->
     <table class="printTables" id="emailTactics">
         <thead>
-            <h5>Email Tactics</h5>
+            <h6>Email Tactics</h6>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Cost Per Email</th>
@@ -104,7 +144,7 @@
     <!-- FLAT-FEE TABLE -->
     <table class="printTables" id="flatFeeTactics">
         <thead>
-            <h5>Flat-Fee Tactics</h5>
+            <h6>Flat-Fee Tactics</h6>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Monthly Spend</th>
