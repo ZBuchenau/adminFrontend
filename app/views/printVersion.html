@@ -36,9 +36,9 @@
         <th>% of Total</th>
       </thead>
 
-      <tbody>
-        <td>GOOGLE</td>
-        <td>5000</td>
+      <tbody ng-repeat="(key, val) in pc.providerSpends">
+        <td>{{key}}</td>
+        <td>${{val}}</td>
         <td>20%</td>
       </tbody>
 

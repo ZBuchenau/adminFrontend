@@ -14,13 +14,13 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
         if (newVal) {
 
           dataArray = [];
-          console.log('WATCHING');
-          console.log(Math.random());
+          // console.log('WATCHING');
+          // console.log(Math.random());
           data = JSON.parse(newVal);
           mediaPlanService.pieValueArrays(data, 'provider_name', 'tactic_name', 'monthly_spend')
             .then(function(response) {
-                console.log(response);
-                console.log("WIDTH:" + el[0].parentElement.clientWidth, "HEIGHT:" + el[0].parentElement.clientHeight);
+                // console.log(response);
+                // console.log("WIDTH:" + el[0].parentElement.clientWidth, "HEIGHT:" + el[0].parentElement.clientHeight);
 
                 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 var width = el[0].parentElement.clientWidth,
@@ -71,7 +71,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
 
 
                 var getRandomColor = function(arr) {
-                  console.log(arr);
+                  // console.log(arr);
                   var colors = [];
                   for (var i = 0; i < arr.length; i++) {
                     var letters = '0123456789ABCDEF'.split('');
@@ -79,7 +79,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     for (var j = 0; j < 6; j++) {
                       color += letters[Math.floor(Math.random() * 16)];
                     }
-                    console.log(color);
+                    // console.log(color);
                     colors.push(color);
                   }
                   return colors;
@@ -93,14 +93,14 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                 function randomData() {
                   var labels = color.domain();
                   var values = valueArray;
-                  console.log(typeof labels);
+                  // console.log(typeof labels);
                   return labels.map(function(label) {
                     var index = labels.indexOf(label);
                     var returned = {
                       label: label,
                       value: values[index]
                     };
-                    console.log(returned);
+                    // console.log(returned);
                     return returned;
                   });
 
@@ -110,7 +110,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
 
 
                 function change(data) {
-                  console.log(data);
+                  // console.log(data);
 
                   /* ------- PIE SLICES -------*/
                   var slice = svg.select(".slices").selectAll("path.slice")
