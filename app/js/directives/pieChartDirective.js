@@ -31,6 +31,24 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                 var valueArray = response.values;
                 d3.selectAll("pie-chart > *").remove();
 
+                var drag = d3.behavior.drag() // <-A
+                  .on("drag", move);
+
+                function move(d) {
+                  var x = d3.event.x,
+                    y = d3.event.y;
+
+
+                  d3.select(this)
+                    .attr("transform", function(d) {
+                      return "translate(" + x + ", " + y + ")";
+                    });
+                }
+
+                // function inBoundaries(x, y) {
+                //   return (x >= (0 + 5) && x <= (w - 5)) && (y >= (0 + 5) && y <= (h - 5));
+                // }
+
                 var svg = d3.select("pie-chart")
                   .append("svg")
                   .style("height", "100%")
@@ -70,6 +88,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                 };
 
 
+
                 var getRandomColor = function(arr) {
                   // console.log(arr);
                   var colors = [];
@@ -83,6 +102,15 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     colors.push(color);
                   }
                   return colors;
+                };
+
+                var changeColor = function() {
+                  var letters = '0123456789ABCDEF'.split('');
+                  var color = '#';
+                  for (var j = 0; j < 6; j++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                  }
+                  return color;
                 };
 
                 var color = d3.scale.ordinal()
@@ -123,6 +151,21 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     })
                     .attr("class", "slice");
 
+                  slice.on("click", function() {
+                    d3.select(this)
+                      .style("fill", changeColor());
+                  });
+
+                  // slice.on({
+                  //   "mouseover": function(d) {
+                  //     d3.select(this)
+                  //       .style("cursor", "pointer");
+                  //   },
+                  //   "mouseout": function(d) {
+                  //     d3.select(this).style("cursor", "default");
+                  //   }
+                  // });
+
                   slice.transition()
                     .duration(1000)
                     .attrTween("d", function(d) {
@@ -147,7 +190,8 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     .attr("dy", ".3em")
                     .style("font-size", "75%")
                     .style("font-weight", "bold")
-                    .style("color", "black")
+                    // .style("color", "black")
+                    .call(drag)
                     .text(function(d) {
                       return d.data.label;
                     });
@@ -192,6 +236,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     .style("stroke-width", "1.5px")
                     .style("stroke", "black")
                     .style("opacity", "0.4");
+
 
                   polyline.transition().duration(1000)
                     .attrTween("points", function(d) {

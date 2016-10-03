@@ -335,6 +335,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   //----------SHOW PRINTER VERSION----------
   vm.showPrintVersion = function() {
+    
     console.log('SHOWING PRINTER VERSION');
     // vm.printMediaPlan = vm.officialMediaPlan;
     mediaPlanService.mediaPlan = vm.officialMediaPlan;
@@ -360,7 +361,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         }
       }
     }
-    
+
     console.log(mediaPlanService.providerObj);
 
     // console.log(mediaPlanService.mediaPlan);

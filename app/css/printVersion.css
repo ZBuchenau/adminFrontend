@@ -12,7 +12,8 @@ h3 {
     width: 77.27vh;
     margin: 0 auto;
     margin-top: 1rem;
-    border: .1rem solid black;
+    border: 1px solid lightgrey;
+    border-bottom: none;
     padding: 0;
 }
 

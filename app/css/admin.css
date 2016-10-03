@@ -312,4 +312,10 @@ th {
   margin: 1rem;
 }
 
+.printButton {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  border: .2rem outset rgba(238, 105, 39, .8);
+}
 /**/
