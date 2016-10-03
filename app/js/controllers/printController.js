@@ -4,6 +4,13 @@ function printController($scope, $http, server, localStorageService, $q, $locati
   var vm = this;
   console.log("PRINT CONTROLLER");
 
+  vm.ppcShow = true;
+  vm.cpmShow = true;
+  vm.listingsShow = true;
+  vm.emailShow = true;
+  vm.flatFeeShow = true;
+
+
   function sortObject(obj) {
     var arr = [];
     var prop;

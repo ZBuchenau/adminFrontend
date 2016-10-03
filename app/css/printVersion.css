@@ -85,6 +85,17 @@ h6 {
   margin-left: .5%;
 }
 
+caption {
+    font-size: 80%;
+    margin-top: 10px;
+    margin-bottom: 1px;
+    margin-left: 0;
+    padding: 0;
+    border: none;
+    color: black;
+    font-weight: 600;
+}
+
 .printTables th  {
   font-size: 85%;
   font-weight: bold;
@@ -176,6 +187,22 @@ h6 {
   padding: 0;
 }
 
+.hideButtons {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+}
 
+.hideButtons button {
+  display: block;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+#ppcButton {
+  margin-top: 0;
+}
 
 /**/

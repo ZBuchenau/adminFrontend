@@ -196,6 +196,16 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                       return d.data.label;
                     });
 
+                    text.on({
+                      "mouseover": function(d) {
+                        d3.select(this)
+                          .style("cursor", "pointer");
+                      },
+                      "mouseout": function(d) {
+                        d3.select(this).style("cursor", "default");
+                      }
+                    });
+
                   function midAngle(d) {
                     return d.startAngle + (d.endAngle - d.startAngle) / 2;
                   }

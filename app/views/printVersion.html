@@ -1,7 +1,7 @@
 
 <div class="pageOutline">
   <img class="printLogo" src="../media/5weight_logo.jpg" alt="" />
-  <h3 class="printTitle">Back Country 2017</h3>
+  <h3 class="printTitle">{{pc.info.clientName}} {{pc.info.year}}</h3>
 
   <div class="piePreview">
     <div class="pie">
@@ -56,9 +56,9 @@
 
 
     <!-- PPC TABLE -->
-    <table class="printTables" id="ppcTactics">
+    <table class="printTables" id="ppcTactics" ng-show="pc.ppcShow">
         <thead>
-            <h6>PPC Tactics</h6>
+            <caption>PPC Tactics</caption>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Monthly Spend</th>
@@ -75,9 +75,9 @@
     </table>
 
     <!-- CPM TABLE -->
-    <table class="printTables" id="cpmTactics">
+    <table class="printTables" id="cpmTactics" ng-show="pc.cpmShow">
         <thead>
-            <h6>CPM Tactics</h6>
+            <caption>CPM Tactics</caption>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Monthly Spend</th>
@@ -99,9 +99,9 @@
     </table>
 
     <!-- LISTINGS TABLE -->
-    <table class="printTables" id="listingTactics">
+    <table class="printTables" id="listingTactics" ng-show="pc.listingsShow">
         <thead>
-            <h6>Listing Tactics</h6>
+            <caption>Listing Tactics</caption>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Spend Per Comm.</th>
@@ -123,9 +123,9 @@
     </table>
 
     <!-- EMAIL TABLE -->
-    <table class="printTables" id="emailTactics">
+    <table class="printTables" id="emailTactics" ng-show="pc.emailShow">
         <thead>
-            <h6>Email Tactics</h6>
+            <caption>Email Tactics</caption>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Cost Per Email</th>
@@ -148,9 +148,9 @@
     </table>
 
     <!-- FLAT-FEE TABLE -->
-    <table class="printTables" id="flatFeeTactics">
+    <table class="printTables" id="flatFeeTactics" ng-show="pc.flatFeeShow">
         <thead>
-            <h6>Flat-Fee Tactics</h6>
+            <caption>Flat-Fee Tactics</caption>
             <th>Provider</th>
             <th>Tactic</th>
             <th>Monthly Spend</th>
@@ -169,4 +169,13 @@
     </table>
 
   </div>
+</div>
+
+<div class="hideButtons">
+  <button id="ppcButton" type="button" name="button" ng-click="pc.ppcShow = !pc.ppcShow">Toggle PPC</button>
+  <button type="button" name="button" ng-click="pc.cpmShow = !pc.cpmShow">Toggle CPM</button>
+  <button type="button" name="button" ng-click="pc.listingsShow = !pc.listingsShow">Toggle Listings</button>
+  <button type="button" name="button" ng-click="pc.emailShow = !pc.emailShow">Toggle Email</button>
+  <button type="button" name="button" ng-click="pc.flatFeeShow = !pc.flatFeeShow">Toggle Flat-Fee</button>
+
 </div>
