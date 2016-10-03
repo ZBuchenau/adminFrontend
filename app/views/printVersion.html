@@ -36,10 +36,16 @@
         <th>% of Total</th>
       </thead>
 
-      <tbody ng-repeat="(key, val) in pc.providerSpends">
+      <!-- <tbody ng-repeat="(key, val) in pc.providerSpends">
         <td>{{key}}</td>
         <td>${{val}}</td>
-        <td>20%</td>
+        <td>{{(val / pc.info.spend)*100 | number : 0}}%</td>
+      </tbody> -->
+
+      <tbody ng-repeat="item in pc.providerArr | orderBy : value : true">
+        <td>{{item.key}}</td>
+        <td>${{item.value}}</td>
+        <td>{{(item.value / pc.info.spend)*100 | number : 0}}%</td>
       </tbody>
 
     </table>

@@ -2,6 +2,10 @@ html {
     background-color: #fff;
 }
 
+h3 {
+  font-size: 125%;
+}
+
 .pageOutline {
     position: relative;
     height: 95vh;
@@ -27,7 +31,7 @@ html {
   left: 10%;
   height: 4%;
   /*border: .1rem solid grey;*/
-  margin: none;
+  margin: 0;
 }
 
 
