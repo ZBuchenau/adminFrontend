@@ -4,5 +4,7 @@ function printController($scope, $http, server, localStorageService, $q, $locati
     var vm = this;
 
     vm.mediaPlan = mediaPlanService.mediaPlan;
+    vm.info = mediaPlanService.mediaPlanInfo;
     console.log(vm.mediaPlan);
+    console.log(vm.info);
 }

@@ -338,7 +338,14 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     console.log('SHOWING PRINTER VERSION');
     vm.printMediaPlan = vm.officialMediaPlan;
     mediaPlanService.mediaPlan = vm.officialMediaPlan;
+    mediaPlanService.mediaPlanInfo = {
+      "clientName" : vm.mediaPlan.clientName,
+      "monthlyBudget" : vm.mediaPlan.clientMonthlyBudget,
+      "year" : vm.mediaPlan.year,
+      "spend" : vm.cumulativeSpend
+    };
     console.log(mediaPlanService.mediaPlan);
+    console.log(mediaPlanService.mediaPlanInfo);
   };
 
 }
