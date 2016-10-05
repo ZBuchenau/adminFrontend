@@ -75,8 +75,8 @@
                     <tr ng-repeat="item in ac.officialMediaPlan[0] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
-                        <td>${{item.monthly_spend}}</td>
-                        <td>${{item.monthly_spend*12}}</td>
+                        <td>${{item.monthly_spend | number:0}}</td>
+                        <td>${{item.monthly_spend*12 | number:0}}</td>
                         <td>
                             <button type="button" name="button" ng-click="ac.editTactic(this.item, 'ppc'); ac.showEditPPC = true;">Edit</button>
                         </td>
@@ -129,10 +129,10 @@
                     <tr ng-repeat="item in ac.officialMediaPlan[1] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
-                        <td>${{item.monthly_spend}}</td>
+                        <td>${{item.monthly_spend | number:0}}</td>
                         <td>${{item.cost_per_thousand}}</td>
                         <td>{{(item.monthly_spend/item.cost_per_thousand) * 1000.00 | number : 0 }}</td>
-                        <td>${{item.monthly_spend*12}}</td>
+                        <td>${{item.monthly_spend*12 | number:0}}</td>
                         <td>
                             <button type="button" name="button" ng-click="ac.editTactic(this.item, 'cpm'); ac.showEditCPM = true;">Edit</button>
                         </td>
@@ -192,10 +192,10 @@
                     <tr ng-repeat="item in ac.officialMediaPlan[2] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
-                        <td>${{item.monthly_spend/item.communities}}</td>
+                        <td>${{item.monthly_spend/item.communities | number:0}}</td>
                         <td>{{item.communities}}</td>
-                        <td>${{(item.monthly_spend)}}</td>
-                        <td>${{(item.monthly_spend) * 12}}</td>
+                        <td>${{(item.monthly_spend) | number:0}}</td>
+                        <td>${{(item.monthly_spend) * 12 | number:0}}</td>
                         <td>
                             <button type="button" name="button" ng-click="ac.editTactic(this.item, 'listing'); ac.showEditListing = true;">Edit</button>
                         </td>
@@ -310,8 +310,8 @@
                     <tr ng-repeat="item in ac.officialMediaPlan[4] | orderBy : 'provider_name'">
                         <td>{{item.provider_name}}</td>
                         <td>{{item.tactic_name}}</td>
-                        <td>${{item.monthly_spend}}</td>
-                        <td>${{item.monthly_spend*12}}</td>
+                        <td>${{item.monthly_spend | number:0}}</td>
+                        <td>${{item.monthly_spend*12 | number:0}}</td>
                         <td>
                             <button type="button" name="button" ng-click="ac.editTactic(this.item, 'flatFee'); ac.showEditFlatFee = true;">Edit</button>
                         </td>

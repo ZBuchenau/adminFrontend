@@ -45,10 +45,6 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     });
                 }
 
-                // function inBoundaries(x, y) {
-                //   return (x >= (0 + 5) && x <= (w - 5)) && (y >= (0 + 5) && y <= (h - 5));
-                // }
-
                 var svg = d3.select("pie-chart")
                   .append("svg")
                   .style("height", "100%")

@@ -19,9 +19,9 @@
       </thead>
 
       <tbody>
-        <td>{{pc.info.monthlyBudget}}</td>
-        <td>{{pc.info.spend}}</td>
-        <td>{{pc.info.monthlyBudget - pc.info.spend}}</td>
+        <td>${{pc.info.monthlyBudget | number:0}}</td>
+        <td>${{pc.info.spend | number:0}}</td>
+        <td>${{(pc.info.monthlyBudget - pc.info.spend) | number:0}}</td>
       </tbody>
 
     </table>
@@ -44,7 +44,7 @@
 
       <tbody ng-repeat="item in pc.providerArr | orderBy : value : true">
         <td>{{item.key}}</td>
-        <td>${{item.value}}</td>
+        <td>${{item.value | number:0}}</td>
         <td>{{(item.value / pc.info.spend)*100 | number : 0}}%</td>
       </tbody>
 
@@ -68,8 +68,8 @@
             <tr ng-repeat="item in pc.mediaPlan[0] | orderBy : 'provider_name'">
                 <td>{{item.provider_name}}</td>
                 <td>{{item.tactic_name}}</td>
-                <td>${{item.monthly_spend}}</td>
-                <td>${{item.monthly_spend*12}}</td>
+                <td>${{item.monthly_spend | number:0}}</td>
+                <td>${{item.monthly_spend*12 | number:0}}</td>
             </tr>
         </tbody>
     </table>
@@ -90,10 +90,10 @@
             <tr ng-repeat="item in pc.mediaPlan[1] | orderBy : 'provider_name'">
                 <td>{{item.provider_name}}</td>
                 <td>{{item.tactic_name}}</td>
-                <td>${{item.monthly_spend}}</td>
+                <td>${{item.monthly_spend | number:0}}</td>
                 <td>${{item.cost_per_thousand}}</td>
                 <td>{{(item.monthly_spend/item.cost_per_thousand) * 1000.00 | number : 0 }}</td>
-                <td>${{item.monthly_spend*12}}</td>
+                <td>${{item.monthly_spend*12 | number:0}}</td>
             </tr>
         </tbody>
     </table>
@@ -114,10 +114,10 @@
             <tr ng-repeat="item in pc.mediaPlan[2] | orderBy : 'provider_name'">
                 <td>{{item.provider_name}}</td>
                 <td>{{item.tactic_name}}</td>
-                <td>${{item.monthly_spend/item.communities}}</td>
+                <td>${{item.monthly_spend/item.communities | number:0}}</td>
                 <td>{{item.communities}}</td>
-                <td>${{(item.monthly_spend)}}</td>
-                <td>${{(item.monthly_spend) * 12}}</td>
+                <td>${{(item.monthly_spend | number:0)}}</td>
+                <td>${{(item.monthly_spend) * 12 | number:0}}</td>
             </tr>
         </tbody>
     </table>
@@ -161,8 +161,8 @@
             <tr ng-repeat="item in pc.mediaPlan[4] | orderBy : 'provider_name'">
                 <td>{{item.provider_name}}</td>
                 <td>{{item.tactic_name}}</td>
-                <td>${{item.monthly_spend}}</td>
-                <td>${{item.monthly_spend*12}}</td>
+                <td>${{item.monthly_spend | number:0}}</td>
+                <td>${{item.monthly_spend*12 | number:0}}</td>
             </tr>
 
         </tbody>
