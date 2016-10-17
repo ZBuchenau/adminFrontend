@@ -203,6 +203,7 @@ input {
   padding: 0;
   width: 80%;
   margin-left: 15%;
+  /*z-index: top;*/
 }
 
 .pieWrapper h2{
@@ -210,8 +211,6 @@ input {
   width: 50%;
   font-size: 130%;
   margin-left: 25vw;
-
-  /*border: .1rem solid black;*/
 }
 
 .mediaPlanTable {
@@ -223,6 +222,25 @@ input {
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 5rem;
+}
+
+.checkDiv {
+    height: 30px;
+}
+
+label.checkLabel {
+  vertical-align: baseline;
+}
+
+input.checkbox {
+  display: inline;
+  margin-right: 1rem;
+}
+
+input[type="checkbox"]{
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
 }
 
 table *{
