@@ -186,7 +186,7 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
                     .attr("dy", ".3em")
                     .style("font-size", "75%")
                     .style("font-weight", "bold")
-                    // .style("color", "black")
+                    // .style("margin-top", "5px")
                     .call(drag)
                     .text(function(d) {
                       return d.data.label;
