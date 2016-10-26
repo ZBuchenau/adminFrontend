@@ -8,6 +8,7 @@ div {
 
 h4 {
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 input {
@@ -102,6 +103,7 @@ input {
   padding-top: .5rem;
   padding-bottom: .5rem;
   margin: 0;
+  margin-bottom: 0;
 }
 
 .addTacticButton:hover,
@@ -123,6 +125,7 @@ input {
   border: 1px solid #23282d;
   padding: 8px;
   background-color: #adb7c1;
+  z-index: 200;
 }
 
 .clientSubmit {
@@ -163,6 +166,11 @@ input {
 
 .tactic label {
   font-size: 95%;
+}
+
+.tacticTable {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .tacticForm {
@@ -221,6 +229,43 @@ input {
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 5rem;
+}
+
+.checkContainer {
+  width: 90%;
+  /*border: .1rem solid black;*/
+  position: relative;
+}
+
+/*.commentsDiv {
+  display: inline;
+  width: 40%;
+  border: .1rem solid black;
+}*/
+
+.comments {
+  float: right;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.comments label {
+  display: block;
+}
+
+.comments input {
+  display: block;
+}
+
+.mediaSubmit {
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+  width: 30rem;
+  height: 10rem;
 }
 
 .checkDiv {

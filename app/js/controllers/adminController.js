@@ -7,13 +7,9 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     console.log(vm.checks);
   };
 
-  // vm.checkClick = function(checkbox){
-  //   if(checkbox === true){
-  //     checkbox = false;
-  //   } else {
-  //     checkbox = true;
-  //   }
-  // };
+  vm.submitComments = function(comments){
+    console.log(comments);
+  };
 
   vm.checks = {
     creativeLive : false,

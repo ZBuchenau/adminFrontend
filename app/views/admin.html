@@ -60,7 +60,7 @@
             <h4 ng-class="{underBudget: ac.underBudget, overBudget: ac.overBudget}">
               {{ac.spendToBudget}}
             </h4>
-
+            <!-- CHECKBOXES FOR MEDIA PLAN INSERTION ORDERS AND CREATIVE -->
             <div class="checkContainer">
               <form class="checkForm" ng-submit="ac.checkSubmit()" method="post">
                 <div class="checkDiv">
@@ -93,8 +93,15 @@
                   <label class="checkLabel" for="planApproval">Creative Live</label>
                 </div>
 
-                <input type="submit" name="name">
+                <input class="mediaSubmit" type="submit" name="name">
 
+              </form>
+
+
+              <form class="comments" ng-submit="ac.submitComments(ac.comments)" method="post">
+                <label for="planComments">Media Plan Comments:</label>
+                <textarea id="planComments" ng-model="ac.comments" maxlength="500" rows="5" columns="10"></textarea>
+                <input class="mediaSubmit" type="submit" name="name">
               </form>
 
             </div>
