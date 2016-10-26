@@ -3,6 +3,27 @@ app.controller('adminController', ['$scope', '$http', 'server', 'localStorageSer
 function adminController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
 
+  vm.checkSubmit = function(){
+    console.log(vm.checks);
+  };
+
+  // vm.checkClick = function(checkbox){
+  //   if(checkbox === true){
+  //     checkbox = false;
+  //   } else {
+  //     checkbox = true;
+  //   }
+  // };
+
+  vm.checks = {
+    creativeLive : false,
+    insertionReq : false,
+    insertionReceived : false,
+    insertionSigned : false,
+    counterSigned : false,
+    creativeSubmitted : false
+  };
+
   vm.mediaPlanShow = false;
   vm.showEditPPC = false;
   vm.showEditCPM = false;
@@ -231,7 +252,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
               var spend = vm.cumulativeSpend = response;
               var budget = vm.mediaPlan.clientMonthlyBudget;
               vm.spendDelta = budget - spend;
-              console.log('budget: ', vm.spendDelta);
+              // console.log('budget: ', vm.spendDelta);
               vm.spendRelations();
             });
         } else {
@@ -248,7 +269,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   vm.flatFeeEdit = {};
 
   vm.editTactic = function(item, type) {
-    console.log(type + ':::::::::::::::::Edit');
+    // console.log(type + ':::::::::::::::::Edit');
     if (type === 'ppc') {
       // vm.showEditPPC = !vm.showEditPPC;
       vm.ppcEdit = angular.copy(item);
@@ -256,7 +277,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       // vm.showEditCPM = !vm.showEditCPM;
       vm.cpmEdit = angular.copy(item);
 
-      console.log("^^^^^^^^^^^^^^^", vm.cpmEdit);
+      // console.log("^^^^^^^^^^^^^^^", vm.cpmEdit);
     } else if (type === 'listing') {
       // vm.showEditListing = !vm.showEditListing;
       vm.listingsEdit = angular.copy(item);
@@ -272,7 +293,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
   };
 
   vm.editTacticSubmit = function(item, type) {
-    console.log('THIS IS THE ITEM!!!!!!!!!', item);
+    // console.log('THIS IS THE ITEM!!!!!!!!!', item);
     item.tacticType = type;
     mediaPlanService.tacticSubmit(server + '/users/tactics/edit', item)
       .then(function(response) {
@@ -335,7 +356,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   //----------SHOW PRINTER VERSION----------
   vm.showPrintVersion = function() {
-    
+
     console.log('SHOWING PRINTER VERSION');
     // vm.printMediaPlan = vm.officialMediaPlan;
     mediaPlanService.mediaPlan = vm.officialMediaPlan;
@@ -346,7 +367,6 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       "spend": vm.cumulativeSpend
     };
 
-    console.log("hihihihihihihihihihihi");
     mediaPlanService.providerObj = {};
     for (var i = 0; i < mediaPlanService.mediaPlan.length; i++) {
       for (var j = 0; j < mediaPlanService.mediaPlan[i].length; j++) {

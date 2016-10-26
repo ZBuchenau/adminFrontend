@@ -62,26 +62,38 @@
             </h4>
 
             <div class="checkContainer">
-              <form class="checkForm" action="index.html" method="post">
+              <form class="checkForm" ng-submit="ac.checkSubmit()" method="post">
                 <div class="checkDiv">
-                  <input class="checkbox" type="checkbox" id="planApproval"></input>
-                  <label class="checkLabel" for="planApproval">Plan Approved by Client</label>
+                  <input class="checkbox" type="checkbox" ng-checked="ac.checks.insertionReq" ng-click="ac.checks.insertionReq = !ac.checks.insertionReq" id="planApproval"></input>
+                  <label class="checkLabel" for="planApproval">I.O. Requested</label>
                 </div>
 
                 <div class="checkDiv">
-                  <input class="checkbox" type="checkbox" id=""></input>
-                  <label class="checkLabel" for="">Plan Approved by Client</label>
+                  <input class="checkbox" type="checkbox" ng-checked="ac.checks.insertionReceived" ng-click="ac.checks.insertionReceived = !ac.checks.insertionReceived" id=""></input>
+                  <label class="checkLabel" for="planApproval">I.O. Received</label>
                 </div>
 
                 <div class="checkDiv">
-                  <input class="checkbox" type="checkbox" id=""></input>
-                  <label class="checkLabel" for="">Plan Approved by Client</label>
+                  <input class="checkbox" type="checkbox" ng-checked="ac.checks.insertionSigned" ng-click="ac.checks.insertionSigned = !ac.checks.insertionSigned" id="planApproval"></input>
+                  <label class="checkLabel" for="planApproval">I.O. Signed</label>
                 </div>
 
                 <div class="checkDiv">
-                  <input class="checkbox" type="checkbox" id=""></input>
-                  <label class="checkLabel" for="">Plan Approved by Client</label>
+                  <input class="checkbox" type="checkbox" ng-checked="ac.checks.counterSigned" ng-click="ac.checks.counterSigned = !ac.checks.counterSigned" id="planApproval"></input>
+                  <label class="checkLabel" for="planApproval">I.O. Countersigned</label>
                 </div>
+
+                <div class="checkDiv">
+                  <input class="checkbox" type="checkbox" ng-checked="ac.checks.creativeSubmitted" ng-click="ac.checks.creativeSubmitted = !ac.checks.creativeSubmitted" id="planApproval"></input>
+                  <label class="checkLabel" for="planApproval">Creative Submitted</label>
+                </div>
+
+                <div class="checkDiv">
+                  <input class="checkbox" type="checkbox" ng-checked="ac.checks.creativeLive" ng-click="ac.checks.creativeLive = !ac.checks.creativeLive" id="planApproval"></input>
+                  <label class="checkLabel" for="planApproval">Creative Live</label>
+                </div>
+
+                <input type="submit" name="name">
 
               </form>
 
