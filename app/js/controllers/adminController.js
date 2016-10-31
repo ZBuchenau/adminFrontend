@@ -11,6 +11,10 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
     console.log(comments);
   };
 
+  vm.showChecklist = function(){
+
+  };
+
   vm.checks = {
     creativeLive : false,
     insertionReq : false,
@@ -53,6 +57,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
 
   //----------SUBMIT NEW CLIENT----------
   vm.clientSubmit = function(item) {
+    console.log('IS THERE A COMMENT??? ', vm.mediaPlan);
     if (item.clientName === "" || item.clientMonthlyBudget === "" || item.year === "") {
       alert("Media Plan Form Incomplete.");
     } else {
@@ -68,6 +73,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
                   clientName: '',
                   clientMonthlyBudget: '',
                   year: '',
+                  comments: ''
                 };
               });
           }
@@ -175,11 +181,13 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
           mediaPlanId: id
         }).then(function(response) {
           var data = response.data;
+          console.log("HERE IS THE DATA", data);
           vm.mediaPlan = {
             mediaPlanId: data.media_plan_id,
             clientName: data.name,
             clientMonthlyBudget: parseInt(data.monthly_budget, 10),
-            year: parseInt(data.year, 10)
+            year: parseInt(data.year, 10),
+            comments: data.comments
           };
           mediaPlanService.doubleLooper(vm.officialMediaPlan, vm.data);
         }).then(function(response) {

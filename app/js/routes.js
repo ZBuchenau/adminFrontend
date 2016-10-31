@@ -21,5 +21,11 @@ app.config(function($routeProvider) {
     controller: 'printController as pc',
     css: 'css/printVersion.css',
     access: {restricted: true}
+  })
+  .when('/checklist', {
+    templateUrl: '../views/checklist.html',
+    controller: 'checkController as cc',
+    css: 'css/checklist.css',
+    access: {restricted: true}
   });
 });
