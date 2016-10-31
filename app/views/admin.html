@@ -1,9 +1,12 @@
-<div class="header">
-    <a href="#/"><img class="logo" src="../media/adminLogo.png" alt="" /></a>
-    <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
-    <a href="#/checklist"><button class="checklistButton" type="button" name="button" ng-click="ac.showChecklist()">Go To Checklist</button></a>
 
-</div>
+
+  <div class="header">
+      <a href="#/"><img class="logo" src="../media/adminLogo.png" alt="" /></a>
+      <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
+      <a href="#/checklist"><button class="checklistButton" type="button" name="button" ng-click="ac.showChecklist()">Media Plan Checklist</button></a>
+  </div>
+
+
 
 
 <div class="adminBody">
@@ -61,6 +64,9 @@
         <!-- MEDIA PLAN TABLE -->
         <!-- *************************************************************************** -->
         <div class="mediaPlanTable" ng-show="ac.mediaPlanShow">
+          <!-- <div class=""> -->
+            <a href="#/printVersion"><button class="printButton" type="button" name="button" ng-click="ac.showPrintVersion()">View Print Version</button></a>
+          <!-- </div> -->
             <h3 class="tableTitle">Media Plan By Tactic</h3>
             <h4 ng-class="{underBudget: ac.underBudget, overBudget: ac.overBudget}">
               {{ac.spendToBudget}}
@@ -408,8 +414,6 @@
             </div>
 
             <!-- <test-directive my-data="{{ac.officialMediaPlan}}"></test-directive> -->
-
-            <a href="#/printVersion"><button class="printButton" type="button" name="button" ng-click="ac.showPrintVersion()">Print Version</button></a>
 
             <!-- <div class="printPreview">
                 <div class="page">

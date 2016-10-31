@@ -368,6 +368,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
       "clientName": vm.mediaPlan.clientName,
       "monthlyBudget": vm.mediaPlan.clientMonthlyBudget,
       "year": vm.mediaPlan.year,
+      "comments": vm.mediaPlan.comments,
       "spend": vm.cumulativeSpend
     };
 
@@ -385,7 +386,7 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         }
       }
     }
-
+    console.log(mediaPlanService.mediaPlanInfo);
     console.log(mediaPlanService.providerObj);
 
     // console.log(mediaPlanService.mediaPlan);

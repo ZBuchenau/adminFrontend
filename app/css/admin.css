@@ -229,8 +229,8 @@ input {
   padding: 2rem;
   padding-left: 0;
   width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .checkContainer {
@@ -381,10 +381,10 @@ th {
   margin: 1rem;
 }
 
-.printButton {
+/*.printButton {
   position: absolute;
   bottom: 20px;
-  right: 50px;
+  left: 0;
   border: .2rem outset rgba(238, 105, 39, .8);
-}
+}*/
 /**/
