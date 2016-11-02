@@ -4,6 +4,7 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
   var vm = this;
 
   vm.accounts = [];
+  vm.showHeaders = false;
 
   mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
     .then(function(response){
@@ -19,6 +20,7 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
 
   vm.selectItemChanged = function(){
     vm.mediaPlan = [];
+    vm.showHeaders = true;
     console.log(vm.selectedItem);
     mediaPlanService.getItems(server + '/users/mediaPlans/allTactics', {
       mediaPlanId: vm.selectedItem
@@ -27,7 +29,9 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
       var info = response.data;
       for(var i = 0; i < info.length; i++){
         if(info[i].length > 0){
-          vm.mediaPlan.push(info[i][0]);
+          for(var j = 0; j < info[i].length; j++){
+            vm.mediaPlan.push(info[i][j]);
+          }
         }
       }
       console.log(vm.mediaPlan);

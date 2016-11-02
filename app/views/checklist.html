@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="row tableHeaders">
+    <div class="row tableHeaders" ng-show="cc.showHeaders">
         <h5 class="col-md-1 col-md-offset-4 col-sm-1 col-sm-offset-4 titles">I.O. Req.</h5>
         <h5 class="col-md-1 col-sm-1 titles">I.O. Rec.</h5>
         <h5 class="col-md-1 col-sm-1 titles">I.O. Signed</h5>
@@ -30,7 +30,6 @@
         <h5 class="col-md-1 col-sm-1 titles">Creative App.</h5>
         <h5 class="col-md-1 col-sm-1 titles">Creative Sub.</h5>
         <h5 class="col-md-1 col-sm-1 titles">Creative Live</h5>
-
     </div>
 
     <div class="row checklistRow" ng-repeat="item in cc.mediaPlan | orderBy : 'provider_name'">

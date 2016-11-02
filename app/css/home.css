@@ -72,7 +72,7 @@ lightGrey = #d1d3d4
 .layer2Rect, .layer2WavyLine, .number5, .letters {
   stroke-dasharray: 2450;
   stroke-dashoffset: 2450;
-  animation: 3.5s logo-outline forwards;
+  animation: 4s logo-outline forwards;
 }
 
 @keyframes logo-outline {
@@ -89,7 +89,7 @@ lightGrey = #d1d3d4
 .userButtons {
   width: 100%;
   position: absolute;
-  bottom: 47%;
+  bottom: 43%;
   margin-top: 1rem;
 }
 
@@ -125,7 +125,7 @@ lightGrey = #d1d3d4
   width: 50%;
   height: 45%;
   position: relative;
-  top: 53%;
+  top: 57%;
   margin-left: 25%;
 }
 
@@ -134,7 +134,6 @@ lightGrey = #d1d3d4
   position: absolute;
   top: 0;
   right: 50%;
-
   margin-right: 2rem;
 }
 
@@ -143,7 +142,6 @@ lightGrey = #d1d3d4
   position: absolute;
   top: 0;
   left: 50%;
-
   margin-left: 2rem;
 }
 
