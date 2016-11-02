@@ -1,4 +1,49 @@
-<div class="header">
-    <a href="#/"><img class="logo" src="../media/adminLogo.png" alt="" /></a>
-    <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
+<div class="container">
+    <div class="row">
+        <div class="header col-xl-12 col-lg-12 col-md-12">
+            <a href="#/"><img class="logo" src="../media/adminLogo.png" alt="" /></a>
+            <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row dropDownRow">
+        <div class="mediaDD col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+            <select ng-model="cc.selectedItem" ng-change="cc.selectItemChanged()">
+            <option value="">Select a Plan</option>
+            <option ng-repeat="item in cc.accounts | orderBy : 'name' track by $index" value={{item.id}}>{{item.name}}</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="row tableHeaders">
+        <h5 class="col-md-1 col-md-offset-4 col-sm-1 col-sm-offset-4 titles">I.O. Req.</h5>
+        <h5 class="col-md-1 col-sm-1 titles">I.O. Rec.</h5>
+        <h5 class="col-md-1 col-sm-1 titles">I.O. Signed</h5>
+        <h5 class="col-md-1 col-sm-1 titles">I.O. C-Signed</h5>
+        <h5 class="col-md-1 col-sm-1 titles">Creative App.</h5>
+        <h5 class="col-md-1 col-sm-1 titles">Creative Sub.</h5>
+        <h5 class="col-md-1 col-sm-1 titles">Creative Live</h5>
+
+    </div>
+
+    <div class="row checklistRow" ng-repeat="item in cc.mediaPlan  | orderBy : 'item.provider_name' track by $index">
+      <div class="form-horizontal tacticChecks">
+        <form class="checkForm" ng-submit="cc.checkSubmit()" method="post">
+          <div class="col-md-2 col-sm-2">{{item.provider_name}}</div>
+          <div class="col-md-2 col-sm-2">{{item.tactic_name}}</div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.io_requested}}</input></div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.io_received}}</input></div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.io_signed}}</input></div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.io_countersigned}}</input></div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.creative_approved}}</input></div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.creative_submitted}}</input></div>
+          <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox">{{item.creative_live}}</input></div>
+          <div class="col-md-1 col-sm-1 submitCheckDiv"><input class="submitCheck" type="submit" name="name"></div>
+        </form>
+      </div>
+
+    </div>
+
 </div>
