@@ -40,25 +40,10 @@ input {
   background-color: white;
 }
 
-/*.header {
-  background-color: #23282d;
-  border-bottom: 3px solid rgba(238, 105, 39, .8);
-  margin: 0;
-  height: auto;
-  height: 12%;
-  display: block;
-  float: left;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  margin-bottom: 0;
-}*/
-
 .header {
   height: 100px;
   background-color: #23282d;
   border-bottom: .2rem solid #fff;
-
 }
 
 .navParent {
@@ -432,10 +417,6 @@ th {
   margin: 1rem;
 }
 
-/*.printButton {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  border: .2rem outset rgba(238, 105, 39, .8);
-}*/
-/**/
+@media(max-width: 768px){
+
+}

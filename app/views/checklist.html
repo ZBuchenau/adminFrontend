@@ -1,17 +1,8 @@
-<!-- <div class="container">
-    <div class="row">
-        <div class="header col-xl-12 col-lg-12 col-md-12">
-            <a href="#/"><img class="logo" src="../media/adminLogo.png" alt="" /></a>
-            <input type="button" class="btn btn-default logout" id="logout" name="name" value="logout" ng-click="ac.logout()">
-            <a href="#/admin"><button class="checklistButton" type="button" name="button" ng-click="ac.showChecklist()">Media Planner</button></a>
-        </div>
-    </div>
-</div> -->
 
 <div class="container">
     <div class="row header">
           <span class="col-md-1 col-sm-1 col-xs-1"><a href="#/"><img class="logo" src="../media/adminLogo.png" alt="" /></a></span>
-          <span class="col-md-11 navParent">
+          <span class="col-md-11 col-sm-11 col-xs-11 navParent">
             <ul class="nav nav-tabs navigation">
                 <li role="presentation"><a href="#/admin">Media Planner</a></li>
                 <li role="presentation" class="active"><a href="#/checklist">Media Checklist</a></li>
@@ -45,15 +36,45 @@
     <div class="row checklistRow" ng-repeat="item in cc.mediaPlan | orderBy : 'provider_name'">
         <div class="form-horizontal tacticChecks">
             <form class="checkForm" ng-submit="cc.checkSubmit(item)" method="post">
-                <div class="col-md-2 col-sm-2">{{item.provider_name}}</div>
-                <div class="col-md-2 col-sm-2">{{item.tactic_name}}</div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.io_requested" ng-click="item.io_requested = !item.io_requested"></div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.io_received" ng-click="item.io_received = !item.io_received"></div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.io_signed" ng-click="item.io_signed = !item.io_signed"></div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.io_countersigned" ng-click="item.io_countersigned = !item.io_countersigned"></div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.creative_approved" ng-click="item.creative_approved = !item.creative_approved"></div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.creative_submitted" ng-click="item.creative_submitted = !item.creative_submitted"></div>
-                <div class="col-md-1 col-sm-1 checkboxes"><input type="checkbox" ng-checked="item.creative_live" ng-click="item.creative_live = !item.creative_live"></div>
+
+                <div class="col-md-2 col-sm-2 col-xs-6 tacticTitle">{{item.provider_name}}</div>
+                <div class="col-md-2 col-sm-2 col-xs-6 tacticTitle">{{item.tactic_name}}</div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">I.O. Req.</label>
+                  <input type="checkbox" ng-checked="item.io_requested" ng-click="item.io_requested = !item.io_requested">
+                </div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">I.O. Rec.</label>
+                  <input type="checkbox" ng-checked="item.io_received" ng-click="item.io_received = !item.io_received">
+                </div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">I.O. Signed</label>
+                  <input type="checkbox" ng-checked="item.io_signed" ng-click="item.io_signed = !item.io_signed">
+                </div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">I.O. C-Signed</label>
+                  <input type="checkbox" ng-checked="item.io_countersigned" ng-click="item.io_countersigned = !item.io_countersigned">
+                </div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">Creative App.</label>
+                  <input type="checkbox" ng-checked="item.creative_approved" ng-click="item.creative_approved = !item.creative_approved">
+                </div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">Creative Sub.</label>
+                  <input type="checkbox" ng-checked="item.creative_submitted" ng-click="item.creative_submitted = !item.creative_submitted">
+                </div>
+
+                <div class="col-md-1 col-sm-1 checkboxes">
+                  <label class="checkLabels" for="">Creative Live</label>
+                  <input type="checkbox" ng-checked="item.creative_live" ng-click="item.creative_live = !item.creative_live">
+                </div>
+
                 <div class="col-md-1 col-sm-1 submitCheckDiv"><input class="submitCheck" type="submit" name="name"></div>
             </form>
         </div>
