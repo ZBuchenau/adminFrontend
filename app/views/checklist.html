@@ -28,7 +28,7 @@
 
     </div>
 
-    <div class="row checklistRow" ng-repeat="item in cc.mediaPlan  | orderBy : 'item.provider_name' track by $index">
+    <div class="row checklistRow" ng-repeat="item in cc.mediaPlan | orderBy : 'provider_name'">
       <div class="form-horizontal tacticChecks">
         <form class="checkForm" ng-submit="cc.checkSubmit()" method="post">
           <div class="col-md-2 col-sm-2">{{item.provider_name}}</div>

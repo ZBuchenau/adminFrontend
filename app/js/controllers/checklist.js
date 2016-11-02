@@ -23,10 +23,15 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
     mediaPlanService.getItems(server + '/users/mediaPlans/allTactics', {
       mediaPlanId: vm.selectedItem
     }).then(function(response){
-      // console.log(response.data);
-      vm.mediaPlan = response.data;
+      console.log(response);
+      var info = response.data;
+      for(var i = 0; i < info.length; i++){
+        if(info[i].length > 0){
+          vm.mediaPlan.push(info[i][0]);
+        }
+      }
       console.log(vm.mediaPlan);
-      
+
       //TODO figure out how to push the proper data to an
       //array to be ng-repeated...
 
