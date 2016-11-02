@@ -38,4 +38,8 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
     });
   };
 
+  vm.checkSubmit = function(data){
+    console.log(data);
+  };
+
 }
