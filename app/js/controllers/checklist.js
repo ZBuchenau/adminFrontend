@@ -42,8 +42,12 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
     });
   };
 
-  vm.checkSubmit = function(data){
-    console.log(data);
+  vm.checkSubmit = function(item, type) {
+    console.log('THIS IS THE ITEM!!!!!!!!!', item);
+    // item.tacticType = item.tacticType;
+    mediaPlanService.tacticSubmit(server + '/users/tactics/checkedit', item)
+      .then(function(response) {
+        console.log(response);
+      });
   };
-
 }
