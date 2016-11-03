@@ -48,6 +48,7 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
     mediaPlanService.tacticSubmit(server + '/users/tactics/checkedit', item)
       .then(function(response) {
         console.log(response);
+        //TODO: REPOPULATE THE CHECKLIST WITH THE DATA FROM THE RESPONSE.
       });
   };
 }
