@@ -5,6 +5,11 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
 
   vm.accounts = [];
   vm.showHeaders = false;
+  vm.models = {};
+
+  vm.formChange = function(item){
+    item.color = 'red';
+  };
 
   mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
     .then(function(response){
@@ -41,6 +46,7 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
 
     });
   };
+
 
   vm.checkSubmit = function(item, type) {
     console.log('THIS IS THE ITEM!!!!!!!!!', item);
