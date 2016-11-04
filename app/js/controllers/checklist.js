@@ -57,4 +57,13 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
         //TODO: REPOPULATE THE CHECKLIST WITH THE DATA FROM THE RESPONSE.
       });
   };
+
+
+  vm.logout = function() {
+    authService.logout()
+      .then(function(response) {
+        $location.path('/');
+        console.log('User is now logged out!');
+      });
+  };
 }
