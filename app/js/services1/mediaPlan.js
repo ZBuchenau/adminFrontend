@@ -66,7 +66,6 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
 
       function success(response){
         var mediaPlan = response;
-        // console.log(mediaPlan);
         deferred.resolve(mediaPlan);
       }
 
