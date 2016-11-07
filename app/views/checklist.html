@@ -42,40 +42,40 @@
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">I.O. Req.</label>
-                  <input type="checkbox" ng-checked="item.io_requested" ng-click="item.io_requested = !item.io_requested; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.io_requested" ng-click="item.io_requested = !item.io_requested; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">I.O. Rec.</label>
-                  <input type="checkbox" ng-checked="item.io_received" ng-click="item.io_received = !item.io_received; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.io_received" ng-click="item.io_received = !item.io_received; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">I.O. Signed</label>
-                  <input type="checkbox" ng-checked="item.io_signed" ng-click="item.io_signed = !item.io_signed; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.io_signed" ng-click="item.io_signed = !item.io_signed; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">I.O. C-Signed</label>
-                  <input type="checkbox" ng-checked="item.io_countersigned" ng-click="item.io_countersigned = !item.io_countersigned; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.io_countersigned" ng-click="item.io_countersigned = !item.io_countersigned; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">Creative In</label>
-                  <input type="checkbox" ng-checked="item.creative_approved" ng-click="item.creative_approved = !item.creative_approved; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.creative_approved" ng-click="item.creative_approved = !item.creative_approved; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">Creative Subm.</label>
-                  <input type="checkbox" ng-checked="item.creative_submitted" ng-click="item.creative_submitted = !item.creative_submitted; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.creative_submitted" ng-click="item.creative_submitted = !item.creative_submitted; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
                 <div class="col-md-1 col-sm-1 checkboxes">
                   <label class="checkLabels" for="">Creative Live</label>
-                  <input type="checkbox" ng-checked="item.creative_live" ng-click="item.creative_live = !item.creative_live; cc.models[item.tacticType][item.tactic_name].color = {'background-color': '#ee6927'}">
+                  <input type="checkbox" ng-checked="item.creative_live" ng-click="item.creative_live = !item.creative_live; cc.models[item.tacticType][item.tactic_id].color = {'background-color': '#ee6927'}">
                 </div>
 
-                <div class="col-md-1 col-sm-1 submitCheckDiv"><input class="submitCheck" type="submit" name="name" ng-style="cc.models[item.tacticType][item.tactic_name].color" ng-click="cc.models[item.tacticType][item.tactic_name].color = ''"></div>
+                <div class="col-md-1 col-sm-1 submitCheckDiv"><input class="submitCheck" type="submit" name="name" ng-style="cc.models[item.tacticType][item.tactic_id].color" ng-click="cc.models[item.tacticType][item.tactic_id].color = ''"></div>
 
             </form>
         </div>
