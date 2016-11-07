@@ -87,12 +87,15 @@ function adminController($scope, $http, server, localStorageService, $q, $locati
         if (response === false) {
           alert('A MEDIA PLAN WITH THIS NAME ALREADY EXISTS!');
         } else {
-          vm.mediaPlanGetter()
+          // console.log(response);
+          mediaPlanService.spendFinder(vm.officialMediaPlan, 0)
             .then(function(response) {
-              console.log("MEDIA PLANS RETRIEVED: ", response);
+              var spend = vm.cumulativeSpend = response;
+              var budget = vm.mediaPlan.clientMonthlyBudget;
+              vm.spendDelta = budget - spend;
+              vm.spendRelations();
             });
-          //TODO: repopulate form with new client
-        }
+          }
       });
   };
 
