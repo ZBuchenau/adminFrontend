@@ -1,7 +1,7 @@
 var app = angular.module('fiveWeightAdmin', ['ngRoute', 'LocalStorageModule', 'd3']);
 
-// app.constant('server', 'http://localhost:3000');
-app.constant('server', 'https://fiveweightadmin.herokuapp.com');
+app.constant('server', 'http://localhost:3000');
+// app.constant('server', 'https://fiveweightadmin.herokuapp.com');
 
 app.run(function($rootScope, $location, $route, authService, localStorageService) {
   $rootScope.$on('$routeChangeStart',

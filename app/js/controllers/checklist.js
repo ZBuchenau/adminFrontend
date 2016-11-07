@@ -7,10 +7,6 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
   vm.showHeaders = false;
   vm.models = {};
 
-  // vm.formChange = function(item){
-  //   item.color = 'red';
-  // };
-
   mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
     .then(function(response){
       console.log(response);
