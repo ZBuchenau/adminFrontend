@@ -19,7 +19,6 @@ h3 {
 
 .printLogo {
     height: 8%;
-    /*height: auto;*/
     margin: 0;
     position: absolute;
 }
@@ -43,7 +42,6 @@ h3 {
     /*border: .1rem solid red;*/
     margin-left: 35%;
     padding: 0;
-    /*margin-top: 3%;*/
     margin-bottom: none;
     position: absolute;
     top: 7%;
@@ -61,8 +59,6 @@ h3 {
 }
 
 .tables {
-  /*border: .1rem solid blue;*/
-  /*border-top: 2px solid rgba(238, 105, 39, .8);*/
   width: 100%;
   height: 63%;
   margin-top: none;
@@ -74,7 +70,6 @@ h3 {
   width: 99%;
   margin: 0;
   margin-left: .5%;
-  /*margin-right: .5%;*/
   padding: none;
 }
 
