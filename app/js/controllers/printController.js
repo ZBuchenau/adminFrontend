@@ -31,9 +31,11 @@ function printController($scope, $http, server, localStorageService, $q, $locati
 
   vm.mediaPlan = mediaPlanService.mediaPlan;
   vm.info = mediaPlanService.mediaPlanInfo;
+  // vm.info.comments = vm.info.comments.replace("/\n","<br />");
   vm.providerSpends = mediaPlanService.providerObj;
   // console.log(vm.mediaPlan);
   console.log(vm.info);
+  console.log(vm.info.comments.replace(/\n/g, '<br/>'));
   console.log(vm.providerSpends);
 
 
