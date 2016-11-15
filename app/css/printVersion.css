@@ -155,7 +155,7 @@ div.printComments {
   text-align: left;
   width: 100%;
   margin-left: 0;
-  /*border: .1rem solid black;*/
+  border: .1rem solid black;
   padding: 1rem;
 }
 
@@ -170,7 +170,8 @@ pre {
 }
 
 div.printComments pre code {
-  white-space: pre;
+  white-space: pre-wrap;
+  word-break: keep-all;
   /*border: .1rem solid black;*/
   background-color: #fff;
   margin-top: .5rem;
