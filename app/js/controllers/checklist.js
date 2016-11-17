@@ -6,6 +6,7 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
   vm.accounts = [];
   vm.showHeaders = false;
   vm.models = {};
+  vm.comments = {};
 
   mediaPlanService.pullMedia(server + '/users/mediaPlans/plans')
     .then(function(response){
@@ -36,10 +37,6 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
         }
       }
       console.log(vm.mediaPlan);
-
-      //TODO figure out how to push the proper data to an
-      //array to be ng-repeated...
-
     });
   };
 
@@ -52,6 +49,16 @@ function checkController($scope, $http, server, localStorageService, $q, $locati
         console.log(response);
         //TODO: REPOPULATE THE CHECKLIST WITH THE DATA FROM THE RESPONSE.
       });
+  };
+
+  vm.commentSubmit = function(item){
+    // console.log(vm.selectedItem);
+    vm.comments.media_plan_id = parseInt(vm.selectedItem);
+    console.log(vm.comments);
+    // mediaPlanService.tacticSubmit(server + '/users/tactics/checkedit', item)
+    // .then(function(response){
+    //   console.log(response);
+    // });
   };
 
 

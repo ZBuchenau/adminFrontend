@@ -69,6 +69,11 @@ input.submitCheck {
   padding: 1px;
 }
 
+.checkCommentForm {
+  width: 98%;
+  margin-left: 1%;
+}
+
 
 
 @media(max-width: 768px){

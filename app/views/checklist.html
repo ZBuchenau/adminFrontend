@@ -79,7 +79,13 @@
 
             </form>
         </div>
-
     </div>
+
+    <form class="checkCommentForm" ng-submit="cc.commentSubmit(cc.comments)" method="post" ng-model="cc.comments">
+      <label for="checklistComments">Comments: </label>
+      <textarea id="checklistComments" name="name" rows="8" cols="40" ng-model="cc.comments.comment"></textarea>
+
+      <input type="submit" name="name" value="Submit Comments">
+    </form>
 
 </div>
