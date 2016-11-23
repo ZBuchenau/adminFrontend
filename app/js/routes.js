@@ -22,6 +22,12 @@ app.config(function($routeProvider) {
     css: 'css/printVersion.css',
     access: {restricted: true}
   })
+  .when('/clients', {
+    templateUrl: '../views/clients.html',
+    controller: 'clientController as cr',
+    css: 'css/clients.css',
+    access: {restricted: true}
+  })
   .when('/checklist', {
     templateUrl: '../views/checklist.html',
     controller: 'checkController as cc',
