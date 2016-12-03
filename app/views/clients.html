@@ -7,7 +7,70 @@
                 <li role="presentation"><a href="#/checklist">Media Checklist</a></li>
                 <li role="presentation" class="active"><a href="#/clients">Client Analytics</a></li>
             </ul>
-            <a class="logoutButton" href="#/" ng-click="cc.logout()">Logout</a>
+            <a class="logoutButton" href="#/" ng-click="cr.logout()">Logout</a>
           </span>
     </div>
 </div>
+<!--
+<div class="container">
+  <div class="row">
+    <div class="lineGraph">
+
+    </div>
+  </div>
+</div> -->
+
+<script type="text/javascript">
+  var data = [
+    {key: "BDX Gold Package", value: 60, date: "January"},
+    {key: "BDX Gold Package", value: 40, date: "February"},
+    {key: "BDX Gold Package", value: 25, date: "March"},
+    {key: "BDX Gold Package", value: 56, date: "April"},
+    {key: "BDX Gold Package", value: 55, date: "May"},
+    {key: "BDX Gold Package", value: 73, date: "June"},
+    {key: "BDX Gold Package", value: 48, date: "July"},
+    {key: "BDX Gold Package", value: 27, date: "August"},
+    {key: "BDX Gold Package", value: 84, date: "September"},
+    {key: "BDX Gold Package", value: 50, date: "October"},
+    {key: "BDX Gold Package", value: 50, date: "November"},
+    {key: "BDX Gold Package", value: 52, date: "December"},
+    {key: "BDX Gold Package", value: 71, date: "January"}
+  ];
+  var w = 800;
+  var h = 450;
+  var margin = {
+    top: 58,
+    bottom: 100,
+    left: 80,
+    right: 40
+  };
+  var width = w - margin.left - margin.right;
+  var height = h - margin.top - margin.bottom;
+
+  var svg = d3.select("body").append("svg")
+              .attr("id", "chart")
+              .attr("width", 800)
+              .attr("height", 450);
+              console.log(svg);
+  var chart = svg.append("g")
+              .classed("display", true)
+              .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
+
+  var x = d3.time.scale()
+            .domain(d3.extent(data, function(d){
+              return d.date;
+            }))
+            .range();
+  var y = d3.scale.linear()
+            .domain([0, d3.max(data, function(d){
+              return d.value;
+            })])
+            .range([height, 0]);
+
+  function plot(params){
+
+  }
+  plot.call(chart, {
+    data: data
+  });
+</script>
