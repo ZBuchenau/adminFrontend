@@ -11,8 +11,9 @@ app.directive('pieChart', ['d3Service', '$q', 'mediaPlanService', function(d3Ser
 
       scope.$watch('pieData', function(newVal, oldVal) {
 
-        if (newVal) {
 
+        if (newVal) {
+          console.log("PIE DATA", scope.pieData);
           dataArray = [];
           // console.log('WATCHING');
           // console.log(Math.random());

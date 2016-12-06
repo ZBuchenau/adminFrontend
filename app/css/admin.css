@@ -43,7 +43,7 @@ input {
 .header {
   height: 100px;
   background-color: #23282d;
-  border-bottom: .2rem solid #fff;
+  border-bottom: 1px solid rgba(238, 105, 39, 1);
 }
 
 .navParent {
