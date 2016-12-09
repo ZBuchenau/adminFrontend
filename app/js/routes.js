@@ -28,6 +28,24 @@ app.config(function($routeProvider) {
     css: 'css/dashboard.css',
     access: {restricted: true}
   })
+  .when('/dashboard/clients', {
+    templateUrl: '../views/clients.html',
+    controller: 'clientController as cc',
+    css: ['css/dashboard.css', 'css/clients.css'],
+    access: {restricted: true}
+  })
+  .when('/dashboard/reports', {
+    templateUrl: '../views/reports.html',
+    controller: 'reportController as rc',
+    css: ['css/dashboard.css', 'css/reports.css'],
+    access: {restricted: true}
+  })
+  .when('/dashboard/providers', {
+    templateUrl: '../views/providers.html',
+    controller: 'providerController as pc',
+    css: ['css/dashboard.css', 'css/providers.css'],
+    access: {restricted: true}
+  })
   .when('/checklist', {
     templateUrl: '../views/checklist.html',
     controller: 'checkController as cc',

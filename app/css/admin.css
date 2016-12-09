@@ -1,5 +1,9 @@
-html {
-  background-color: #f1f1f1;
+html, body {
+  /*background-color: #f1f1f1;*/
+  height: 100%;
+  z-index: -10;
+  /*min-height: 100%;
+  background-color: transparent;*/
 }
 
 div {
@@ -67,6 +71,10 @@ ul.navigation {
   border-bottom: none;
 }
 
+.navigation li.active a:hover {
+  box-shadow: none;
+}
+
 .logo {
   height: 80px;
   margin-top: 10px;
@@ -78,8 +86,13 @@ ul.navigation {
 }
 
 .nav-tabs li a:hover {
-background-color: #f1f1f1;
-box-shadow: inset 0 -1px 2px 0px gray;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  box-shadow: inset 0 -1px 2px 0px gray;
+}
+
+.active a {
+  box-shadow: none;
 }
 
 ul li a {
@@ -100,20 +113,7 @@ ul li a {
   top: 13%;
   display: inline-block;
   width: 100%;
-  z-index: -10;
-}
-
-.sideBar {
-  background-color: #47515b;
-  /*box-shadow: 1px 1px .5px 1px grey;*/
-  width: 15%;
-  min-width: 200px;
-  height: 100vh;
-  display: block;
-  border-top: .1rem solid white;
-  position: fixed;
-  top: 8%;
-  left: 0;
+  z-index: 0;
 }
 
 .visuals {
@@ -123,7 +123,6 @@ ul li a {
   width: 80%;
   height: 100%;
   margin-left: 0;
-  z-index: -15;
   padding-left: 0;
   padding: 0;
 }
@@ -167,7 +166,7 @@ ul li a {
   border: 1px solid #23282d;
   padding: 8px;
   background-color: #adb7c1;
-  z-index: 200;
+  z-index: 2;
 }
 
 .clientSubmit {
@@ -243,7 +242,7 @@ ul li a {
   width: 80%;
   margin-left: 20%;
   height: 35vh;
-  z-index: 10;
+  z-index: 11;
   position: absolute;
   top: 0;
   padding-top: 0;
@@ -251,10 +250,17 @@ ul li a {
   text-align: center;
 }
 
+
+
 .pieWrapper pie-chart svg {
   padding: 0;
   width: 80%;
   margin-left: 15%;
+  z-index: 2;
+}
+
+svg text {
+  z-index: 300;
 }
 
 .pieWrapper h2{

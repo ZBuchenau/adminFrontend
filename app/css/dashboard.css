@@ -1,33 +1,15 @@
-/*line-graph {
-  border: .1rem solid black;
-  height: 50px;
-}*/
 
-.chart {
-  border: .1rem solid black;
-  background-color: #f8f8f8;
-}
-
-.trendline {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
-}
-
-.gridline path,
-.gridline line {
-  fill: none;
-  stroke: #e5e5e5;
-  shape-rendering: crispEdges;
-}
-
-.clientBody, div.sidebar {
-  min-height: 100%;
+div.clientBody, div.sidebar {
+  min-height: 100vh;
   background-color: #f5f5f5;
 }
 
+div.container-fluid {
+  padding: 0;
+  min-height: 100%;
+}
+
 div.sidebar {
-  /*border: .1rem solid black;*/
   margin: 0;
   padding-top: 20px;
   background-color: #f5f5f5;
@@ -36,10 +18,22 @@ div.sidebar {
 
 h1.page-header {
   margin-top: 20px;
+  border-bottom: 1px solid rgba(238, 105, 39, .5);
+  margin-bottom: 0;
+  padding-left: 10px;
+  font-weight: bold;
 }
 
 div.main {
   background-color: #fff;
+  min-height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+div.mainDashboard {
+  padding-left: 20px;
+  padding-right: 15px;
 }
 
 div.placeholder {
@@ -48,4 +42,27 @@ div.placeholder {
 
 h2.sub-header {
   margin-top: 3rem;
+}
+
+.heading2 {
+  margin-bottom: 2rem;
+  padding-left: 0;
+  /*border-bottom: 1px solid lightgrey;*/
+}
+
+li.dashLink a:hover {
+  background-color: #e1e1e1;
+}
+
+li.dashLink.active a:hover,
+ li.dashLink.active a:focus{
+  background-color: #eee;
+  color: rgba(238, 105, 39, 1);
+  cursor: default;
+}
+
+.dashLink.active {
+  background-color: #eee;
+  border-bottom: 1px solid black;
+  color: rgba(238, 105, 39, 1);
 }

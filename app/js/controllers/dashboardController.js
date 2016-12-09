@@ -3,6 +3,43 @@ app.controller('dashboardController', ['$scope', 'd3Service', '$http', 'server',
 function dashboardController($scope, d3Service, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
 
+  vm.dashboard = {
+    main : true,
+    client : false
+  };
+
+  vm.dashLinkShow = function(item){
+    if(item === 'dashboard'){
+        vm.dashboard = {
+          main : true,
+          client : false,
+          report : false,
+          provider : false
+        };
+    } else if(item === 'client'){
+        vm.dashboard = {
+          main : false,
+          client : true,
+          report : false,
+          provider : false
+        };
+    } else if(item === 'report'){
+        vm.dashboard = {
+          main : false,
+          client : false,
+          report : true,
+          provider : false
+        };
+    } else if(item === 'provider'){
+        vm.dashboard = {
+          main : false,
+          client : false,
+          report : false,
+          provider : true
+        };
+    }
+  };
+
   vm.data = [
   {key: "BDX Gold Package", value: 58, date: "January 2014"},
   {key: "BDX Gold Package", value: 59, date: "February 2014"},
