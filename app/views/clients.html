@@ -36,31 +36,31 @@
                         <div class="form-group row">
                             <label for="client_name" class="col-xs-4 col-form-label">Client Name: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="Shea Homes Colorado" ng-model="cc.newClient.client_name" placeholder="" id="client_name">
+                                <input class="form-control clientInput" type="text" value="Shea Homes Colorado" ng-model="cc.newClient.client_name" placeholder="" id="client_name" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_address" class="col-xs-4 col-form-label">Street Address: <text class="asterisk">*</text><br><p class="labelHelper">(Including Unit#)</p></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="10075 Park Meadows Dr. #205" ng-model="cc.newClient.client_address" placeholder="" id="client_address">
+                                <input class="form-control clientInput" type="text" value="10075 Park Meadows Dr. #205" ng-model="cc.newClient.client_address" placeholder="" id="client_address" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_city" class="col-xs-4 col-form-label">City: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="Lone Tree" ng-model="cc.newClient.client_city" placeholder="" id="client_city">
+                                <input class="form-control clientInput" type="text" value="Lone Tree" ng-model="cc.newClient.client_city" placeholder="" id="client_city" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_address" class="col-xs-4 col-form-label">State: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <select class="form-control" name="country" ng-model="cc.newClient.client_state" id="client_state">
+                                <select class="form-control" name="country" ng-model="cc.newClient.client_state" id="client_state" required>
                                     <option value="AL">Alabama</option>
                                   	<option value="AK">Alaska</option>
                                   	<option value="AZ">Arizona</option>
                                   	<option value="AR">Arkansas</option>
                                   	<option value="CA">California</option>
-                                  	<option value="CO">Colorado</option>
+                                  	<option value="CO" ng-selected="true">Colorado</option>
                                   	<option value="CT">Connecticut</option>
                                   	<option value="DE">Delaware</option>
                                   	<option value="DC">District of Columbia</option>
@@ -112,7 +112,7 @@
                         <div class="form-group row">
                             <label for="client_zip" class="col-xs-4 col-form-label">Zip Code: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="80124" ng-model="cc.newClient.client_zip" placeholder="" id="client_zip">
+                                <input class="form-control clientInput" type="text" value="80124" ng-model="cc.newClient.client_zip" placeholder="" id="client_zip" required>
                             </div>
                         </div>
 
@@ -120,28 +120,28 @@
                         <div class="form-group row">
                             <label for="client_address" class="col-xs-4 col-form-label">First Name: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="Zach" ng-model="cc.newClient.contact_first_name" placeholder="" id="contact_first_name">
+                                <input class="form-control clientInput" type="text" value="Zach" ng-model="cc.newClient.contact_first_name" placeholder="" id="contact_first_name" required
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_address" class="col-xs-4 col-form-label">Last Name: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="Buchenau" ng-model="cc.newClient.contact_last_name" placeholder="" id="contact_last_name">
+                                <input class="form-control clientInput" type="text" value="Buchenau" ng-model="cc.newClient.contact_last_name" placeholder="" id="contact_last_name" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_email" class="col-xs-4 col-form-label">Email: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="email" value="ZBuchenau@yahoo.com" ng-model="cc.newClient.contact_email" placeholder="" id="contact_email">
+                                <input class="form-control clientInput" type="email" value="ZBuchenau@yahoo.com" ng-model="cc.newClient.contact_email" placeholder="" id="contact_email" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_phone" class="col-xs-4 col-form-label">Phone Number: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="3039299645" ng-model="cc.newClient.contact_phone" placeholder="" id="contact_phone">
+                                <input class="form-control clientInput" type="text" value="3039299645" ng-model="cc.newClient.contact_phone" placeholder="" id="contact_phone" required>
                             </div>
                         </div>
-                        <h4 class="formSep">Client Billing Info: </h4>
+                        <!-- <h4 class="formSep">Client Billing Info: </h4>
                         <div class="form-group row">
                             <label for="billing_name" class="col-xs-4 col-form-label">Entity Name:</label>
                             <div class="col-xs-8">
@@ -223,7 +223,7 @@
                             <div class="col-xs-8">
                                 <input class="form-control clientInput" type="text" value="" ng-model="cc.newClient.billing_zip" placeholder="" id="billing_zip">
                             </div>
-                        </div>
+                        </div> -->
                         <input class="col-xs-6 col-xs-offset-6 newClientSubmit small" type="submit" name="name" value="Submit New Client">
                     </form>
 
