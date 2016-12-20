@@ -5,9 +5,28 @@ function clientController($scope, $http, server, localStorageService, $q, $locat
 
   vm.clientFormShow = false;
 
-  vm.newClient = {};
+  vm.newClient = {
+    "client_name" : "Shea Homes",
+    "client_address" : "10075 Park Meadows Dr",
+    "client_city" : "Lone Tree",
+    "client_state" : "CO",
+    "client_zip" : 80124,
+    "contact_first_name" : "Zach",
+    "contact_last_name" : "Buchenau",
+    "contact_email" : "ZBuchenau@yahoo.com",
+    "contact_phone" : 3039299645,
+    "billing_name" : "Shea Homes",
+    "billing_address" : "10075 Park Meadows Dr",
+    "billing_city" : "Parker",
+    "billing_state" : "Colorado",
+    "billing_zip" : 80134
+  };
 
   vm.submitClient = function(item){
     console.log(item);
+    mediaPlanService.tacticSubmit(server + '/clients', item)
+      .then(function(response){
+        console.log(response);
+      });
   };
 }

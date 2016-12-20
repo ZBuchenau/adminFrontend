@@ -138,10 +138,10 @@
                         <div class="form-group row">
                             <label for="client_phone" class="col-xs-4 col-form-label">Phone Number: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="3039299645" ng-model="cc.newClient.contact_phone" placeholder="" id="contact_phone" required>
+                                <input class="form-control clientInput" type="number" ng-model="cc.newClient.contact_phone" placeholder="" id="contact_phone" required>
                             </div>
                         </div>
-                        <!-- <h4 class="formSep">Client Billing Info: </h4>
+                        <h4 class="formSep">Client Billing Info: </h4>
                         <div class="form-group row">
                             <label for="billing_name" class="col-xs-4 col-form-label">Entity Name:</label>
                             <div class="col-xs-8">
@@ -169,7 +169,7 @@
                                   	<option value="AZ">Arizona</option>
                                   	<option value="AR">Arkansas</option>
                                   	<option value="CA">California</option>
-                                  	<option value="CO">Colorado</option>
+                                  	<option value="CO" ng-selected="true">Colorado</option>
                                   	<option value="CT">Connecticut</option>
                                   	<option value="DE">Delaware</option>
                                   	<option value="DC">District of Columbia</option>
@@ -221,9 +221,9 @@
                         <div class="form-group row">
                             <label for="billing_zip" class="col-xs-4 col-form-label">Zip Code:</label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="" ng-model="cc.newClient.billing_zip" placeholder="" id="billing_zip">
+                                <input class="form-control clientInput" type="number" value="" ng-model="cc.newClient.billing_zip" placeholder="" id="billing_zip">
                             </div>
-                        </div> -->
+                        </div>
                         <input class="col-xs-6 col-xs-offset-6 newClientSubmit small" type="submit" name="name" value="Submit New Client">
                     </form>
 
