@@ -120,13 +120,13 @@
                         <div class="form-group row">
                             <label for="client_address" class="col-xs-4 col-form-label">First Name: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="Zach" ng-model="cc.newClient.contact_first_name" placeholder="" id="contact_first_name" required
+                                <input class="form-control clientInput" type="text" value="Zach" ng-model="cc.newClient.contact_fn" placeholder="" id="contact_fn" required
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="client_address" class="col-xs-4 col-form-label">Last Name: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="text" value="Buchenau" ng-model="cc.newClient.contact_last_name" placeholder="" id="contact_last_name" required>
+                                <input class="form-control clientInput" type="text" value="Buchenau" ng-model="cc.newClient.contact_ln" placeholder="" id="contact_ln" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -138,7 +138,7 @@
                         <div class="form-group row">
                             <label for="client_phone" class="col-xs-4 col-form-label">Phone Number: <text class="asterisk">*</text></label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="number" ng-model="cc.newClient.contact_phone" placeholder="" id="contact_phone" required>
+                                <input class="form-control clientInput" type="text" ng-model="cc.newClient.contact_phone" placeholder="" id="contact_phone" required>
                             </div>
                         </div>
                         <h4 class="formSep">Client Billing Info: </h4>
@@ -221,7 +221,7 @@
                         <div class="form-group row">
                             <label for="billing_zip" class="col-xs-4 col-form-label">Zip Code:</label>
                             <div class="col-xs-8">
-                                <input class="form-control clientInput" type="number" value="" ng-model="cc.newClient.billing_zip" placeholder="" id="billing_zip">
+                                <input class="form-control clientInput" type="text" value="" ng-model="cc.newClient.billing_zip" placeholder="" id="billing_zip">
                             </div>
                         </div>
                         <input class="col-xs-6 col-xs-offset-6 newClientSubmit small" type="submit" name="name" value="Submit New Client">
