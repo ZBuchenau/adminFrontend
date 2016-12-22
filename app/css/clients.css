@@ -2,7 +2,7 @@ div.row.clientFormRow {
   padding-left: 20px;
   padding-right: 10px;
   margin-top: 0;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 div.form-group.row {
@@ -83,6 +83,7 @@ div.form-group.row {
 /*Collapsible Tree*/
 .treeRow {
   overflow-x: auto;
+  padding: 0;
 }
 
 div#collapsibleTree {
@@ -111,6 +112,6 @@ svg.treeSvg {
 
 .link {
   fill: none;
-  stroke: #ffd27f;
-  stroke-width: 1.5px;
+  stroke: rgba(238, 105, 39, 1);
+  stroke-width: 1px;
 }

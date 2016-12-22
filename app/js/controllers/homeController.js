@@ -1,8 +1,9 @@
-app.controller('homeController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', homeController]);
+app.controller('homeController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', 'mediaPlanService', homeController]);
 
-function homeController($scope, $http, server, localStorageService, $q, $location, authService) {
+function homeController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
 
   var vm = this;
+
   vm.userExists = '';
 
   vm.signUpShow = false;
@@ -10,11 +11,6 @@ function homeController($scope, $http, server, localStorageService, $q, $locatio
 
 
   vm.user = {};
-  // vm.user.firstName = 'Zach';
-  // vm.user.lastName = 'Buchenau';
-  // vm.user.userName = 'ZBuchenau';
-  // vm.user.password = '12345';
-  // vm.user.email = 'ZBuchenau@yahoo.com';
 
   vm.submitSignUp = function() {
 

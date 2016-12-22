@@ -12,10 +12,18 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     pieValueArrays: pieValueArrays,
     deleteTacticAlert: deleteTacticAlert,
     spendFinder: spendFinder,
-    spendCalc: spendCalc
+    spendCalc: spendCalc,
+    initValues: initValues
   });
 
-
+  function initValues() {
+    pullMedia(server + "/users/getuser")
+      .then(function(response) {
+        console.log(response.data[0].username);
+        var username = response.data[0].username;
+        return username;
+      });
+  }
 
   function tacticSubmit(endPoint, obj) {
     var deferred = $q.defer();
@@ -42,20 +50,20 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
         console.log(err);
       });
 
-      function success(response){
-        // console.log(response);
-        deferred.resolve(response);
-      }
+    function success(response) {
+      // console.log(response);
+      deferred.resolve(response);
+    }
 
-      function failure(response){
-        console.log(response);
-        deferred.reject(response);
-      }
+    function failure(response) {
+      console.log(response);
+      deferred.reject(response);
+    }
     return deferred.promise;
   }
 
-// Pulls all tactics for a given media plan
-  function getItems(endpoint, obj){
+  // Pulls all tactics for a given media plan
+  function getItems(endpoint, obj) {
     var deferred = $q.defer();
 
     $http.post(endpoint, obj)
@@ -64,35 +72,35 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
         console.log(err);
       });
 
-      function success(response){
-        var mediaPlan = response;
-        deferred.resolve(mediaPlan);
-      }
+    function success(response) {
+      var mediaPlan = response;
+      deferred.resolve(mediaPlan);
+    }
 
-      function failure(response){
-        console.log(response);
-        deferred.reject(response);
-      }
+    function failure(response) {
+      console.log(response);
+      deferred.reject(response);
+    }
 
     return deferred.promise;
   }
 
 
-  function doubleLooper(obj, pushObj){
-    for(var i = 0; i < obj.length; i++){
-      for(var j = 0; j < obj[i].length; j++){
+  function doubleLooper(obj, pushObj) {
+    for (var i = 0; i < obj.length; i++) {
+      for (var j = 0; j < obj[i].length; j++) {
         pushObj.push(obj[i][j]);
       }
     }
     console.log(pushObj);
   }
 
-  function spendDelta(budget, obj, thing){
+  function spendDelta(budget, obj, thing) {
     var deferred = $q.defer();
 
     var spend = 0;
     var delta;
-    for(var i = 0; i < obj.length; i++){
+    for (var i = 0; i < obj.length; i++) {
       spend += parseInt(obj[i][thing]);
     }
     delta = budget - spend;
@@ -108,29 +116,29 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     return deferred.promise;
   }
 
-  function tacticPost(endPoint, obj, type){
+  function tacticPost(endPoint, obj, type) {
     obj.tacticType = type;
     var deferred = $q.defer();
     $http.post(endPoint, obj)
       .then(success, failure)
-      .catch(function(error){
+      .catch(function(error) {
         console.log(error);
       });
 
-      function success(response){
-        console.log(response);
-        deferred.resolve(response);
-      }
+    function success(response) {
+      console.log(response);
+      deferred.resolve(response);
+    }
 
-      function failure(response){
-        console.log(response);
-        deferred.reject(response);
-      }
+    function failure(response) {
+      console.log(response);
+      deferred.reject(response);
+    }
 
-      return deferred.promise;
+    return deferred.promise;
   }
 
-  function reloadTactics(endpoint, obj){
+  function reloadTactics(endpoint, obj) {
     var deferred = $q.defer();
 
     $http.post(endpoint, obj)
@@ -139,41 +147,41 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
         console.log(err);
       });
 
-      function success(response){
-        var mediaPlan = response;
-        console.log(mediaPlan);
-        deferred.resolve(mediaPlan);
-      }
+    function success(response) {
+      var mediaPlan = response;
+      console.log(mediaPlan);
+      deferred.resolve(mediaPlan);
+    }
 
-      function failure(response){
-        console.log(response);
-        deferred.reject(response);
-      }
+    function failure(response) {
+      console.log(response);
+      deferred.reject(response);
+    }
 
     return deferred.promise;
   }
 
-  function pieValueArrays(info){
+  function pieValueArrays(info) {
     var deferred = $q.defer();
     var arr1 = [];
     var arr2 = [];
-    for(var i = 0; i < info.length; i++){
-      for(var j = 0; j < info[i].length; j++){
+    for (var i = 0; i < info.length; i++) {
+      for (var j = 0; j < info[i].length; j++) {
         arr1.push(info[i][j].provider_name + " - " + info[i][j].tactic_name);
         arr2.push(parseInt(info[i][j].monthly_spend));
       }
     }
-    deferred.resolve ({
+    deferred.resolve({
       tactics: arr1,
       values: arr2
     });
     return deferred.promise;
   }
 
-  function deleteTacticAlert(message){
+  function deleteTacticAlert(message) {
     var deferred = $q.defer();
     var retVal = confirm(message);
-    if (retVal === true){
+    if (retVal === true) {
       deferred.resolve(true);
     } else {
       deferred.resolve(false);
@@ -181,13 +189,13 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     return deferred.promise;
   }
 
-  function spendFinder(mediaPlan, zero){
+  function spendFinder(mediaPlan, zero) {
     //mediaPlan MUST BE AN ARRAY OF ARRAYS
     //ALWAYS ENTER 0 IN FOR THE zero PARAMETER
     var deferred = $q.defer();
 
-    for(var i = 0; i < mediaPlan.length; i++){
-      for(var j = 0; j < mediaPlan[i].length; j++){
+    for (var i = 0; i < mediaPlan.length; i++) {
+      for (var j = 0; j < mediaPlan[i].length; j++) {
         zero += parseInt(mediaPlan[i][j].monthly_spend);
       }
     }
@@ -195,11 +203,11 @@ function mediaPlanService($q, $timeout, $http, localStorageService, server) {
     return deferred.promise;
   }
 
-  function spendCalc(currentSpend, budget){
+  function spendCalc(currentSpend, budget) {
     var deferred = $q.defer();
 
     var spendData = {
-      spend : currentSpend,
+      spend: currentSpend,
       budgetRemaining: (budget - currentSpend),
     };
     deferred.resolve(spendData);

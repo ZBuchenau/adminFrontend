@@ -1,9 +1,15 @@
 app.controller('clientController', ['$scope', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', 'mediaPlanService', clientController]);
 
 function clientController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
+
   var vm = this;
 
   vm.clientFormShow = false;
+
+  mediaPlanService.pullMedia(server + '/clients')
+  .then(function(response){
+    console.log(response);
+  });
 
   vm.newClient = {
     "client_name" : "Shea Homes",
@@ -24,7 +30,7 @@ function clientController($scope, $http, server, localStorageService, $q, $locat
 
   vm.submitClient = function(item){
     // console.log(item);
-    mediaPlanService.tacticSubmit(server + '/clients', item)
+    mediaPlanService.tacticSubmit(server + '/clients/add', item)
       .then(function(response){
         console.log(response);
       });
@@ -106,4 +112,5 @@ function clientController($scope, $http, server, localStorageService, $q, $locat
       }]
     }]
   };
+
 }

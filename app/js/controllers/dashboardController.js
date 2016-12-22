@@ -1,7 +1,16 @@
-app.controller('dashboardController', ['$scope', 'd3Service', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', 'mediaPlanService', dashboardController]);
+app.controller('dashboardController', ['$scope', 'd3', '$http', 'server', 'localStorageService', '$q', '$location', 'authService', 'mediaPlanService', dashboardController]);
 
-function dashboardController($scope, d3Service, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
+function dashboardController($scope, d3, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
+
+  var initValues = function(){
+    mediaPlanService.pullMedia(server + "/users/getuser")
+      .then(function(response){
+        console.log(response.data[0].username);
+        mediaPlanService.username = response.data[0].username;
+      });
+  };
+  initValues();
 
   vm.dashboard = {
     main : true,
@@ -64,5 +73,7 @@ function dashboardController($scope, d3Service, $http, server, localStorageServi
         console.log('User is now logged out!');
       });
   };
+
+  // initValues();
 
 }
