@@ -29,4 +29,81 @@ function clientController($scope, $http, server, localStorageService, $q, $locat
         console.log(response);
       });
   };
+
+  vm.treeData = {
+    "name": "5Weight Customers",
+    "children": [{
+      "name": "Shea Homes Colorado",
+      "children": [{
+        "name": "BackCountry CO",
+        "children": [{
+          "name": "BackCountry CO",
+          "children": [{
+            "name": "Zillow Boost"
+          }]
+        }]
+      }, {
+        "name": "Stepping Stone CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }]
+    },
+    {
+      "name": "Shea Homes Colorado",
+      "children": [{
+        "name": "BackCountry CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }, {
+        "name": "Stepping Stone CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }]
+    },
+    {
+      "name": "Shea Homes Colorado",
+      "children": [{
+        "name": "BackCountry CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }, {
+        "name": "Stepping Stone CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }]
+    },
+    {
+      "name": "Shea Homes Colorado",
+      "children": [{
+        "name": "BackCountry CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }, {
+        "name": "Stepping Stone CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }]
+    },
+    {
+      "name": "Shea Homes Colorado",
+      "children": [{
+        "name": "BackCountry CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }, {
+        "name": "Stepping Stone CO",
+        "children": [{
+          "name": "Zillow Boost"
+        }]
+      }]
+    }]
+  };
 }
