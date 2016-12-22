@@ -14,7 +14,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row" id="dashSidebar">
+        <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar" id="sidebar">
                     <li class="dashLink"><a href="#/dashboard">Overview</a></li>
@@ -25,6 +25,20 @@
             </div>
             <div class="col-sm-9 col-md-10 main">
               <h1 class="page-header">Reporting Dashboard</h1>
+
+              <button class="col-xs-6 col-xs-offset-3 newClientSubmit" name="button" ng-click="rc.reportFormShow = !rc.reportFormShow">Create New Report</button>
+
+              <div class="reportSection col-md-12">
+                <ul class="reportUl" ng-repeat="item in rc.clientList">
+                  <li class="clientHeader">{{item.name}}</li>
+                    <ul>
+                      <li>BackCountry CO</li>
+                      <li>BackCountry CO</li>
+                      <li>BackCountry CO</li>
+                    </ul>
+                </ul>
+
+              </div>
             </div>
         </div>
     </div>

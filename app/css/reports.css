@@ -1,0 +1,16 @@
+.reportSection {
+  /*border: .1rem solid red;*/
+}
+
+.reportUl {
+  margin-top: 3rem;
+}
+
+.clientHeader {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.clientHeader button {
+  margin-left: 2rem;
+}

@@ -66,3 +66,8 @@ li.dashLink.active a:hover,
   border-bottom: 1px solid black;
   color: rgba(238, 105, 39, 1);
 }
+
+input.dashInput {
+  border: none;
+  background-color: transparent;
+}

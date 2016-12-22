@@ -4,4 +4,9 @@ function reportController($scope, $http, server, localStorageService, $q, $locat
   var vm = this;
 
 
+  mediaPlanService.pullMedia(server + '/clients')
+    .then(function(response){
+      vm.clientList = response.data;
+  });
+
 }
