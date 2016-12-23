@@ -71,3 +71,12 @@ input.dashInput {
   border: none;
   background-color: transparent;
 }
+
+td, th {
+  white-space: nowrap;
+}
+
+.newClientSubmit.small {
+  height: 30px;
+  font-size: 10px;
+}
