@@ -67,7 +67,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="item in dc.reports">
+                      <tr ng-repeat="item in dc.reports | orderBy : 'report_name'">
                         <form class="" method="post" ng-model="dc.models[item.id]">
                           <td class="wider"><input class="dashInput wider" type="text" name="name" ng-value="item.report_name" ng-model="item.report_name" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></td>
                           <td><input class="dashInput" type="text" name="name" ng-value="item.employee" ng-model="item.employee" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></td>

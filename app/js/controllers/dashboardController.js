@@ -73,7 +73,10 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
 
 
   vm.submitEdit = function(obj){
-    console.log(obj);
+    mediaPlanService.tacticSubmit(server + '/reports/update', obj)
+      .then(function(response){
+        console.log(response);
+      });
   };
 
   //----------LOGOUT----------
