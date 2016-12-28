@@ -68,12 +68,42 @@ li.dashLink.active a:hover,
 }
 
 input.dashInput {
+  overflow-x: auto;
   border: none;
   background-color: transparent;
+  width: auto;
+}
+
+input.dashInput[type='checkbox'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+    background: red;
+}
+input.dashInput[type='checkbox']:checked {
+    background: #76EE00;
+}
+
+input.dashInput.wider {
+  width: 150px;
+}
+
+textarea.dashInput {
+  height: 50px;
+  width: 100px;
 }
 
 td, th {
+  text-align: center;
+  /*width: 400px;*/
   white-space: nowrap;
+}
+
+tr {
+  height: 20px;
 }
 
 .newClientSubmit.small {

@@ -15,7 +15,7 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
   mediaPlanService.pullMedia(server + "/reports/getreports")
     .then(function(response){
       console.log(response);
-      vm.reports = response;
+      vm.reports = response.data;
     });
 
   vm.dashboard = {
@@ -70,6 +70,11 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
   {key: "BDX Gold Package", value: 10, date: "December 2014"},
   {key: "BDX Gold Package", value: 48, date: "January 2015"}
   ];
+
+
+  vm.submitEdit = function(obj){
+    console.log(obj);
+  };
 
   //----------LOGOUT----------
   vm.logout = function() {
