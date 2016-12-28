@@ -12,6 +12,12 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
   };
   initValues();
 
+  mediaPlanService.pullMedia(server + "/reports/getreports")
+    .then(function(response){
+      console.log(response);
+      vm.reports = response;
+    });
+
   vm.dashboard = {
     main : true,
     client : false
