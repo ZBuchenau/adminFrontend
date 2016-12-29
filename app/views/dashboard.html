@@ -57,9 +57,9 @@
                   <table class="table table-striped overview">
                     <thead>
                       <tr>
-                        <th class="wider">Report Name</th>
+                        <th class="wider hand" ng-click="dc.sortType = 'report_name'; dc.sortReverse = !dc.sortReverse">Report Name</th>
                         <th>5W Employee</th>
-                        <th>Complete By: </th>
+                        <th class="hand" ng-click="dc.sortType = 'complete_by'; dc.sortReverse = !dc.sortReverse">Complete By: </th>
                         <th>Comments: </th>
                         <th>% Complete</th>
                         <th>Part 1</th>
@@ -67,11 +67,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr ng-repeat="item in dc.reports | orderBy : 'report_name'">
+                      <tr ng-repeat="item in dc.reports | orderBy:dc.sortType:dc.sortReverse">
                         <form class="" method="post" ng-model="dc.models[item.id]">
-                          <td class="wider"><input class="dashInput wider" type="text" name="name" ng-value="item.report_name" ng-model="item.report_name" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></td>
+                          <td class="wider"><input class="dashInput wider" type="text" name="name" ng-value="item.report_name" ng-model="item.report_name" ng-blur="item.report_name = item.report_name" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}" disabled></td>
                           <td><input class="dashInput" type="text" name="name" ng-value="item.employee" ng-model="item.employee" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></td>
-                          <td><input class="dashInput" type="text" name="name" ng-value="item.complete_by" ng-model="item.complete_by" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></td>
+                          <td ng-style="dc.dateStyle(item.complete_by)"><input class="dashInput" type="text" name="name" ng-value="item.complete_by" ng-model="item.complete_by" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></td>
                           <td><textarea class="dashInput"  name="name" ng-value="item.comments" ng-model="item.comments" ng-change="item.color = {'background-color': 'rgba(238, 105, 39, 1)'}"></textarea></td>
                           <td>73%</td>
                           <td><input class="dashInput" ng-checked="item.part_1" ng-click="item.part_1 = !item.part_1; item.color = {'background-color': 'rgba(238, 105, 39, 1)'}" type="checkbox"></td>

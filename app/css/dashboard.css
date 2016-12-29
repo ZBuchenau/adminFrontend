@@ -81,7 +81,7 @@ input.dashInput[type='checkbox'] {
     background:white;
     border-radius:5px;
     border:2px solid #555;
-    background: red;
+    background: #b20000;
 }
 input.dashInput[type='checkbox']:checked {
     background: #76EE00;
@@ -109,4 +109,8 @@ tr {
 .newClientSubmit.small {
   height: 30px;
   font-size: 10px;
+}
+
+th.hand {
+  cursor: pointer;
 }

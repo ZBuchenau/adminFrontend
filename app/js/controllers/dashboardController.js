@@ -11,6 +11,37 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
       });
   };
   initValues();
+  vm.sortType = 'report_name';
+  vm.sortReverse = false;
+  vm.searchReports = '';
+
+  vm.dateStyle = function(item){
+    var newItem = parseInt(item);
+    // console.log(newItem);
+    var today = new Date();
+    var dd = today.getDate();
+    // var dd = 10;
+    var mm = today.getMonth()+1; //January is 0
+    var yyyy = today.getFullYear();
+    console.log(dd, parseInt(newItem));
+    if(dd >= newItem * 0.95 ){
+      console.log("Option 1");
+      return { 'background-color' : '#b20000'};
+    } else if(dd < newItem * 0.95 && dd >= newItem * 0.75){
+      console.log("option 2");
+      return { 'background-color' : '#c45800'};
+    } else if(dd > (newItem * 0.50) && dd <= (newItem * 0.75)){
+      console.log('option 3');
+      return { 'background-color' : '#d0db00'};
+    } else if(dd < newItem * 0.5){
+      console.log('option 4');
+      return { 'background-color' : '#37AC06'};
+    }
+
+
+
+  };
+
 
   mediaPlanService.pullMedia(server + "/reports/getreports")
     .then(function(response){
