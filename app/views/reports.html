@@ -35,7 +35,7 @@
                       <label for="client_id" class="col-xs-4 col-form-label">Select a Client: <text class="asterisk">*</text></label>
                       <div class="col-xs-8">
                           <select class="form-control" name="country" ng-model="rc.newReport.client_fk" id="client_id" required>
-                              <option ng-repeat="item in rc.clientList" ng-value="item.id">{{item.name}}</option>
+                              <option ng-repeat="(key, value) in rc.clientReports" ng-value="value.clientId">{{key}}</option>
                           </select>
                       </div>
                   </div>
@@ -60,19 +60,17 @@
                   <div class="form-group row">
                       <label for="complete_by" class="col-xs-4 col-form-label">Comments: </label>
                       <div class="col-xs-8">
-                          <input class="form-control clientInput" type="textarea" value="" ng-model="rc.newReport.comments" placeholder="" id="repoprt_comments">
+                          <textarea class="form-control clientInput" type="textarea" value="" ng-model="rc.newReport.comments" placeholder="" id="repoprt_comments"></textarea>
                       </div>
                   </div>
                   <input class="newClientSubmit small col-xs-6 col-xs-offset-6" type="submit" name="name" value="Submit">
               </form>
 
               <div class="reportSection col-md-12">
-                <ul class="reportUl" ng-repeat="item in rc.clientList">
-                  <li class="clientHeader">{{item.client_name}}</li>
-                    <ul>
-                      <li>BackCountry CO</li>
-                      <li>BackCountry CO</li>
-                      <li>BackCountry CO</li>
+                <ul class="reportUl" ng-repeat="(item, val) in rc.clientReports">
+                  <li class="clientHeader">{{item}}</li>
+                    <ul ng-repeat="(key, value) in val" ng-if="key != 'clientId'">
+                      <li class="reportLi"><a href="">{{key}}</a></li>
                     </ul>
                 </ul>
 

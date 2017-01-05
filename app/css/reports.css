@@ -10,8 +10,17 @@
 .clientHeader {
   margin-bottom: 1rem;
   font-weight: bold;
+  list-style: none;
 }
 
 .clientHeader button {
   margin-left: 2rem;
+}
+
+.reportLi {
+  list-style-type: square;
+}
+
+.reportNames {
+  font-weight: normal;
 }
