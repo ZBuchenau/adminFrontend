@@ -37,13 +37,10 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
       console.log('option 4');
       return { 'background-color' : '#37AC06'};
     }
-
-
-
   };
 
 
-  mediaPlanService.pullMedia(server + "/reports/getreports")
+  mediaPlanService.pullMedia(server + "/reports/userreports")
     .then(function(response){
       console.log(response);
       vm.reports = response.data;

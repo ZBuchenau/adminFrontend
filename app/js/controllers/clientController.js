@@ -113,4 +113,17 @@ function clientController($scope, $http, server, localStorageService, $q, $locat
     }]
   };
 
+  // vm.eachRecursive = function(obj){
+  //   for (var k in obj){
+  //       if (typeof obj[k] == "object" && obj[k] !== null){
+  //         console.log(Object.getOwnPropertyNames(obj[k]));
+  //         vm.eachRecursive(obj[k]);
+  //       } else {
+  //         console.log("nope");
+  //       }
+  //   }
+  // };
+  //
+  // vm.eachRecursive(vm.treeData);
+
 }

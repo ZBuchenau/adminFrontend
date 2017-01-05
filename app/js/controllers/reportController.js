@@ -3,11 +3,15 @@ app.controller('reportController', ['$scope', '$http', 'server', 'localStorageSe
 function reportController($scope, $http, server, localStorageService, $q, $location, authService, mediaPlanService) {
   var vm = this;
 
-  vm.newReport = {};
+  vm.clientReports = {};
 
   mediaPlanService.pullMedia(server + '/clients')
     .then(function(response){
       vm.clientList = response.data;
+      console.log(vm.clientList);
+      for(var i = 0; i < vm.clientList.length; i++){
+        
+      }
   });
 
   vm.createReport = function(item){
