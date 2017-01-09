@@ -10,6 +10,7 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
         mediaPlanService.username = response.data[0].username;
       });
   };
+
   initValues();
   vm.sortType = 'report_name';
   vm.sortReverse = false;
@@ -33,7 +34,7 @@ function dashboardController($scope, d3, $http, server, localStorageService, $q,
     } else if(dd > (newItem * 0.50) && dd <= (newItem * 0.75)){
       console.log('option 3');
       return { 'background-color' : '#d0db00'};
-    } else if(dd < newItem * 0.5){
+    } else if(dd <= newItem * 0.5){
       console.log('option 4');
       return { 'background-color' : '#37AC06'};
     }

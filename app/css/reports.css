@@ -21,6 +21,10 @@
   list-style-type: square;
 }
 
+.reportLi a {
+  font-weight: normal;
+}
+
 .reportNames {
   font-weight: normal;
 }

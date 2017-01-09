@@ -5,6 +5,8 @@ function reportController($scope, $http, server, localStorageService, $q, $locat
 
   vm.clientReports = {};
   vm.newReport = {};
+  vm.reportListShow = true;
+  vm.reportButtonShow = false;
 
   vm.pullClientReports = function(){
     mediaPlanService.pullMedia(server + '/clients')

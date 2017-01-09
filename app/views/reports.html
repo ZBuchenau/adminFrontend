@@ -67,10 +67,11 @@
               </form>
 
               <div class="reportSection col-md-12">
-                <ul class="reportUl" ng-repeat="(item, val) in rc.clientReports">
+                <button class="newClientSubmit small" type="button" ng-show="rc.reportButtonShow" ng-click="rc.reportButtonShow = !rc.reportButtonShow; rc.reportListShow = !rc.reportListShow" name="button">View Reports</button>
+                <ul class="reportUl" ng-show="rc.reportListShow" ng-repeat="(item, val) in rc.clientReports">
                   <li class="clientHeader">{{item}}</li>
                     <ul ng-repeat="(key, value) in val" ng-if="key != 'clientId'">
-                      <li class="reportLi"><a href="">{{key}}</a></li>
+                      <li class="reportLi"><a ng-click="rc.reportListShow = !rc.reportListShow; rc.reportButtonShow = !reportButtonShow" href="">{{key}}</a></li>
                     </ul>
                 </ul>
 
